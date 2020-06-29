@@ -5,13 +5,19 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot;
+package com.stuypulse.frc.robot;
+
+import com.stuypulse.frc.robot.commands.DrivetrainDriveCommand;
+import com.stuypulse.frc.robot.commands.DrivetrainSetHighGearCommand;
+import com.stuypulse.frc.robot.commands.DrivetrainSetLowGearCommand;
+import com.stuypulse.frc.robot.subsystems.Drivetrain;
+import com.stuypulse.stuylib.input.gamepads.Logitech;
+import com.stuypulse.stuylib.input.gamepads.PS4;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
-import frc.robot.commands.ExampleCommand;
-import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
+
 
 /**
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -21,18 +27,25 @@ import edu.wpi.first.wpilibj2.command.Command;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
+  private PS4 driverGamepad;
+  private Logitech.XMode operatorGamepad; 
 
-  private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
-
-
+  private Drivetrain drivetrain; 
 
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
    */
   public RobotContainer() {
     // Configure the button bindings
+    driverGamepad = new PS4(Constants.Ports.Gamepads.DRIVER);
+    operatorGamepad = new Logitech.XMode(Constants.Ports.Gamepads.OPERATOR);
+    
     configureButtonBindings();
+  
+    drivetrain = new Drivetrain();
+    drivetrain.setDefaultCommand(
+      new DrivetrainDriveCommand(drivetrain, driverGamepad)
+    ); 
   }
 
   /**
@@ -42,6 +55,8 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
+    driverGamepad.getDPadUp().whenPressed(new DrivetrainSetHighGearCommand(drivetrain));
+    driverGamepad.getDPadDown().whenPressed(new DrivetrainSetLowGearCommand(drivetrain));
   }
 
 
@@ -52,6 +67,7 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return m_autoCommand;
+    // return m_autoCommand;
+    return null; 
   }
 }
