@@ -30,4 +30,15 @@ In order to merge a branch into master, please merge master into your branch fir
 $ git merge master
 ```
 
-After fixing any merge conflicts, make a pull request and let Renee or Sam know. They will go over your code and either request changes or approve it. 
+After fixing any merge conflicts, make a pull request and let Renee or Sam know. They will go over your code and either request changes or approve it.
+
+## Group 3 - Subsystems
+- Drivetrain
+  - 6 CANSparkMax's
+- Intake
+  - 2 TalonSRX's
+  - 2 double solenoids
+- "Chute"
+- Shooter
+- Climber
+- Control Panel
