@@ -157,5 +157,17 @@ gradle-app.setting
 bin/
 imgui.ini
 
+#design competition
 
+Group5/
+Group1/
+Group2/
+Group3/
+
+Group4/.vscode
+
+Group4/build
+Group4/gradle
+
+.vscode
 # End of https://www.gitignore.io/api/c++,java,linux,macos,gradle,windows,visualstudiocode
