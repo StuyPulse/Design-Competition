@@ -169,5 +169,7 @@ Group4/.vscode
 Group4/build
 Group4/gradle
 
+Group4/src/main/java/com/stuypulse/frc/robot/Examples
+
 .vscode
 # End of https://www.gitignore.io/api/c++,java,linux,macos,gradle,windows,visualstudiocode
