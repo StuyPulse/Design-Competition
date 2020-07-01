@@ -40,5 +40,7 @@ After fixing any merge conflicts, make a pull request and let Renee or Sam know.
   - 2 double solenoids
 - "Chute"
 - Shooter
+  - 6 CANSparkMax's
+  - 1 Sensor(DigitalInput)
 - Climber
 - Control Panel
