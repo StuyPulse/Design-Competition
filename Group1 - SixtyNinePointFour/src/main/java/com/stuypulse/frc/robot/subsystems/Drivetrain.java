@@ -5,15 +5,21 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.subsystems;
+package com.stuypulse.frc.robot.subsystems;
+
+import com.revrobotics.CANSparkMax;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class ExampleSubsystem extends SubsystemBase {
-  /**
-   * Creates a new ExampleSubsystem.
-   */
-  public ExampleSubsystem() {
+public class Drivetrain extends SubsystemBase {
+  CANSparkMax topLeftMotor;
+  CANSparkMax topRightMotor;
+  CANSparkMax middleLeftMotor;
+  CANSparkMax middleRightMotor;
+  CANSparkMax bottomLeftMotor;
+  CANSparkMax bottomRightMotor;
+  //i think the rev robotics docs broke
+  public Drivetrain() {
 
   }
 
