@@ -5,7 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot;
+package com.stuypulse.frc.robot;
 
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
@@ -15,5 +15,21 @@ package frc.robot;
  * <p>It is advised to statically import this class (or one of its inner classes) wherever the
  * constants are needed, to reduce verbosity.
  */
-public final class Constants {
+public interface Constants {
+
+    public interface Ports {
+
+        public interface Drivetrain {
+
+            int TOP_LEFT_MOTOR_PORT = -1;
+            int MIDDLE_LEFT_MOTOR_PORT = -1;
+            int BOTTOM_LEFT_MOTOR_PORT = -1;
+            int TOP_RIGHT_MOTOR_PORT = -1;
+            int MIDDLE_RIGHT_MOTOR_PORT = -1;
+            int BOTTOM_RIGHT_MOTOR_PORT = -1;
+
+            int GEAR_SHIFT_PORT = -1;
+            
+        }
+    }
 }
