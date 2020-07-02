@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -226,24 +226,19 @@ extends edu.wpi.first.wpilibj2.command.SubsystemBase</pre>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#periodic()">periodic</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i6" class="altColor">
-<td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#resetEncoders()">resetEncoders</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Sets left & right encoder position to zero.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#resetGyro()">resetGyro</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Resets gyro.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setEncoderFactor(double)">setEncoderFactor</a></span>&#8203;(double&nbsp;conversionFactor)</code></th>
 <td class="colLast">
@@ -251,21 +246,21 @@ extends edu.wpi.first.wpilibj2.command.SubsystemBase</pre>
  unit).</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setGear(com.stuypulse.frc.robot.util.GearController.Gear)">setGear</a></span>&#8203;(<a href="../util/GearController.Gear.html" title="enum in com.stuypulse.frc.robot.util">GearController.Gear</a>&nbsp;gear)</code></th>
 <td class="colLast">
 <div class="block">Gear shifting.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#stop()">stop</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Stops the motors.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#tankDrive(double,double)">tankDrive</a></span>&#8203;(double&nbsp;lSpeed,
          double&nbsp;rSpeed)</code></th>
@@ -273,7 +268,7 @@ extends edu.wpi.first.wpilibj2.command.SubsystemBase</pre>
 <div class="block">Tank drive.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#tankDrive(com.stuypulse.stuylib.math.Vector2D)">tankDrive</a></span>&#8203;(com.stuypulse.stuylib.math.Vector2D&nbsp;drive)</code></th>
 <td class="colLast">
@@ -308,7 +303,7 @@ extends edu.wpi.first.wpilibj2.command.SubsystemBase</pre>
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;edu.wpi.first.wpilibj2.command.Subsystem</h3>
-<code>getCurrentCommand, getDefaultCommand, register, setDefaultCommand</code></li>
+<code>getCurrentCommand, getDefaultCommand, periodic, register, setDefaultCommand</code></li>
 </ul>
 </li>
 </ul>
@@ -508,7 +503,7 @@ extends edu.wpi.first.wpilibj2.command.SubsystemBase</pre>
 <a id="getAngle()">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>getAngle</h4>
 <pre class="methodSignature">public&nbsp;com.stuypulse.stuylib.math.Angle&nbsp;getAngle()</pre>
@@ -517,15 +512,6 @@ extends edu.wpi.first.wpilibj2.command.SubsystemBase</pre>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>angle of the gyroscope</dd>
 </dl>
-</li>
-</ul>
-<a id="periodic()">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>periodic</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;periodic()</pre>
 </li>
 </ul>
 </li>

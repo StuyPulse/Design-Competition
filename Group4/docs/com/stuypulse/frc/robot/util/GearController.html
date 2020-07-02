@@ -27,8 +27,8 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":6};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
+var data = {"i0":6};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -89,13 +89,13 @@ loadScripts(document, 'script');</script>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
@@ -132,7 +132,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li class="blockList">
 <dl>
 <dt>Direct Known Subclasses:</dt>
-<dd><code><a href="GearSwitch.html" title="class in com.stuypulse.frc.robot.util">GearSwitch</a></code>, <code><a href="NoGear.html" title="class in com.stuypulse.frc.robot.util">NoGear</a></code></dd>
+<dd><code><a href="GearSwitch.html" title="class in com.stuypulse.frc.robot.util">GearSwitch</a></code></dd>
 </dl>
 <hr>
 <pre>public abstract class <span class="typeNameLabel">GearController</span>
@@ -163,6 +163,31 @@ extends java.lang.Object</pre>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="GearController.Gear.html" title="enum in com.stuypulse.frc.robot.util">GearController.Gear</a></span></code></th>
 <td class="colLast">
 <div class="block">Enumeration for gear states.</div>
+</td>
+</tr>
+</table>
+</li>
+</ul>
+</section>
+<!-- =========== FIELD SUMMARY =========== -->
+<section role="region">
+<ul class="blockList">
+<li class="blockList"><a id="field.summary">
+<!--   -->
+</a>
+<h3>Field Summary</h3>
+<table class="memberSummary">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colSecond" scope="col">Field</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected <a href="../subsystems/Drivetrain.html" title="class in com.stuypulse.frc.robot.subsystems">Drivetrain</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#drivetrain">drivetrain</a></span></code></th>
+<td class="colLast">
+<div class="block">Internal reference to the drivetrain.</div>
 </td>
 </tr>
 </table>
@@ -200,23 +225,15 @@ extends java.lang.Object</pre>
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>protected <a href="GearController.Gear.html" title="enum in com.stuypulse.frc.robot.util">GearController.Gear</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getGear()">getGear</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Protect the drivetrain from child implementations because only the gear is
- really important.</div>
-</td>
-</tr>
-<tr id="i1" class="rowColor">
 <td class="colFirst"><code>abstract <a href="GearController.Gear.html" title="enum in com.stuypulse.frc.robot.util">GearController.Gear</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#update(double)">update</a></span>&#8203;(double&nbsp;distance)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getGear()">getGear</a></span>()</code></th>
 <td class="colLast">
 <div class="block">This is where the algorithm would be implemented and a gear would be returned</div>
 </td>
@@ -238,6 +255,26 @@ extends java.lang.Object</pre>
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
+<!-- ============ FIELD DETAIL =========== -->
+<section role="region">
+<ul class="blockList">
+<li class="blockList"><a id="field.detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a id="drivetrain">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>drivetrain</h4>
+<pre>protected final&nbsp;<a href="../subsystems/Drivetrain.html" title="class in com.stuypulse.frc.robot.subsystems">Drivetrain</a> drivetrain</pre>
+<div class="block">Internal reference to the drivetrain.</div>
+</li>
+</ul>
+</li>
+</ul>
+</section>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <section role="region">
 <ul class="blockList">
@@ -272,29 +309,12 @@ extends java.lang.Object</pre>
 <a id="getGear()">
 <!--   -->
 </a>
-<ul class="blockList">
-<li class="blockList">
-<h4>getGear</h4>
-<pre class="methodSignature">protected final&nbsp;<a href="GearController.Gear.html" title="enum in com.stuypulse.frc.robot.util">GearController.Gear</a>&nbsp;getGear()</pre>
-<div class="block">Protect the drivetrain from child implementations because only the gear is
- really important.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>returns the gear of the drivetrain.</dd>
-</dl>
-</li>
-</ul>
-<a id="update(double)">
-<!--   -->
-</a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>update</h4>
-<pre class="methodSignature">public abstract&nbsp;<a href="GearController.Gear.html" title="enum in com.stuypulse.frc.robot.util">GearController.Gear</a>&nbsp;update&#8203;(double&nbsp;distance)</pre>
+<h4>getGear</h4>
+<pre class="methodSignature">public abstract&nbsp;<a href="GearController.Gear.html" title="enum in com.stuypulse.frc.robot.util">GearController.Gear</a>&nbsp;getGear()</pre>
 <div class="block">This is where the algorithm would be implemented and a gear would be returned</div>
 <dl>
-<dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>distance</code> - accumulated distance of a drivetrain</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>gear of the drivetrain</dd>
 </dl>
@@ -352,13 +372,13 @@ extends java.lang.Object</pre>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li><a href="#nested.class.summary">Nested</a>&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>

@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":6};
+var data = {"i0":10,"i1":6,"i2":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -242,6 +242,14 @@ extends edu.wpi.first.wpilibj2.command.CommandBase</pre>
 <div class="block">Returns the desired direction of the robot.</div>
 </td>
 </tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>abstract <a href="../util/GearController.Gear.html" title="enum in com.stuypulse.frc.robot.util">GearController.Gear</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getGear()">getGear</a></span>()</code></th>
+<td class="colLast">
+<div class="block">
+ In order to stay consistent, all drivetrain commands must give a gear.</div>
+</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.edu.wpi.first.wpilibj2.command.CommandBase">
@@ -345,6 +353,25 @@ extends edu.wpi.first.wpilibj2.command.CommandBase</pre>
 </dl>
 </li>
 </ul>
+<a id="getGear()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getGear</h4>
+<pre class="methodSignature">public abstract&nbsp;<a href="../util/GearController.Gear.html" title="enum in com.stuypulse.frc.robot.util">GearController.Gear</a>&nbsp;getGear()</pre>
+<div class="block"><p>
+ In order to stay consistent, all drivetrain commands must give a gear.
+ </p>
+
+ This replaces using auto gear in Drivetrain.periodic(). With this, it is
+ still possible to use automatic gear shifting when it can be applied (e.g. drive with gamepad).</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>gear of the drivetrain</dd>
+</dl>
+</li>
+</ul>
 <a id="execute()">
 <!--   -->
 </a>
@@ -356,10 +383,7 @@ extends edu.wpi.first.wpilibj2.command.CommandBase</pre>
  CommandScheduler.
 
  The drivetrain is always active throughout a match (or it's getting it's
- input from a controller, which may not moving it)
-
- This execute method uses the getDirection() methods in order to arcade drive
- the robot.</div>
+ input from a controller, which may not be moving it)</div>
 </li>
 </ul>
 </li>
