@@ -27,8 +27,8 @@
     catch(err) {
     }
 //-->
-var data = {"i0":9,"i1":10};
-var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
+var data = {"i0":6,"i1":6,"i2":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -140,8 +140,9 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd><code>edu.wpi.first.wpilibj.Sendable</code>, <code>edu.wpi.first.wpilibj2.command.Subsystem</code></dd>
 </dl>
 <hr>
-<pre>public class <span class="typeNameLabel">SwervetrainSubsystem</span>
+<pre>public abstract class <span class="typeNameLabel">SwervetrainSubsystem</span>
 extends edu.wpi.first.wpilibj2.command.SubsystemBase</pre>
+<div class="block">A swervable drivetrain intended for four modules in each corner.</div>
 </li>
 </ul>
 </div>
@@ -167,7 +168,9 @@ extends edu.wpi.first.wpilibj2.command.SubsystemBase</pre>
                     <a href="SwerveModuleSubsystem.html" title="class in com.stuypulse.frc.robot.util.swerve">SwerveModuleSubsystem</a>&nbsp;rightFront,
                     <a href="SwerveModuleSubsystem.html" title="class in com.stuypulse.frc.robot.util.swerve">SwerveModuleSubsystem</a>&nbsp;leftBack,
                     <a href="SwerveModuleSubsystem.html" title="class in com.stuypulse.frc.robot.util.swerve">SwerveModuleSubsystem</a>&nbsp;rightBack)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Creaate a swervetrain subsystem with 4 swerve modules.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -181,19 +184,28 @@ extends edu.wpi.first.wpilibj2.command.SubsystemBase</pre>
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>static double</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#max(double,double...)">max</a></span>&#8203;(double&nbsp;a,
-   double...&nbsp;b)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colFirst"><code>abstract com.stuypulse.stuylib.math.Angle</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAngle()">getAngle</a></span>()</code></th>
+<td class="colLast">
+<div class="block">
+ Returns the angle of the swervetrain in order to do field centric rotation.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
+<td class="colFirst"><code>abstract boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isFieldCentric()">isFieldCentric</a></span>()</code></th>
+<td class="colLast">
+<div class="block">A method to determined whether the swerve train should use field centric rotations.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#swerveDrive(com.stuypulse.stuylib.math.Vector2D,double)">swerveDrive</a></span>&#8203;(com.stuypulse.stuylib.math.Vector2D&nbsp;velocity,
            double&nbsp;rotation)</code></th>
@@ -257,6 +269,15 @@ extends edu.wpi.first.wpilibj2.command.SubsystemBase</pre>
                             <a href="SwerveModuleSubsystem.html" title="class in com.stuypulse.frc.robot.util.swerve">SwerveModuleSubsystem</a>&nbsp;rightFront,
                             <a href="SwerveModuleSubsystem.html" title="class in com.stuypulse.frc.robot.util.swerve">SwerveModuleSubsystem</a>&nbsp;leftBack,
                             <a href="SwerveModuleSubsystem.html" title="class in com.stuypulse.frc.robot.util.swerve">SwerveModuleSubsystem</a>&nbsp;rightBack)</pre>
+<div class="block">Creaate a swervetrain subsystem with 4 swerve modules.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>dimensions</code> - vector representing the space of the robot ( wheelbase, trackwidth )</dd>
+<dd><code>leftFront</code> - front left swerveable module</dd>
+<dd><code>rightFront</code> - front right swerveable module</dd>
+<dd><code>leftBack</code> - back left swerveable module</dd>
+<dd><code>rightBack</code> - back right swerveable module</dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -281,18 +302,41 @@ extends edu.wpi.first.wpilibj2.command.SubsystemBase</pre>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>velocity</code> - vector describing the velocity of the robot</dd>
-<dd><code>rotation</code> - angular speed (?? fix unit but it should be [-1,1])</dd>
+<dd><code>rotation</code> - angular speed [ -1, ]</dd>
 </dl>
 </li>
 </ul>
-<a id="max(double,double...)">
+<a id="getAngle()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getAngle</h4>
+<pre class="methodSignature">public abstract&nbsp;com.stuypulse.stuylib.math.Angle&nbsp;getAngle()</pre>
+<div class="block"><p>
+ Returns the angle of the swervetrain in order to do field centric rotation.
+ Field centric maintains that the robot will go in the same direction despite its rotation.
+ </p>
+
+ Usually from a gyroscope reading.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>angle of the drivetrain</dd>
+</dl>
+</li>
+</ul>
+<a id="isFieldCentric()">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>max</h4>
-<pre class="methodSignature">public static&nbsp;double&nbsp;max&#8203;(double&nbsp;a,
-                         double...&nbsp;b)</pre>
+<h4>isFieldCentric</h4>
+<pre class="methodSignature">public abstract&nbsp;boolean&nbsp;isFieldCentric()</pre>
+<div class="block">A method to determined whether the swerve train should use field centric rotations.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>whether or not to use field centric rotations</dd>
+</dl>
 </li>
 </ul>
 </li>

@@ -209,6 +209,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">This is the execute method of the command, which is run by the
  CommandScheduler.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/swerve/SwervetrainCommand.html#execute()">execute()</a></span> - Method in class com.stuypulse.frc.robot.util.swerve.<a href="com/stuypulse/frc/robot/util/swerve/SwervetrainCommand.html" title="class in com.stuypulse.frc.robot.util.swerve">SwervetrainCommand</a></dt>
+<dd>&nbsp;</dd>
 </dl>
 <a id="I:F">
 <!--   -->
@@ -272,6 +274,11 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Returns the angle that the swerve module is facing.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/swerve/SwervetrainSubsystem.html#getAngle()">getAngle()</a></span> - Method in class com.stuypulse.frc.robot.util.swerve.<a href="com/stuypulse/frc/robot/util/swerve/SwervetrainSubsystem.html" title="class in com.stuypulse.frc.robot.util.swerve">SwervetrainSubsystem</a></dt>
+<dd>
+<div class="block">
+ Returns the angle of the swervetrain in order to do field centric rotation.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/RobotContainer.html#getAutonomousCommand()">getAutonomousCommand()</a></span> - Method in class com.stuypulse.frc.robot.<a href="com/stuypulse/frc/robot/RobotContainer.html" title="class in com.stuypulse.frc.robot">RobotContainer</a></dt>
 <dd>
 <div class="block">Use this to pass the autonomous command to the main <a href="com/stuypulse/frc/robot/Robot.html" title="class in com.stuypulse.frc.robot"><code>Robot</code></a> class.</div>
@@ -281,6 +288,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">Returns the desired direction of the robot.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/DrivetrainDriveCommand.html#getDirection()">getDirection()</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/DrivetrainDriveCommand.html" title="class in com.stuypulse.frc.robot.commands">DrivetrainDriveCommand</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/swerve/SwervetrainCommand.html#getDirection()">getDirection()</a></span> - Method in class com.stuypulse.frc.robot.util.swerve.<a href="com/stuypulse/frc/robot/util/swerve/SwervetrainCommand.html" title="class in com.stuypulse.frc.robot.util.swerve">SwervetrainCommand</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/subsystems/Drivetrain.html#getDistance()">getDistance()</a></span> - Method in class com.stuypulse.frc.robot.subsystems.<a href="com/stuypulse/frc/robot/subsystems/Drivetrain.html" title="class in com.stuypulse.frc.robot.subsystems">Drivetrain</a></dt>
 <dd>
@@ -296,10 +305,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">Protect the drivetrain from child implementations because only the gear is
  really important.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/swerve/SwerveModuleSubsystem.html#getSpeed()">getSpeed()</a></span> - Method in class com.stuypulse.frc.robot.util.swerve.<a href="com/stuypulse/frc/robot/util/swerve/SwerveModuleSubsystem.html" title="class in com.stuypulse.frc.robot.util.swerve">SwerveModuleSubsystem</a></dt>
-<dd>
-<div class="block">Returns the speed that the swerve module's drive motor is moving</div>
-</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/swerve/SwervetrainCommand.html#getRotation()">getRotation()</a></span> - Method in class com.stuypulse.frc.robot.util.swerve.<a href="com/stuypulse/frc/robot/util/swerve/SwervetrainCommand.html" title="class in com.stuypulse.frc.robot.util.swerve">SwervetrainCommand</a></dt>
+<dd>&nbsp;</dd>
 </dl>
 <a id="I:H">
 <!--   -->
@@ -318,6 +325,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dl>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/Constants.kDrivetrain.html#INTERNAL_FILTER">INTERNAL_FILTER</a></span> - Static variable in interface com.stuypulse.frc.robot.<a href="com/stuypulse/frc/robot/Constants.kDrivetrain.html" title="interface in com.stuypulse.frc.robot">Constants.kDrivetrain</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/swerve/SwervetrainSubsystem.html#isFieldCentric()">isFieldCentric()</a></span> - Method in class com.stuypulse.frc.robot.util.swerve.<a href="com/stuypulse/frc/robot/util/swerve/SwervetrainSubsystem.html" title="class in com.stuypulse.frc.robot.util.swerve">SwervetrainSubsystem</a></dt>
+<dd>
+<div class="block">A method to determined whether the swerve train should use field centric rotations.</div>
+</dd>
 </dl>
 <a id="I:L">
 <!--   -->
@@ -346,8 +357,6 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Do NOT add any static variables to this class, or any initialization at all.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/swerve/SwervetrainSubsystem.html#max(double,double...)">max(double, double...)</a></span> - Static method in class com.stuypulse.frc.robot.util.swerve.<a href="com/stuypulse/frc/robot/util/swerve/SwervetrainSubsystem.html" title="class in com.stuypulse.frc.robot.util.swerve">SwervetrainSubsystem</a></dt>
-<dd>&nbsp;</dd>
 </dl>
 <a id="I:N">
 <!--   -->
@@ -429,7 +438,11 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <h2 class="title">S</h2>
 <dl>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/swerve/SwerveModuleSubsystem.html#set(com.stuypulse.stuylib.math.Vector2D)">set(Vector2D)</a></span> - Method in class com.stuypulse.frc.robot.util.swerve.<a href="com/stuypulse/frc/robot/util/swerve/SwerveModuleSubsystem.html" title="class in com.stuypulse.frc.robot.util.swerve">SwerveModuleSubsystem</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">
+ This method is given a vector in polar coordinate space
+ and handles the conversion into [-1,1]</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/subsystems/Drivetrain.html#setEncoderFactor(double)">setEncoderFactor(double)</a></span> - Method in class com.stuypulse.frc.robot.subsystems.<a href="com/stuypulse/frc/robot/subsystems/Drivetrain.html" title="class in com.stuypulse.frc.robot.subsystems">Drivetrain</a></dt>
 <dd>
 <div class="block">Sets an encoder conversion factor (from motor rotations &#x2192; human usable
@@ -458,13 +471,28 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">Move a swervetrain based on a standard 4 motor algorithm.</div>
 </dd>
 <dt><a href="com/stuypulse/frc/robot/util/swerve/SwerveModuleSubsystem.html" title="class in com.stuypulse.frc.robot.util.swerve"><span class="typeNameLink">SwerveModuleSubsystem</span></a> - Class in <a href="com/stuypulse/frc/robot/util/swerve/package-summary.html">com.stuypulse.frc.robot.util.swerve</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">
+ This is an abstract implementation for a Swerve Module.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/swerve/SwerveModuleSubsystem.html#%3Cinit%3E(com.stuypulse.stuylib.control.Controller)">SwerveModuleSubsystem(Controller)</a></span> - Constructor for class com.stuypulse.frc.robot.util.swerve.<a href="com/stuypulse/frc/robot/util/swerve/SwerveModuleSubsystem.html" title="class in com.stuypulse.frc.robot.util.swerve">SwerveModuleSubsystem</a></dt>
+<dd>
+<div class="block">A swerve module should have PID tuning for its module.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/swerve/SwervetrainCommand.html#swervetrain">swervetrain</a></span> - Variable in class com.stuypulse.frc.robot.util.swerve.<a href="com/stuypulse/frc/robot/util/swerve/SwervetrainCommand.html" title="class in com.stuypulse.frc.robot.util.swerve">SwervetrainCommand</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/stuypulse/frc/robot/util/swerve/SwervetrainCommand.html" title="class in com.stuypulse.frc.robot.util.swerve"><span class="typeNameLink">SwervetrainCommand</span></a> - Class in <a href="com/stuypulse/frc/robot/util/swerve/package-summary.html">com.stuypulse.frc.robot.util.swerve</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/swerve/SwervetrainCommand.html#%3Cinit%3E(com.stuypulse.frc.robot.util.swerve.SwervetrainSubsystem)">SwervetrainCommand(SwervetrainSubsystem)</a></span> - Constructor for class com.stuypulse.frc.robot.util.swerve.<a href="com/stuypulse/frc/robot/util/swerve/SwervetrainCommand.html" title="class in com.stuypulse.frc.robot.util.swerve">SwervetrainCommand</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/stuypulse/frc/robot/util/swerve/SwervetrainSubsystem.html" title="class in com.stuypulse.frc.robot.util.swerve"><span class="typeNameLink">SwervetrainSubsystem</span></a> - Class in <a href="com/stuypulse/frc/robot/util/swerve/package-summary.html">com.stuypulse.frc.robot.util.swerve</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">A swervable drivetrain intended for four modules in each corner.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/swerve/SwervetrainSubsystem.html#%3Cinit%3E(com.stuypulse.stuylib.math.Vector2D,com.stuypulse.frc.robot.util.swerve.SwerveModuleSubsystem,com.stuypulse.frc.robot.util.swerve.SwerveModuleSubsystem,com.stuypulse.frc.robot.util.swerve.SwerveModuleSubsystem,com.stuypulse.frc.robot.util.swerve.SwerveModuleSubsystem)">SwervetrainSubsystem(Vector2D, SwerveModuleSubsystem, SwerveModuleSubsystem, SwerveModuleSubsystem, SwerveModuleSubsystem)</a></span> - Constructor for class com.stuypulse.frc.robot.util.swerve.<a href="com/stuypulse/frc/robot/util/swerve/SwervetrainSubsystem.html" title="class in com.stuypulse.frc.robot.util.swerve">SwervetrainSubsystem</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Creaate a swervetrain subsystem with 4 swerve modules.</div>
+</dd>
 </dl>
 <a id="I:T">
 <!--   -->
