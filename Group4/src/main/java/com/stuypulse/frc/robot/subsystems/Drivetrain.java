@@ -19,8 +19,8 @@ import com.stuypulse.frc.robot.util.GearSwitch;
 import com.stuypulse.stuylib.math.Angle;
 import com.stuypulse.stuylib.math.Vector2D;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.SPI;
-import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -40,8 +40,8 @@ public class Drivetrain extends SubsystemBase {
      * @param gear gear enumeration
      * @return state that the gear shifting solenoid should be at.
      */
-    private static boolean gearToSolenoid(Gear gear) {
-        return gear == Gear.LOW ? true : false;
+    private static DoubleSolenoid.Value gearToSolenoid(Gear gear) {
+        return gear == Gear.LOW ? DoubleSolenoid.Value.kForward : DoubleSolenoid.Value.kReverse;
     }
 
     /**
@@ -52,19 +52,19 @@ public class Drivetrain extends SubsystemBase {
      * @param gear gear enumeration
      * @return state that the gear shifting solenoid should be at.
      */
-    private static Gear solenoidToGear(boolean state) {
-        return state == true ? Gear.LOW : Gear.HIGH;
+    private static Gear solenoidToGear(DoubleSolenoid.Value state) {
+        return state == DoubleSolenoid.Value.kForward ? Gear.LOW : Gear.HIGH;
     }
 
     /**
      * Left speed controllers (front, middle, back).
      */
-    private CANSparkMax lMotorFront, lMotorMid, lMotorBack;
+    private CANSparkMax lMotorFront, lMotorBack;
 
     /**
      * Right speed controllers (front, middle, back).
      */
-    private CANSparkMax rMotorFront, rMotorMid, rMotorBack;
+    private CANSparkMax rMotorFront, rMotorBack;
 
     /**
      * Left encoder.
@@ -94,7 +94,7 @@ public class Drivetrain extends SubsystemBase {
     /**
      * Gear shift solenoid.
      */
-    private Solenoid gearShift;
+    private DoubleSolenoid gearShift;
 
     /**
      * Drivetrain gyro.
@@ -113,11 +113,9 @@ public class Drivetrain extends SubsystemBase {
     public Drivetrain() {
 
         lMotorFront = new CANSparkMax(kDrivetrain.Ports.LEFT_FRONT, MotorType.kBrushless);
-        lMotorMid = new CANSparkMax(kDrivetrain.Ports.LEFT_MID, MotorType.kBrushless);
         lMotorBack = new CANSparkMax(kDrivetrain.Ports.LEFT_BACK, MotorType.kBrushless);
 
         rMotorFront = new CANSparkMax(kDrivetrain.Ports.RIGHT_BACK, MotorType.kBrushless);
-        rMotorMid = new CANSparkMax(kDrivetrain.Ports.RIGHT_MID, MotorType.kBrushless);
         rMotorBack = new CANSparkMax(kDrivetrain.Ports.RIGHT_FRONT, MotorType.kBrushless);
 
         lControllers = new SpeedControllerGroup(lMotorFront, lMotorBack);
@@ -128,7 +126,7 @@ public class Drivetrain extends SubsystemBase {
         rEncoder = rMotorBack.getEncoder();
         lEncoder = rMotorBack.getEncoder();
 
-        gearShift = new Solenoid(kDrivetrain.Ports.SOLENOID);
+        gearShift = new DoubleSolenoid(kDrivetrain.Ports.SOLENOID_A, kDrivetrain.Ports.SOLENOID_B);
 
         gyro = new AHRS(SPI.Port.kMXP);
         isAutoGear = true;
@@ -143,10 +141,6 @@ public class Drivetrain extends SubsystemBase {
 
         lMotorFront.setIdleMode(IdleMode.kCoast);
         rMotorFront.setIdleMode(IdleMode.kCoast);
-
-        // i have no clue sad
-        lMotorMid.setIdleMode(IdleMode.kBrake);
-        rMotorMid.setIdleMode(IdleMode.kBrake);
 
         lMotorBack.setIdleMode(IdleMode.kBrake);
         rMotorBack.setIdleMode(IdleMode.kBrake);
@@ -285,7 +279,7 @@ public class Drivetrain extends SubsystemBase {
      * @return angle of the gyroscope
      */
     public Angle getAngle() {
-        return Angle.degrees(gyro.getAngle());
+        return Angle.fromDegrees(gyro.getAngle());
     }
 
     // put this in a command if necessary

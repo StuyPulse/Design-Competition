@@ -29,13 +29,12 @@ public interface Constants {
 
         interface Ports {
             int LEFT_FRONT = -1;
-            int LEFT_MID = -1;
             int LEFT_BACK = -1;
             int RIGHT_FRONT = -1;
-            int RIGHT_MID = -1;
             int RIGHT_BACK = -1;
 
-            int SOLENOID = -1;
+            int SOLENOID_A = -1;
+            int SOLENOID_B = -1;
         }
 
         interface Gears {
