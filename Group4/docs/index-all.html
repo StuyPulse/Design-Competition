@@ -132,6 +132,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>&nbsp;</dd>
 <dt><a href="com/stuypulse/frc/robot/util/package-summary.html">com.stuypulse.frc.robot.util</a> - package com.stuypulse.frc.robot.util</dt>
 <dd>&nbsp;</dd>
+<dt><a href="com/stuypulse/frc/robot/util/swerve/package-summary.html">com.stuypulse.frc.robot.util.swerve</a> - package com.stuypulse.frc.robot.util.swerve</dt>
+<dd>&nbsp;</dd>
 <dt><a href="com/stuypulse/frc/robot/Constants.html" title="interface in com.stuypulse.frc.robot"><span class="typeNameLink">Constants</span></a> - Interface in <a href="com/stuypulse/frc/robot/package-summary.html">com.stuypulse.frc.robot</a></dt>
 <dd>
 <div class="block">The Constants class provides a convenient place for teams to hold robot-wide
@@ -266,6 +268,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Gets angle of the gyro in an Angle normalized between [-180, 180]</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/swerve/SwerveModuleSubsystem.html#getAngle()">getAngle()</a></span> - Method in class com.stuypulse.frc.robot.util.swerve.<a href="com/stuypulse/frc/robot/util/swerve/SwerveModuleSubsystem.html" title="class in com.stuypulse.frc.robot.util.swerve">SwerveModuleSubsystem</a></dt>
+<dd>
+<div class="block">Returns the angle that the swerve module is facing.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/RobotContainer.html#getAutonomousCommand()">getAutonomousCommand()</a></span> - Method in class com.stuypulse.frc.robot.<a href="com/stuypulse/frc/robot/RobotContainer.html" title="class in com.stuypulse.frc.robot">RobotContainer</a></dt>
 <dd>
 <div class="block">Use this to pass the autonomous command to the main <a href="com/stuypulse/frc/robot/Robot.html" title="class in com.stuypulse.frc.robot"><code>Robot</code></a> class.</div>
@@ -289,6 +295,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Protect the drivetrain from child implementations because only the gear is
  really important.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/swerve/SwerveModuleSubsystem.html#getSpeed()">getSpeed()</a></span> - Method in class com.stuypulse.frc.robot.util.swerve.<a href="com/stuypulse/frc/robot/util/swerve/SwerveModuleSubsystem.html" title="class in com.stuypulse.frc.robot.util.swerve">SwerveModuleSubsystem</a></dt>
+<dd>
+<div class="block">Returns the speed that the swerve module's drive motor is moving</div>
 </dd>
 </dl>
 <a id="I:H">
@@ -318,8 +328,6 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/Constants.kDrivetrain.Ports.html#LEFT_FRONT">LEFT_FRONT</a></span> - Static variable in interface com.stuypulse.frc.robot.<a href="com/stuypulse/frc/robot/Constants.kDrivetrain.Ports.html" title="interface in com.stuypulse.frc.robot">Constants.kDrivetrain.Ports</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/Constants.kDrivetrain.Ports.html#LEFT_MID">LEFT_MID</a></span> - Static variable in interface com.stuypulse.frc.robot.<a href="com/stuypulse/frc/robot/Constants.kDrivetrain.Ports.html" title="interface in com.stuypulse.frc.robot">Constants.kDrivetrain.Ports</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/GearController.Gear.html#LOW">LOW</a></span> - com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/GearController.Gear.html" title="enum in com.stuypulse.frc.robot.util">GearController.Gear</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/Constants.kDrivetrain.Gears.html#LOW_GEAR_THRESHOLD">LOW_GEAR_THRESHOLD</a></span> - Static variable in interface com.stuypulse.frc.robot.<a href="com/stuypulse/frc/robot/Constants.kDrivetrain.Gears.html" title="interface in com.stuypulse.frc.robot">Constants.kDrivetrain.Gears</a></dt>
@@ -338,6 +346,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Do NOT add any static variables to this class, or any initialization at all.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/swerve/SwervetrainSubsystem.html#max(double,double...)">max(double, double...)</a></span> - Static method in class com.stuypulse.frc.robot.util.swerve.<a href="com/stuypulse/frc/robot/util/swerve/SwervetrainSubsystem.html" title="class in com.stuypulse.frc.robot.util.swerve">SwervetrainSubsystem</a></dt>
+<dd>&nbsp;</dd>
 </dl>
 <a id="I:N">
 <!--   -->
@@ -386,8 +396,6 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/Constants.kDrivetrain.Ports.html#RIGHT_FRONT">RIGHT_FRONT</a></span> - Static variable in interface com.stuypulse.frc.robot.<a href="com/stuypulse/frc/robot/Constants.kDrivetrain.Ports.html" title="interface in com.stuypulse.frc.robot">Constants.kDrivetrain.Ports</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/Constants.kDrivetrain.Ports.html#RIGHT_MID">RIGHT_MID</a></span> - Static variable in interface com.stuypulse.frc.robot.<a href="com/stuypulse/frc/robot/Constants.kDrivetrain.Ports.html" title="interface in com.stuypulse.frc.robot">Constants.kDrivetrain.Ports</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="com/stuypulse/frc/robot/Robot.html" title="class in com.stuypulse.frc.robot"><span class="typeNameLink">Robot</span></a> - Class in <a href="com/stuypulse/frc/robot/package-summary.html">com.stuypulse.frc.robot</a></dt>
 <dd>
 <div class="block">The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -420,6 +428,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </a>
 <h2 class="title">S</h2>
 <dl>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/swerve/SwerveModuleSubsystem.html#set(com.stuypulse.stuylib.math.Vector2D)">set(Vector2D)</a></span> - Method in class com.stuypulse.frc.robot.util.swerve.<a href="com/stuypulse/frc/robot/util/swerve/SwerveModuleSubsystem.html" title="class in com.stuypulse.frc.robot.util.swerve">SwerveModuleSubsystem</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/subsystems/Drivetrain.html#setEncoderFactor(double)">setEncoderFactor(double)</a></span> - Method in class com.stuypulse.frc.robot.subsystems.<a href="com/stuypulse/frc/robot/subsystems/Drivetrain.html" title="class in com.stuypulse.frc.robot.subsystems">Drivetrain</a></dt>
 <dd>
 <div class="block">Sets an encoder conversion factor (from motor rotations &#x2192; human usable
@@ -429,7 +439,13 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Gear shifting.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/Constants.kDrivetrain.Ports.html#SOLENOID">SOLENOID</a></span> - Static variable in interface com.stuypulse.frc.robot.<a href="com/stuypulse/frc/robot/Constants.kDrivetrain.Ports.html" title="interface in com.stuypulse.frc.robot">Constants.kDrivetrain.Ports</a></dt>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/swerve/SwerveModuleSubsystem.html#setMotors(com.stuypulse.stuylib.math.Vector2D)">setMotors(Vector2D)</a></span> - Method in class com.stuypulse.frc.robot.util.swerve.<a href="com/stuypulse/frc/robot/util/swerve/SwerveModuleSubsystem.html" title="class in com.stuypulse.frc.robot.util.swerve">SwerveModuleSubsystem</a></dt>
+<dd>
+<div class="block">Interact with the motors.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/Constants.kDrivetrain.Ports.html#SOLENOID_A">SOLENOID_A</a></span> - Static variable in interface com.stuypulse.frc.robot.<a href="com/stuypulse/frc/robot/Constants.kDrivetrain.Ports.html" title="interface in com.stuypulse.frc.robot">Constants.kDrivetrain.Ports</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/Constants.kDrivetrain.Ports.html#SOLENOID_B">SOLENOID_B</a></span> - Static variable in interface com.stuypulse.frc.robot.<a href="com/stuypulse/frc/robot/Constants.kDrivetrain.Ports.html" title="interface in com.stuypulse.frc.robot">Constants.kDrivetrain.Ports</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/Constants.kDrivetrain.DriveCommand.html#SPEED_FILTER">SPEED_FILTER</a></span> - Static variable in interface com.stuypulse.frc.robot.<a href="com/stuypulse/frc/robot/Constants.kDrivetrain.DriveCommand.html" title="interface in com.stuypulse.frc.robot">Constants.kDrivetrain.DriveCommand</a></dt>
 <dd>&nbsp;</dd>
@@ -437,6 +453,18 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Stops the motors.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/swerve/SwervetrainSubsystem.html#swerveDrive(com.stuypulse.stuylib.math.Vector2D,double)">swerveDrive(Vector2D, double)</a></span> - Method in class com.stuypulse.frc.robot.util.swerve.<a href="com/stuypulse/frc/robot/util/swerve/SwervetrainSubsystem.html" title="class in com.stuypulse.frc.robot.util.swerve">SwervetrainSubsystem</a></dt>
+<dd>
+<div class="block">Move a swervetrain based on a standard 4 motor algorithm.</div>
+</dd>
+<dt><a href="com/stuypulse/frc/robot/util/swerve/SwerveModuleSubsystem.html" title="class in com.stuypulse.frc.robot.util.swerve"><span class="typeNameLink">SwerveModuleSubsystem</span></a> - Class in <a href="com/stuypulse/frc/robot/util/swerve/package-summary.html">com.stuypulse.frc.robot.util.swerve</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/swerve/SwerveModuleSubsystem.html#%3Cinit%3E(com.stuypulse.stuylib.control.Controller)">SwerveModuleSubsystem(Controller)</a></span> - Constructor for class com.stuypulse.frc.robot.util.swerve.<a href="com/stuypulse/frc/robot/util/swerve/SwerveModuleSubsystem.html" title="class in com.stuypulse.frc.robot.util.swerve">SwerveModuleSubsystem</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/stuypulse/frc/robot/util/swerve/SwervetrainSubsystem.html" title="class in com.stuypulse.frc.robot.util.swerve"><span class="typeNameLink">SwervetrainSubsystem</span></a> - Class in <a href="com/stuypulse/frc/robot/util/swerve/package-summary.html">com.stuypulse.frc.robot.util.swerve</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/swerve/SwervetrainSubsystem.html#%3Cinit%3E(com.stuypulse.stuylib.math.Vector2D,com.stuypulse.frc.robot.util.swerve.SwerveModuleSubsystem,com.stuypulse.frc.robot.util.swerve.SwerveModuleSubsystem,com.stuypulse.frc.robot.util.swerve.SwerveModuleSubsystem,com.stuypulse.frc.robot.util.swerve.SwerveModuleSubsystem)">SwervetrainSubsystem(Vector2D, SwerveModuleSubsystem, SwerveModuleSubsystem, SwerveModuleSubsystem, SwerveModuleSubsystem)</a></span> - Constructor for class com.stuypulse.frc.robot.util.swerve.<a href="com/stuypulse/frc/robot/util/swerve/SwervetrainSubsystem.html" title="class in com.stuypulse.frc.robot.util.swerve">SwervetrainSubsystem</a></dt>
+<dd>&nbsp;</dd>
 </dl>
 <a id="I:T">
 <!--   -->
@@ -472,7 +500,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dl>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/GearController.html#update(double)">update(double)</a></span> - Method in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/GearController.html" title="class in com.stuypulse.frc.robot.util">GearController</a></dt>
 <dd>
-<div class="block">This is where the algorithm would be implemented and a new state of the</div>
+<div class="block">This is where the algorithm would be implemented and a gear would be returned</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/GearSwitch.html#update(double)">update(double)</a></span> - Method in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/GearSwitch.html" title="class in com.stuypulse.frc.robot.util">GearSwitch</a></dt>
 <dd>

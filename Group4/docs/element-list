@@ -3,3 +3,4 @@ com.stuypulse.frc.robot.commands
 com.stuypulse.frc.robot.commands.autons
 com.stuypulse.frc.robot.subsystems
 com.stuypulse.frc.robot.util
+com.stuypulse.frc.robot.util.swerve
