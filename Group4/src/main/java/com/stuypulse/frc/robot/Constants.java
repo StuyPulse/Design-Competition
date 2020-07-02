@@ -25,7 +25,6 @@ public interface Constants {
     // can be imported with all of its relevant constants and nested interfaces without getting info for other subsystems and commands
 
     public interface kDrivetrain {
-        double INTERNAL_FILTER = 1;
 
         interface Ports {
             int LEFT_FRONT = -1;
@@ -57,6 +56,36 @@ public interface Constants {
         interface DriveCommand {
             double ANGLE_FILTER = 1;
             double SPEED_FILTER = 1;
+        }
+    }
+
+    public interface kIntake {
+        interface Ports {
+            int SOLENOID_A = 1;
+            int SOLENOID_B = 1;
+
+            int MOTOR_A = 1;
+        }
+    }
+
+
+    public interface kShooter {
+        interface Ports {
+            int MOTOR_A = 1;
+            int MOTOR_B = 1;
+            int MOTOR_C = 1;
+        }
+    }
+
+    public interface kFeeder {
+        interface Ports {
+            int MOTOR_A = 1;
+        }
+    }
+
+    public interface kControlPanel {
+        interface Ports {
+            int MOTOR_A = 1;
         }
     }
 
