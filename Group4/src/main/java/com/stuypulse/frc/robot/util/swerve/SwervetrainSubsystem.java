@@ -4,9 +4,18 @@ import com.stuypulse.stuylib.math.Vector2D;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class SwervetrainSubsystem extends SubsystemBase {
+/**
+ * A swervable drivetrain intended for four modules in each corner.
+ */
+public abstract class SwervetrainSubsystem extends SubsystemBase {
 
-    // wheelbase (l), trackwidth (w)
+    /**
+     * <p>
+     * Internal vector representing the dimensions of the robot.
+     * </p>
+     * 
+     * Should be wheelbase, trackwidth
+     */
     private final Vector2D mSize;
 
     private final SwerveModuleSubsystem mLeftFront;
@@ -14,6 +23,15 @@ public class SwervetrainSubsystem extends SubsystemBase {
     private final SwerveModuleSubsystem mLeftBack;
     private final SwerveModuleSubsystem mRightBack;
 
+    /**
+     * Creaate a swervetrain subsystem with 4 swerve modules.
+     * 
+     * @param dimensions vector representing the space of the robot ( wheelbase, trackwidth )
+     * @param leftFront front left swerveable module
+     * @param rightFront front right swerveable module
+     * @param leftBack back left swerveable module
+     * @param rightBack back right swerveable module
+     */
     public SwervetrainSubsystem(Vector2D dimensions, SwerveModuleSubsystem leftFront, SwerveModuleSubsystem rightFront, SwerveModuleSubsystem leftBack, SwerveModuleSubsystem rightBack) {
         mSize = dimensions;
 
@@ -28,11 +46,16 @@ public class SwervetrainSubsystem extends SubsystemBase {
      * Move a swervetrain based on a standard 4 motor algorithm.
      *
      * @param velocity vector describing the velocity of the robot
-     * @param rotation angular speed (?? fix unit but it should be [-1,1])
+     * @param rotation angular speed [ -1, ]
      */
     public final void swerveDrive(Vector2D velocity, double rotation) {
         // the first step is to calculate the desired direction, velocity
         // vector for each wheel of the
+
+        if (isFieldCentric()) {
+            // field centric rotations ??
+            velocity = velocity.rotate(getAngle());
+        }
 
         Vector2D angular = new Vector2D(rotation * mSize.y / 2, rotation * mSize.x / 2);
 
@@ -72,12 +95,23 @@ public class SwervetrainSubsystem extends SubsystemBase {
 
     }
 
+    /**
+     * @param cartesian vector in cartesian
+     * @return vector in polar coordinate space
+     */
     private final static Vector2D convertToPolar(Vector2D cartesian) {
         // angles range from -180 to 180 degrees clockwise (0 is straight ahead)
         return new Vector2D(cartesian.magnitude(), Math.atan2(cartesian.y, cartesian.x) * 180 / Math.PI);
     }
 
-    public static double max(double a, double... b) {
+    /**
+     * Varargs max function.
+     * 
+     * @param a first double
+     * @param b list of doubles
+     * @return maximum entry
+     */
+    private static double max(double a, double... b) {
         double out = a;
 
         for (int i = 0; i < b.length;++i) {
@@ -88,5 +122,24 @@ public class SwervetrainSubsystem extends SubsystemBase {
 
         return out;
     }
+
+    /**
+     * <p>
+     * Returns the angle of the swervetrain in order to do field centric rotation.
+     * Field centric maintains that the robot will go in the same direction despite its rotation.
+     * </p>
+     * 
+     * Usually from a gyroscope reading.
+     * 
+     * @return angle of the drivetrain
+     */
+    public abstract Angle getAngle();
+
+    /**
+     * A method to determined whether the swerve train should use field centric rotations.
+     * 
+     * @return whether or not to use field centric rotations
+     */
+    public abstract boolean isFieldCentric();
 
 }
