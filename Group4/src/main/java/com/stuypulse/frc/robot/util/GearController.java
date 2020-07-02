@@ -39,7 +39,7 @@ public abstract class GearController {
     }
 
     /**
-     * This is where the algorithm would be implemented and a new state of the
+     * This is where the algorithm would be implemented and a gear would be returned
      *
      * @param distance accumulated distance of a drivetrain
      * @return gear of the drivetrain
