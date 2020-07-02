@@ -13,14 +13,11 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMax.IdleMode;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.stuypulse.frc.robot.Constants.kDrivetrain;
-import com.stuypulse.frc.robot.util.GearController;
 import com.stuypulse.frc.robot.util.GearController.Gear;
-import com.stuypulse.frc.robot.util.GearSwitch;
 import com.stuypulse.stuylib.math.Angle;
 import com.stuypulse.stuylib.math.Vector2D;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -29,10 +26,6 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
  * Standard drivetrain subsystem.
  */
 public class Drivetrain extends SubsystemBase {
-
-    // NOTE: use filtering in ALL drivetrain commands
-
-    // private Gear currentGear;
 
     /**
      * Utility function to switch implementation (because idk which is which)
@@ -49,7 +42,7 @@ public class Drivetrain extends SubsystemBase {
      *
      * (as opposed to storing it)
      *
-     * @param gear gear enumeration
+     * @param state solenoid value
      * @return state that the gear shifting solenoid should be at.
      */
     private static Gear solenoidToGear(DoubleSolenoid.Value state) {
@@ -57,34 +50,19 @@ public class Drivetrain extends SubsystemBase {
     }
 
     /**
-     * Left speed controllers (front, middle, back).
+     * Speed controllers.
      */
-    private CANSparkMax lMotorFront, lMotorBack;
+    private CANSparkMax lMotorFront, lMotorBack, rMotorFront, rMotorBack;
 
     /**
-     * Right speed controllers (front, middle, back).
+     * Encoders (left and right).
      */
-    private CANSparkMax rMotorFront, rMotorBack;
+    private CANEncoder lEncoder, rEncoder;
 
     /**
-     * Left encoder.
+     * Speed controller groups (left and right).
      */
-    private CANEncoder lEncoder;
-
-    /**
-     * Right encoder.
-     */
-    private CANEncoder rEncoder;
-
-    /**
-     * Left speed controller group.
-     */
-    private SpeedControllerGroup lControllers;
-
-    /**
-     * Right speed controller group.
-     */
-    private SpeedControllerGroup rControllers;
+    private SpeedControllerGroup lControllers, rControllers;
 
     /**
      * Differential drive (takes in SpeedControllerGroup for each side).
@@ -100,12 +78,6 @@ public class Drivetrain extends SubsystemBase {
      * Drivetrain gyro.
      */
     private AHRS gyro;
-
-    /**
-     * Auto gear controller.
-     */
-    private GearController gearShifter;
-    private boolean isAutoGear;
 
     /**
      * Create a new drivetrain.
@@ -128,16 +100,11 @@ public class Drivetrain extends SubsystemBase {
 
         gearShift = new DoubleSolenoid(kDrivetrain.Ports.SOLENOID_A, kDrivetrain.Ports.SOLENOID_B);
 
-        gyro = new AHRS(SPI.Port.kMXP);
-        isAutoGear = true;
-
         // DO MOTOR/SOLENOID/GYRO/ENCODER SETUP HERE
 
         resetGyro();
         resetEncoders();
         setGear(Gear.LOW);
-
-        gearShifter = new GearSwitch(this);
 
         lMotorFront.setIdleMode(IdleMode.kCoast);
         rMotorFront.setIdleMode(IdleMode.kCoast);
@@ -209,7 +176,7 @@ public class Drivetrain extends SubsystemBase {
     /**
      * Gear shifting.
      *
-     * @see {@link com.stuypulse.frc.robot.subsystems.Drivetrain.Gear}
+     * @see {@link com.stuypulse.frc.robot.util.GearController.Gear}
      * @param gear gear (HIGH or LOW)
      */
     public void setGear(Gear gear) {
@@ -222,7 +189,7 @@ public class Drivetrain extends SubsystemBase {
     /**
      * Get gear.
      *
-     * @see {@link com.stuypulse.frc.robot.subsystems.Drivetrain.Gear}
+     * @see {@link com.stuypulse.frc.robot.util.GearController.Gear}
      * @return gear / state of gearshift solenoid
      */
     public Gear getGear() {
@@ -280,18 +247,6 @@ public class Drivetrain extends SubsystemBase {
      */
     public Angle getAngle() {
         return Angle.fromDegrees(gyro.getAngle());
-    }
-
-    // put this in a command if necessary
-    @Override
-    public void periodic() {
-
-        if (isAutoGear) {
-
-            setGear(gearShifter.update(getDistance()));
-
-        }
-
     }
 
 }

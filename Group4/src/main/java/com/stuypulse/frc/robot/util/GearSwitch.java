@@ -1,8 +1,6 @@
 package com.stuypulse.frc.robot.util;
 
-import com.stuypulse.frc.robot.Constants.kDrivetrain;
 import com.stuypulse.stuylib.streams.filters.IFilter;
-import com.stuypulse.stuylib.streams.filters.LowPassFilter;
 import com.stuypulse.stuylib.util.StopWatch;
 
 import com.stuypulse.frc.robot.subsystems.Drivetrain;
@@ -35,7 +33,7 @@ public class GearSwitch extends GearController {
     private double lastDistance;
 
     /**
-     * Storees the rate of change in distance.
+     * Stores the rate of change in distance.
      */
     private double roc;
 
@@ -67,30 +65,20 @@ public class GearSwitch extends GearController {
     }
 
     /**
-     * Create an auto gear switcher with predefined constants.
-     *
-     * @param drivetrain drivetrain
-     */
-    public GearSwitch(Drivetrain drivetrain) {
-        this(drivetrain, kDrivetrain.Gears.LOW_GEAR_THRESHOLD, kDrivetrain.Gears.HIGH_GEAR_THRESHOLD,
-                new LowPassFilter(kDrivetrain.Gears.ROC_FILTER));
-    }
-
-    /**
      * Checks if the rate of change crosses a threshold and returns the new gear.
      *
      * @param newDistance the updated distance
      * @return new state of the gear
      */
     @Override
-    public Gear update(double distance) {
+    public Gear getGear() {
         // filter distance first... ?
-        double filteredDistance = rocFilter.get(distance);
+        double filteredDistance = rocFilter.get(drivetrain.getDistance());
 
         double dt = stopwatch.reset();
         double dx = filteredDistance - lastDistance;
 
-        Gear currentGear = getGear();
+        Gear currentGear = drivetrain.getGear();
 
         roc = Math.abs(dx / dt);
 

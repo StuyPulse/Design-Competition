@@ -17,7 +17,7 @@ public abstract class GearController {
     /**
      * Internal reference to the drivetrain.
      */
-    private final Drivetrain drivetrain;
+    protected final Drivetrain drivetrain;
 
     /**
      * Create a gear controller for a drivetrain.
@@ -29,21 +29,10 @@ public abstract class GearController {
     }
 
     /**
-     * Protect the drivetrain from child implementations because only the gear is
-     * really important.
-     *
-     * @return returns the gear of the drivetrain.
-     */
-    protected final Gear getGear() {
-        return drivetrain.getGear();
-    }
-
-    /**
      * This is where the algorithm would be implemented and a gear would be returned
      *
-     * @param distance accumulated distance of a drivetrain
      * @return gear of the drivetrain
      */
-    public abstract Gear update(double distance);
+    public abstract Gear getGear();
 
 }

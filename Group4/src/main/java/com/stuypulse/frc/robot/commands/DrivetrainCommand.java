@@ -1,6 +1,7 @@
 package com.stuypulse.frc.robot.commands;
 
 import com.stuypulse.frc.robot.subsystems.Drivetrain;
+import com.stuypulse.frc.robot.util.GearController.Gear;
 import com.stuypulse.stuylib.math.Vector2D;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
@@ -45,17 +46,28 @@ public abstract class DrivetrainCommand extends CommandBase {
     public abstract Vector2D getDirection();
 
     /**
+     * <p>
+     * In order to stay consistent, all drivetrain commands must give a gear.
+     * </p>
+     *
+     * This replaces using auto gear in Drivetrain.periodic(). With this, it is
+     * still possible to use automatic gear shifting when it can be applied (e.g. drive with gamepad).
+     *
+     * @return gear of the drivetrain
+     */
+    public abstract Gear getGear();
+
+    /**
      * This is the execute method of the command, which is run by the
      * CommandScheduler.
      *
      * The drivetrain is always active throughout a match (or it's getting it's
-     * input from a controller, which may not moving it)
-     *
-     * This execute method uses the getDirection() methods in order to arcade drive
-     * the robot.
+     * input from a controller, which may not be moving it)
      */
     @Override
     public void execute() {
+        drivetrain.setGear(getGear());
+
         drivetrain.arcadeDrive(getDirection());
     }
 
