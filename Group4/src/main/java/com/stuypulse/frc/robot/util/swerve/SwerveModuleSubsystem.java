@@ -8,11 +8,11 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 /**
  * <p>
- * This is an abstract implementation for a Swerve Module. 
+ * This is an abstract implementation for a Swerve Module.
  * Its pivot rotation can be tuned with a controller.
  * </p>
- *  
- * Only methods relevant to the state of the module (angle, etc.) and 
+ *
+ * Only methods relevant to the state of the module (angle, etc.) and
  * interacting with the motors (pivot and drive) need to be defined
  */
 public abstract class SwerveModuleSubsystem extends SubsystemBase {
@@ -29,7 +29,7 @@ public abstract class SwerveModuleSubsystem extends SubsystemBase {
 
     /**
      * A swerve module should have PID tuning for its module.
-     * 
+     *
      * @param angleController controller for pivot
      */
     public SwerveModuleSubsystem(Controller angleController) {
@@ -55,9 +55,9 @@ public abstract class SwerveModuleSubsystem extends SubsystemBase {
      * <p>
      * Gets the error of the swerve module to its target angle.
      * </p>
-     * 
+     *
      * Mitigation and direction flipping may occur here.
-     * 
+     *
      * @return the angle error [-180, 180]
      */
     private double getErrorAngle() {
@@ -77,12 +77,12 @@ public abstract class SwerveModuleSubsystem extends SubsystemBase {
 
     /**
      * <p>
-     * This method is given a vector in polar coordinate space 
+     * This method is given a vector in polar coordinate space
      * and handles the conversion into [-1,1]
      * </p>
-     * 
+     *
      * Usually the x component of this vector will already be normalized.
-     * 
+     *
      * @param direction
      */
     public final void set(Vector2D direction) {

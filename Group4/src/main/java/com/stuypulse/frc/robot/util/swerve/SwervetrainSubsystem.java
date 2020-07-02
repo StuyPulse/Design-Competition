@@ -1,6 +1,7 @@
 package com.stuypulse.frc.robot.util.swerve;
 
 import com.stuypulse.stuylib.math.Vector2D;
+import com.stuypulse.stuylib.math.Angle;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
@@ -13,7 +14,7 @@ public abstract class SwervetrainSubsystem extends SubsystemBase {
      * <p>
      * Internal vector representing the dimensions of the robot.
      * </p>
-     * 
+     *
      * Should be wheelbase, trackwidth
      */
     private final Vector2D mSize;
@@ -25,7 +26,7 @@ public abstract class SwervetrainSubsystem extends SubsystemBase {
 
     /**
      * Creaate a swervetrain subsystem with 4 swerve modules.
-     * 
+     *
      * @param dimensions vector representing the space of the robot ( wheelbase, trackwidth )
      * @param leftFront front left swerveable module
      * @param rightFront front right swerveable module
@@ -106,7 +107,7 @@ public abstract class SwervetrainSubsystem extends SubsystemBase {
 
     /**
      * Varargs max function.
-     * 
+     *
      * @param a first double
      * @param b list of doubles
      * @return maximum entry
@@ -128,16 +129,16 @@ public abstract class SwervetrainSubsystem extends SubsystemBase {
      * Returns the angle of the swervetrain in order to do field centric rotation.
      * Field centric maintains that the robot will go in the same direction despite its rotation.
      * </p>
-     * 
+     *
      * Usually from a gyroscope reading.
-     * 
+     *
      * @return angle of the drivetrain
      */
     public abstract Angle getAngle();
 
     /**
      * A method to determined whether the swerve train should use field centric rotations.
-     * 
+     *
      * @return whether or not to use field centric rotations
      */
     public abstract boolean isFieldCentric();

@@ -1,12 +1,8 @@
 package com.stuypulse.frc.robot.util.swerve;
 
 import com.stuypulse.stuylib.math.Vector2D;
-import com.stuypulse.stuylib.math.Angle;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-import com.stuypulse.frc.robot.util.FilteredVStream;
-import com.stuypulse.frc.robot.util.VStream;
-import com.stuypulse.stuylib.input.Gamepad;
 
 public abstract class SwervetrainCommand extends CommandBase {
 
@@ -18,7 +14,7 @@ public abstract class SwervetrainCommand extends CommandBase {
 
     public abstract Vector2D getDirection();
 
-    public abstract Angle getRotation();
+    public abstract double getRotation();
 
     @Override
     public void execute() {
