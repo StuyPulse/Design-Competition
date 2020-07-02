@@ -74,7 +74,7 @@ dependencies {
     simulation wpi.deps.sim.gui(wpi.platforms.desktop, false)
 
     // include stuylib
-    compile 'com.github.StuyPulse:StuyLib:2020.2.1'
+    compile 'com.github.StuyPulse:StuyLib:2020.2.1.1'
 }
 
 spotless {
@@ -87,7 +87,7 @@ spotless {
 }
 
 javadoc {
-    failOnError false // this is a bit sus i think
+    failOnError false
     classpath = sourceSets.main.runtimeClasspath
     destinationDir = file('docs/')
 }
