@@ -10,7 +10,15 @@ package com.stuypulse.frc.robot.subsystems;
 import com.revrobotics.CANEncoder;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-import com.stuypulse.frc.Constants;
+
+// ill d
+//also do I need to git clone stuypulse stuylib
+// anything else so i do
+// no cuz like im getting an error for the tank d
+//
+import com.stuypulse.frc.robot.Constants;
+import com.stuypulse.frc.robot.Constants.Ports;
+import com.stuypulse.stuylib.util.TankDriveEncoder;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
@@ -27,22 +35,50 @@ public class Drivetrain extends SubsystemBase {
 
   CANEncoder leftEncoder;
   CANEncoder rightEncoder;
-  //i think the rev robotics docs broke
+
+  private TankDriveEncoder TankDrive;
+  // nvm
+  //also edwin has a buncha weird stuff idk how works like high gear and stuff
   public Drivetrain() {
     leftMotors = new CANSparkMax[] {
-      topleftMotor = new CANSparkMax(, MotorType.kBrushless);
-      middleleftMotor = new CANSparkMax(, MotorType.kBrushless);
-      bottomleftMotor = new CANSparkMax(, MotorType.kBrushless);
+      topleftMotor = new CANSparkMax(Ports.DRIVETRAIN_TOP_LEFT_MOTOR, MotorType.kBrushless); //my constants is broken :(
+      middleleftMotor = new CANSparkMax(Ports.DRIVETRAIN_MIDDLE_LEFT_MOTOR, MotorType.kBrushless);
+      bottomleftMotor = new CANSparkMax(Ports.DRIVETRAIN_BOTTOM_LEFT_MOTOR, MotorType.kBrushless);
     
     rightMotors = new CANSparkMax[] {
-      toprightMotor = new CANSparkMax(, MotorType.kBrushless);
-      middlerightMotor = new CANSparkMax(, MotorType.kBrushless);
-      bottomrightMotor = new CANSparkMax(, MotorType.kBrushless);
+      toprightMotor = new CANSparkMax(Ports.DRIVETRAIN_TOP_LEFT_MOTOR, MotorType.kBrushless);
+      middlerightMotor = new CANSparkMax(Ports.DRIVETRAIN_MIDDLE_RIGHT_MOTOR, MotorType.kBrushless);
+      bottomrightMotor = new CANSparkMax(Ports.DRIVETRAIN_BOTTOM_RIGHT_MOTOR, MotorType.kBrushless);
 
-    leftEncoder = new CANEncoder();
-    rightEncoder = new CANEncoder();
+    leftEncoder = leftMotors[].CANEncoder();
+    rightEncoder = rightMotors[].CANEncoder();
   }
-
+  public void forward() {
+    leftMotors.set(1);
+    rightMotors.set(1);
+  }
+  public void reverse() {
+    leftMotors.set(-1);
+    rightMotors.set(-1);
+  }
+  public void left() {
+    leftMotors.set(-1);
+    rightMotors.set(1);
+  }
+  public void right() {
+    leftMotors.set(1);
+    rightMotors.set(-1);
+  }
+  public void stop() {
+    leftMotors.set(0);
+    rightMotors.set(0);
+  }
+  public double leftDistance() {
+    return leftEncoder.getPosition();
+  }
+  public double rightDistance() {
+    return rightEncoder.getPosition();
+  }
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

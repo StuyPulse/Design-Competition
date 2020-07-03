@@ -57,6 +57,14 @@ dependencies {
     // Enable simulation gui support. Must check the box in vscode to enable support
     // upon debugging
     simulation wpi.deps.sim.gui(wpi.platforms.desktop, false)
+
+    compile 'com.github.StuyPulse:StuyLib:2020.2.2'
+}
+
+allprojects {
+	repositories {
+		maven { url 'https://jitpack.io' }
+	}
 }
 
 // Setting up my Jar File. In this case, adding all libraries into the main jar ('fat jar')
