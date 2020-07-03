@@ -33,6 +33,10 @@ public interface Constants {
 
             public static final int GEAR_SHIFT = -1; 
         }
+
+        public interface Spinner {
+            public static final int SPINNER = -1;
+        }
     }
 
 }

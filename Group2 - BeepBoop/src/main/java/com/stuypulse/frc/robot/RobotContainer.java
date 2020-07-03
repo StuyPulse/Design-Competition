@@ -10,7 +10,9 @@ package com.stuypulse.frc.robot;
 import com.stuypulse.frc.robot.commands.DrivetrainDriveCommand;
 import com.stuypulse.frc.robot.commands.DrivetrainSetHighGearCommand;
 import com.stuypulse.frc.robot.commands.DrivetrainSetLowGearCommand;
+import com.stuypulse.frc.robot.commands.SpinnerSpinWheelCommand;
 import com.stuypulse.frc.robot.subsystems.Drivetrain;
+import com.stuypulse.frc.robot.subsystems.Spinner;
 import com.stuypulse.stuylib.input.gamepads.Logitech;
 import com.stuypulse.stuylib.input.gamepads.PS4;
 
@@ -31,6 +33,7 @@ public class RobotContainer {
   private Logitech.XMode operatorGamepad; 
 
   private Drivetrain drivetrain; 
+  private Spinner spinner; 
 
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
@@ -46,6 +49,10 @@ public class RobotContainer {
     drivetrain.setDefaultCommand(
       new DrivetrainDriveCommand(drivetrain, driverGamepad)
     ); 
+    spinner = new Spinner(); 
+    spinner.setDefaultCommand(
+      new SpinnerSpinWheelCommand(spinner, operatorGamepad)
+    );
   }
 
   /**
@@ -55,8 +62,9 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    driverGamepad.getDPadUp().whenPressed(new DrivetrainSetHighGearCommand(drivetrain));
-    driverGamepad.getDPadDown().whenPressed(new DrivetrainSetLowGearCommand(drivetrain));
+    // TODO: the gamepad is on some power dealt in a back alley
+    // driverGamepad.getDPadUp().whenPressed(new DrivetrainSetHighGearCommand(drivetrain)); 
+    // driverGamepad.getDPadDown().whenPressed(new DrivetrainSetLowGearCommand(drivetrain));
   }
 
 
