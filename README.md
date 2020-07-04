@@ -34,4 +34,13 @@ After fixing any merge conflicts, make a pull request and let Renee or Sam know.
 
 ## Subsystems
 
-- TBA
+- Drivetrain
+	- 6 NEOs
+- Intake
+	- TBA
+- Chute
+	- TBA
+- Shooter
+	- 5 NEOs
+- Climber
+	- TBA
