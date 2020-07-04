@@ -37,6 +37,10 @@ public interface Constants {
         public interface Spinner {
             public static final int SPINNER = -1;
         }
+
+        public interface Climber {
+            public static final int CLIMBER = -1;
+        }
     }
 
 }

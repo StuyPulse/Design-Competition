@@ -7,10 +7,12 @@
 
 package com.stuypulse.frc.robot;
 
+import com.stuypulse.frc.robot.commands.ClimberClimbCommand;
 import com.stuypulse.frc.robot.commands.DrivetrainDriveCommand;
 import com.stuypulse.frc.robot.commands.DrivetrainSetHighGearCommand;
 import com.stuypulse.frc.robot.commands.DrivetrainSetLowGearCommand;
 import com.stuypulse.frc.robot.commands.SpinnerSpinWheelCommand;
+import com.stuypulse.frc.robot.subsystems.Climber;
 import com.stuypulse.frc.robot.subsystems.Drivetrain;
 import com.stuypulse.frc.robot.subsystems.Spinner;
 import com.stuypulse.stuylib.input.gamepads.Logitech;
@@ -34,6 +36,7 @@ public class RobotContainer {
 
   private Drivetrain drivetrain; 
   private Spinner spinner; 
+  private Climber climber;
 
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
@@ -52,6 +55,10 @@ public class RobotContainer {
     spinner = new Spinner(); 
     spinner.setDefaultCommand(
       new SpinnerSpinWheelCommand(spinner, operatorGamepad)
+    );
+    climber = new Climber();
+    climber.setDefaultCommand(
+      new ClimberClimbCommand(climber, operatorGamepad)
     );
   }
 
