@@ -7,78 +7,126 @@
 
 package com.stuypulse.frc.robot.subsystems;
 
+import com.kauailabs.navx.frc.AHRS;
 import com.revrobotics.CANEncoder;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
-// ill d
-//also do I need to git clone stuypulse stuylib
-// anything else so i do
-// no cuz like im getting an error for the tank d
-//
-import com.stuypulse.frc.robot.Constants;
 import com.stuypulse.frc.robot.Constants.Ports;
-import com.stuypulse.stuylib.util.TankDriveEncoder;
+import com.stuypulse.stuylib.math.Angle;
 
+import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.SpeedControllerGroup;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Drivetrain extends SubsystemBase {
-  CANSparkMax topLeftMotor;
-  CANSparkMax topRightMotor;
-  CANSparkMax middleLeftMotor;
-  CANSparkMax middleRightMotor;
-  CANSparkMax bottomLeftMotor;
-  CANSparkMax bottomRightMotor;
 
-  CANSparkMax[] leftMotors;
-  CANSparkMax[] rightMotors;
+  public static enum Gear {
+    HIGH, LOW
+  };
 
-  CANEncoder leftEncoder;
-  CANEncoder rightEncoder;
+  private CANSparkMax[] leftMotors;
+  private CANSparkMax[] rightMotors;
 
-  private TankDriveEncoder TankDrive;
-  // nvm
-  //also edwin has a buncha weird stuff idk how works like high gear and stuff
+  private CANEncoder leftEncoder;
+  private CANEncoder rightEncoder;
+
+  private Gear gear;
+  private Solenoid gearShift;
+  private DifferentialDrive highGearDrive;
+  private DifferentialDrive lowGearDrive;
+
+  private AHRS navx;
+
   public Drivetrain() {
     leftMotors = new CANSparkMax[] {
-      topleftMotor = new CANSparkMax(Ports.DRIVETRAIN_TOP_LEFT_MOTOR, MotorType.kBrushless); //my constants is broken :(
-      middleleftMotor = new CANSparkMax(Ports.DRIVETRAIN_MIDDLE_LEFT_MOTOR, MotorType.kBrushless);
-      bottomleftMotor = new CANSparkMax(Ports.DRIVETRAIN_BOTTOM_LEFT_MOTOR, MotorType.kBrushless);
+      new CANSparkMax(Ports.Drivetrain.DRIVETRAIN_TOP_LEFT_MOTOR, MotorType.kBrushless),
+      new CANSparkMax(Ports.Drivetrain.DRIVETRAIN_MIDDLE_LEFT_MOTOR, MotorType.kBrushless),
+      new CANSparkMax(Ports.Drivetrain.DRIVETRAIN_BOTTOM_LEFT_MOTOR, MotorType.kBrushless)
+    };
     
     rightMotors = new CANSparkMax[] {
-      toprightMotor = new CANSparkMax(Ports.DRIVETRAIN_TOP_LEFT_MOTOR, MotorType.kBrushless);
-      middlerightMotor = new CANSparkMax(Ports.DRIVETRAIN_MIDDLE_RIGHT_MOTOR, MotorType.kBrushless);
-      bottomrightMotor = new CANSparkMax(Ports.DRIVETRAIN_BOTTOM_RIGHT_MOTOR, MotorType.kBrushless);
+      new CANSparkMax(Ports.Drivetrain.DRIVETRAIN_TOP_LEFT_MOTOR, MotorType.kBrushless),
+      new CANSparkMax(Ports.Drivetrain.DRIVETRAIN_MIDDLE_RIGHT_MOTOR, MotorType.kBrushless),
+      new CANSparkMax(Ports.Drivetrain.DRIVETRAIN_BOTTOM_RIGHT_MOTOR, MotorType.kBrushless)
+    };
 
-    leftEncoder = leftMotors[].CANEncoder();
-    rightEncoder = rightMotors[].CANEncoder();
+    highGearDrive = new DifferentialDrive(
+            new SpeedControllerGroup(leftMotors[0], leftMotors[1], leftMotors[2]),
+            new SpeedControllerGroup(rightMotors[0], rightMotors[1], rightMotors[2])
+        );
+
+    lowGearDrive = highGearDrive;
+
+    leftEncoder = leftMotors[1].getEncoder();
+    rightEncoder = rightMotors[1].getEncoder();
+
+    leftEncoder.setPosition(0);
+    rightEncoder.setPosition(0);
+
+    gearShift = new Solenoid(Ports.Drivetrain.GEAR_SHIFT);
   }
-  public void forward() {
-    leftMotors.set(1);
-    rightMotors.set(1);
+  
+  public Gear getGear() {
+    return gear;
   }
-  public void reverse() {
-    leftMotors.set(-1);
-    rightMotors.set(-1);
+
+  public void setGear(Gear gear) {
+    if (this.gear != gear) {
+      this.gear = gear;
+      gearShift.set(this.gear == Gear.HIGH);
+    } 
   }
-  public void left() {
-    leftMotors.set(-1);
-    rightMotors.set(1);
+
+  public void setLowGear() {
+    setGear(Gear.LOW);
   }
-  public void right() {
-    leftMotors.set(1);
-    rightMotors.set(-1);
+
+  public void setHighGear() {
+    setGear(Gear.HIGH);
   }
-  public void stop() {
-    leftMotors.set(0);
-    rightMotors.set(0);
+
+  public AHRS getNavX() {
+    return navx;
   }
-  public double leftDistance() {
+  
+  public Angle getGyroAngle() {
+    return Angle.degrees(navx.getAngle());
+  }
+
+  public double getLeftEncoderDistance() {
     return leftEncoder.getPosition();
   }
-  public double rightDistance() {
+
+  public double getRightEncoderDistance() {
     return rightEncoder.getPosition();
   }
+
+  public double getDistance() {
+    return Math.abs(Math.max(getLeftEncoderDistance(), getRightEncoderDistance()));
+  }
+
+  public DifferentialDrive getCurrentDrive() {
+    if (gear == Gear.HIGH) {
+        return highGearDrive;
+    } else {
+        return lowGearDrive;
+    }
+}
+
+  public void stop() {
+    getCurrentDrive().tankDrive(0, 0);
+  }
+
+  public void arcadeDrive(double speed, double rotation) {
+    getCurrentDrive().arcadeDrive(speed, rotation);
+  }
+
+  public void curvatureDrive(double speed, double rotation, boolean quickturn) {
+    getCurrentDrive().curvatureDrive(speed, rotation, quickturn);
+}
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

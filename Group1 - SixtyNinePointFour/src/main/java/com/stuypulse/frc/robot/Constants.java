@@ -19,28 +19,39 @@ public interface Constants {
 
     //
     public interface Ports {
-    //Drivetrain Subsystem
-    int DRIVETRAIN_TOP_LEFT_MOTOR = -1;
-    int DRIVETRAIN_TOP_RIGHT_MOTOR = -1;
-    int DRIVETRAIN_MIDDLE_LEFT_MOTOR = -1;
-    int DRIVETRAIN_MIDDLE_RIGHT_MOTOR = -1;
-    int DRIVETRAIN_BOTTOM_LEFT_MOTOR = -1;
-    int DRIVETRAIN_BOTTOM_RIGHT_MOTOR = -1;
-    //intake subsystem
-    int INTAKE_SOLENOID_FIRST_CHANNEL = -1;
-    int INTAKE_SOLENOID_SECOND_CHANNEL = -1;
-
-    int INTAKE_MOTOR = -1;
-
-    int INTAKE_BUTTON = -1;
-    //Climber subsystem
-    int CLIMBER_LEFT_MOTOR = -1;
-    int CLIMBER_RIGHT_MOTOR = -1;
-    //Conveyor subsystem
-    int CONVEYOR_MOTOR = -1;
-    //Indexer Subsystem
-    int INDEXER_MOTOR = -1;
-    }
     
-//what in the world are interface
+        public interface Drivetrain {
+            int DRIVETRAIN_TOP_LEFT_MOTOR = -1;
+            int DRIVETRAIN_TOP_RIGHT_MOTOR = -1;
+            int DRIVETRAIN_MIDDLE_LEFT_MOTOR = -1;
+            int DRIVETRAIN_MIDDLE_RIGHT_MOTOR = -1;
+            int DRIVETRAIN_BOTTOM_LEFT_MOTOR = -1;
+            int DRIVETRAIN_BOTTOM_RIGHT_MOTOR = -1;
+
+            int GEAR_SHIFT = 0;
+        }
+
+        public interface Intake {
+            int INTAKE_SOLENOID_FIRST_CHANNEL = -1;
+            int INTAKE_SOLENOID_SECOND_CHANNEL = -1;
+
+            int INTAKE_MOTOR = -1;
+
+            int INTAKE_BUTTON = -1;
+        }
+    
+        public interface Climber {
+            int CLIMBER_LEFT_MOTOR = -1;
+            int CLIMBER_RIGHT_MOTOR = -1;
+        }
+
+        public interface Conveyor {
+            int CONVEYOR_MOTOR = -1;
+        }
+
+        public interface Indexer {
+            int INDEXER_MOTOR = -1;
+        }
+    
+    }
 }
