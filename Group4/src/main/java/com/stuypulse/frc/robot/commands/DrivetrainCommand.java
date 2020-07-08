@@ -10,9 +10,6 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
  * <p>
  * This is the base class for drivetrain commands.
  * </p>
- *
- * Based off of Edwin with simplifications so it easier to explain. All of these
- * also make heavy use of SL Math functions.
  */
 public abstract class DrivetrainCommand extends CommandBase {
 
