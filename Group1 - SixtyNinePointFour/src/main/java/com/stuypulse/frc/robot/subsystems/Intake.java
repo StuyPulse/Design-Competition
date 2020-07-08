@@ -22,25 +22,31 @@ public class Intake extends SubsystemBase {
   DigitalInput button1;
 
   public Intake() {
-    piston = new DoubleSolenoid(Ports.INTAKE_SOLENOID_FIRST_CHANNEL,Ports.INTAKE_SOLENOID_SECOND_CHANNEL);
-    motor = new CANSparkMax(Ports.INTAKE_MOTOR, MotorType.kBrushless);
-    button1 = new DigitalInput(Ports.INTAKE_BUTTON);
+    piston = new DoubleSolenoid(Ports.Intake.INTAKE_SOLENOID_FIRST_CHANNEL,Ports.Intake.INTAKE_SOLENOID_SECOND_CHANNEL);
+    motor = new CANSparkMax(Ports.Intake.INTAKE_BUTTON, MotorType.kBrushless);
+    button1 = new DigitalInput(Ports.Intake.INTAKE_BUTTON);
   }
+  
   public void acquire() {
     motor.set(1);
   }
+
   public void deacquire() {
     motor.set(-1);
   }
+
   public void stop() {
     motor.set(0);
+
   }
   public void extend() {
     piston.set(Value.kForward);
   }
+
   public void retract() {
     piston.set(Value.kReverse);
   }
+
   public boolean isBallDetected() {
     return button1.get();
   }

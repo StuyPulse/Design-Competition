@@ -16,18 +16,9 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class Indexer extends SubsystemBase {
   CANSparkMax motor;
   public Indexer() {
-    motor = new CANSparkMax(Ports.INDEXER_MOTOR, MotorType.kBrushless);
+    motor = new CANSparkMax(Ports.Indexer.INDEXER_MOTOR, MotorType.kBrushless);
   }
 
-  public void idkwatddssdos() {
-    motor.set(1);
-  }
-  public void idkwatddssfdsfsddos() {
-    motor.set(-1);
-  }
-  public void idkwatddsdsdssdos() {
-    motor.set(0);
-  }
 
   @Override
   public void periodic() {

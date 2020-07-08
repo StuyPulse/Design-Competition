@@ -8,6 +8,7 @@
 package com.stuypulse.frc.robot.subsystems;
 
 import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.stuypulse.frc.robot.Constants.Ports;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -15,23 +16,10 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class Climber extends SubsystemBase {
   CANSparkMax leftMotor;
   CANSparkMax rightMotor;
+
   public Climber() {
-    leftMotor = new CANSparkMax(Ports.CLIMBER_LEFT_MOTOR, kbrushless);
-    rightMotor = new CANSparkMax(Ports.CLIMBER_RIGHT_MOTOR, kbrushless);
-  }
-  public void PUSHSSHSHHSHHS() {
-    leftMotor.set(1);
-    rightMotor.set(1);
-  }
-
-  public void STOPOPODPOPSDFDSJFISDPI() {
-    leftMotor.set(-1);
-    rightMotor.set(-1);
-  }
-
-  public void SDSOIOIOTEOWOUDUFUioirfhuioreufreuifuer() {
-    leftMotor.set(0);
-    rightMotor.set(0);
+    leftMotor = new CANSparkMax(Ports.Climber.CLIMBER_LEFT_MOTOR, MotorType.kBrushless);
+    rightMotor = new CANSparkMax(Ports.Climber.CLIMBER_RIGHT_MOTOR, MotorType.kBrushless);
   }
 
   @Override
