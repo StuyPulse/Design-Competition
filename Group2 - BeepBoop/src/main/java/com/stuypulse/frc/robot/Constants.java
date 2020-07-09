@@ -24,23 +24,28 @@ public interface Constants {
         } 
         
         public interface Drivetrain {
-            public static final int LEFT_FRONT = -1;
-            public static final int LEFT_MID = -1;
-            public static final int LEFT_BACK = -1;
-            public static final int RIGHT_FRONT = -1;
-            public static final int RIGHT_MID = -1;
-            public static final int RIGHT_BACK = -1;
+            public static final int LEFT_FRONT_MOTOR = -1;
+            public static final int LEFT_MID_MOTOR = -1;
+            public static final int LEFT_BACK_MOTOR = -1;
+            public static final int RIGHT_FRONT_MOTOR = -1;
+            public static final int RIGHT_MID_MOTOR = -1;
+            public static final int RIGHT_BACK_MOTOR = -1;
 
-            public static final int GEAR_SHIFT = -1; 
+            public static final int GEAR_SHIFT_SOLENOID = -1; 
+        }
+
+        public interface Intake {
+            public static final int MOTOR = -1; 
         }
 
         public interface Spinner {
-            public static final int SPINNER = -1;
+            public static final int MOTOR = -1;
         }
 
         public interface Climber {
-            public static final int CLIMBER = -1;
+            public static final int MOTOR = -1;
         }
     }
 
+    public static final double INTAKE_SPEED = 0.5; 
 }

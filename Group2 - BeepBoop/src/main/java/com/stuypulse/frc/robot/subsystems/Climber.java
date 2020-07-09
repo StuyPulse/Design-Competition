@@ -9,7 +9,7 @@ public class Climber extends SubsystemBase {
     private WPI_TalonSRX motor;
 
     public Climber() {
-        motor = new WPI_TalonSRX(Constants.Ports.Climber.CLIMBER);
+        motor = new WPI_TalonSRX(Constants.Ports.Climber.MOTOR);
     }
 
     public void climb(double speed) {

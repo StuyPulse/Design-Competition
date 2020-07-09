@@ -11,9 +11,12 @@ import com.stuypulse.frc.robot.commands.ClimberClimbCommand;
 import com.stuypulse.frc.robot.commands.DrivetrainDriveCommand;
 import com.stuypulse.frc.robot.commands.DrivetrainSetHighGearCommand;
 import com.stuypulse.frc.robot.commands.DrivetrainSetLowGearCommand;
+import com.stuypulse.frc.robot.commands.IntakeAcquireCommand;
+import com.stuypulse.frc.robot.commands.IntakeDequireCommand;
 import com.stuypulse.frc.robot.commands.SpinnerSpinWheelCommand;
 import com.stuypulse.frc.robot.subsystems.Climber;
 import com.stuypulse.frc.robot.subsystems.Drivetrain;
+import com.stuypulse.frc.robot.subsystems.Intake;
 import com.stuypulse.frc.robot.subsystems.Spinner;
 import com.stuypulse.stuylib.input.gamepads.Logitech;
 import com.stuypulse.stuylib.input.gamepads.PS4;
@@ -34,7 +37,8 @@ public class RobotContainer {
   private PS4 driverGamepad;
   private Logitech.XMode operatorGamepad; 
 
-  private Drivetrain drivetrain; 
+  private Drivetrain drivetrain;
+  private Intake intake;  
   private Spinner spinner; 
   private Climber climber;
 
@@ -42,24 +46,25 @@ public class RobotContainer {
    * The container for the robot.  Contains subsystems, OI devices, and commands.
    */
   public RobotContainer() {
-    // Configure the button bindings
     driverGamepad = new PS4(Constants.Ports.Gamepads.DRIVER);
     operatorGamepad = new Logitech.XMode(Constants.Ports.Gamepads.OPERATOR);
-    
-    configureButtonBindings();
   
     drivetrain = new Drivetrain();
+    intake = new Intake(); 
+    spinner = new Spinner(); 
+    climber = new Climber();
+    
     drivetrain.setDefaultCommand(
       new DrivetrainDriveCommand(drivetrain, driverGamepad)
     ); 
-    spinner = new Spinner(); 
     spinner.setDefaultCommand(
       new SpinnerSpinWheelCommand(spinner, operatorGamepad)
     );
-    climber = new Climber();
     climber.setDefaultCommand(
       new ClimberClimbCommand(climber, operatorGamepad)
     );
+
+    configureButtonBindings();
   }
 
   /**
@@ -69,9 +74,19 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    // TODO: the gamepad is on some power dealt in a back alley
-    // driverGamepad.getDPadUp().whenPressed(new DrivetrainSetHighGearCommand(drivetrain)); 
-    // driverGamepad.getDPadDown().whenPressed(new DrivetrainSetLowGearCommand(drivetrain));
+    driverGamepad.getRightButton().whenPressed(
+      new DrivetrainSetHighGearCommand(drivetrain)
+    ); 
+    driverGamepad.getBottomButton().whenPressed(
+      new DrivetrainSetLowGearCommand(drivetrain)
+    );
+
+    operatorGamepad.getLeftBumper().whileHeld(
+      new IntakeDequireCommand(intake)
+    ); 
+    operatorGamepad.getRightBumper().whileHeld(
+      new IntakeAcquireCommand(intake)
+    ); 
   }
 
 
