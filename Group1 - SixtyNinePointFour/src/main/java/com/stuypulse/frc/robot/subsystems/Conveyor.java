@@ -19,6 +19,10 @@ public class Conveyor extends SubsystemBase {
     motor = new CANSparkMax(Ports.Conveyor.CONVEYOR_MOTOR, MotorType.kBrushless);
   }
 
+  public void rotate() {
+    motor.set(1);
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

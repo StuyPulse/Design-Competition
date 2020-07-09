@@ -19,6 +19,10 @@ public class Indexer extends SubsystemBase {
     motor = new CANSparkMax(Ports.Indexer.INDEXER_MOTOR, MotorType.kBrushless);
   }
 
+  public void rotate() {
+    motor.set(1);
+  }
+
 
   @Override
   public void periodic() {

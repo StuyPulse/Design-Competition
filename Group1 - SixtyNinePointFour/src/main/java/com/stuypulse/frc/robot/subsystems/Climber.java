@@ -22,6 +22,16 @@ public class Climber extends SubsystemBase {
     rightMotor = new CANSparkMax(Ports.Climber.CLIMBER_RIGHT_MOTOR, MotorType.kBrushless);
   }
 
+  public void climb() {
+    leftMotor.set(1);
+    rightMotor.set(1);
+  }
+
+  public void stop() {
+    leftMotor.set(0);
+    rightMotor.set(0);
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
