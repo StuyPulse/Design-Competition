@@ -23,6 +23,10 @@ public class Indexer extends SubsystemBase {
     motor.set(1);
   }
 
+  public void stop() {
+    motor.set(0);
+  }
+
 
   @Override
   public void periodic() {
