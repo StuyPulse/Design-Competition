@@ -7,6 +7,20 @@
 
 package com.stuypulse.frc.robot;
 
+import com.stuypulse.frc.robot.commands.ClimberClimbDownCommand;
+import com.stuypulse.frc.robot.commands.ClimberClimbUpCommand;
+import com.stuypulse.frc.robot.commands.FeederFeedCommand;
+import com.stuypulse.frc.robot.commands.FeederReverseCommand;
+import com.stuypulse.frc.robot.commands.IntakeAcquireCommand;
+import com.stuypulse.frc.robot.commands.IntakeDeacquireCommand;
+import com.stuypulse.frc.robot.commands.IntakeExtendCommand;
+import com.stuypulse.frc.robot.commands.IntakeRetractCommand;
+import com.stuypulse.frc.robot.commands.ShooterShootCommand;
+import com.stuypulse.frc.robot.commands.ShooterStopCommand;
+import com.stuypulse.frc.robot.subsystems.Climber;
+import com.stuypulse.frc.robot.subsystems.Intake;
+import com.stuypulse.frc.robot.subsystems.Shooter;
+
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -21,10 +35,21 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   
   //private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
+  private final Climber climber = new Climber();
+  private final Intake intake = new Intake();
+  private final Shooter shooter = new Shooter();
 
   //private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
-
-
+  private final ClimberClimbUpCommand climberClimbUpCommand = new ClimberClimbUpCommand(climber);
+  private final ClimberClimbDownCommand climberClimbDownCommand = new ClimberClimbDownCommand(climber);
+  private final FeederFeedCommand feederFeedCommand = new FeederFeedCommand(shooter);
+  private final FeederReverseCommand feederReverseCommand = new FeederReverseCommand(shooter);
+  private final IntakeAcquireCommand intakeAcquireCommand = new IntakeAcquireCommand(intake);
+  private final IntakeDeacquireCommand intakeDeacquireCommand = new IntakeDeacquireCommand(intake);
+  private final IntakeExtendCommand intakeExtendCommand = new IntakeExtendCommand(intake);
+  private final IntakeRetractCommand intakeRetractCommand = new IntakeRetractCommand(intake);
+  private final ShooterShootCommand shooterShootCommand = new ShooterShootCommand(shooter);
+  private final ShooterStopCommand ShooterStopCommand = new ShooterStopCommand(shooter);
 
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.

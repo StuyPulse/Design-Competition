@@ -23,6 +23,9 @@ public interface Constants {
             int FEEDER_PORT = -1;
             int SHOOTER_TOP_PORT = -1;
             int SHOOTER_BOTTOM_PORT = -1;
+
+            int SHOOTER_TARGET_VELOCITY = -1;
+            double FEEDER_FEED_CONSTANT = 1.0;
         }
 
         public interface Intake {

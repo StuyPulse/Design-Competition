@@ -43,4 +43,5 @@ public class Intake extends SubsystemBase {
     public boolean isBallDetected() {
         return sensor.get();
     }
+    
 }
