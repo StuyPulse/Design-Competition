@@ -38,6 +38,10 @@ public interface Constants {
             public static final int MOTOR = -1; 
         }
 
+        public interface Chimney {
+            public static final int MOTOR = -1;
+        }
+
         public interface Spinner {
             public static final int MOTOR = -1;
         }
@@ -48,4 +52,6 @@ public interface Constants {
     }
 
     public static final double INTAKE_SPEED = 0.5; 
+    public static final double CHIMNEY_SPEED = 0.5;
+    
 }

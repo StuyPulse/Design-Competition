@@ -32,7 +32,7 @@ public class Intake extends SubsystemBase {
     motor.set(speed);
   }
 
-  public void dequire(double speed) {
+  public void deacquire(double speed) {
     acquire(-speed); 
   }
 
