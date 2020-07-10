@@ -7,6 +7,7 @@
 
 package com.stuypulse.frc.robot;
 
+import com.stuypulse.frc.robot.Constants.Ports;
 import com.stuypulse.frc.robot.commands.ClimberClimbCommand;
 import com.stuypulse.frc.robot.commands.ConveyorConveyCommand;
 import com.stuypulse.frc.robot.commands.DrivetrainDriveCommand;
@@ -44,23 +45,11 @@ public class RobotContainer {
   private final Indexer indexer = new Indexer();
   private final Intake intake = new Intake();
 
-  private final PS4 driver = new PS4(Constants.Ports.Gamepad.DRIVER);
-  private final Logitech.XMode operator = new Logitech.XMode(Constants.Ports.Gamepad.OPERATOR);
-
-  //commands (formated as: private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);)
-
-  // private final ClimberClimbCommand climberClimbCommand = new ClimberClimbCommand(climber);
-  // private final ConveyorConveyCommand conveyorConveyCommand = new ConveyorConveyCommand(conveyor);
-  private final DrivetrainHighGearCommand drivetrainHighGearCommand = new DrivetrainHighGearCommand(drivetrain);
-  private final DrivetrainLowGearCommand drivetrainLowGearCommand = new DrivetrainLowGearCommand(drivetrain);
-  // private final IndexerRotateCommand indexerRotateCommand = new IndexerRotateCommand(indexer);
-  // private final IntakeAcquireCommand intakeAcquireCommand = new IntakeAcquireCommand(intake);
-  // private final IntakeDeacquireCommand intakeDeacquireCommand = new IntakeDeacquireCommand(intake);
-  // private final IntakeExtendCommand intakeExtendCommand = new IntakeExtendCommand(intake);
-  // private final IntakeRetractCommand intakeRetractCommand = new IntakeRetractCommand(intake);
+  private final PS4 driver = new PS4(Ports.Gamepad.DRIVER);
+  private final Logitech.XMode operator = new Logitech.XMode(Ports.Gamepad.OPERATOR);
 
   /**
-   * The container for the robot.  Contains subsystems, OI devices, and commands.
+   * The container for the robot. Contains subsystems, OI devices, and commands.
    */
   public RobotContainer() {
     drivetrain.setDefaultCommand(new DrivetrainDriveCommand(drivetrain, driver));
@@ -76,7 +65,13 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    driver.getTopButton().whenPressed(drivetrainLowGearCommand);
+    driver.getTopButton().whenPressed(new DrivetrainHighGearCommand(drivetrain));
+    driver.getBottomButton().whenPressed(new DrivetrainLowGearCommand(drivetrain));
+
+    operator.getTopButton().whenPressed(new ClimberClimbCommand(climber));
+    operator.getLeftButton().toggleWhenPressed(new ConveyorConveyCommand(conveyor));
+    operator.getRightButton().whileHeld(new IntakeAcquireCommand(intake));
+    operator.getBottomButton().whileHeld(new IntakeDeacquireCommand(intake));
   }
 
 
