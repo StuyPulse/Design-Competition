@@ -52,7 +52,7 @@ public class Drivetrain extends SubsystemBase {
     /**
      * Speed controllers.
      */
-    private CANSparkMax lMotorFront, lMotorBack, rMotorFront, rMotorBack;
+    private CANSparkMax lMotorFront, lMotorBack, lMotorMid, rMotorFront, rMotorMid, rMotorBack;
 
     /**
      * Encoders (left and right).
@@ -86,12 +86,14 @@ public class Drivetrain extends SubsystemBase {
 
         lMotorFront = new CANSparkMax(kDrivetrain.Ports.LEFT_FRONT, MotorType.kBrushless);
         lMotorBack = new CANSparkMax(kDrivetrain.Ports.LEFT_BACK, MotorType.kBrushless);
+        lMotorMid = new CANSparkMax(kDrivetrain.Ports.LEFT_MID, MotorType.kBrushless);
 
         rMotorFront = new CANSparkMax(kDrivetrain.Ports.RIGHT_BACK, MotorType.kBrushless);
         rMotorBack = new CANSparkMax(kDrivetrain.Ports.RIGHT_FRONT, MotorType.kBrushless);
+        rMotorMid = new CANSparkMax(kDrivetrain.Ports.RIGHT_MID, MotorType.kBrushless);
 
-        lControllers = new SpeedControllerGroup(lMotorFront, lMotorBack);
-        rControllers = new SpeedControllerGroup(rMotorFront, rMotorBack);
+        lControllers = new SpeedControllerGroup(lMotorFront, lMotorMid, lMotorBack);
+        rControllers = new SpeedControllerGroup(rMotorFront, rMotorMid, rMotorBack);
 
         motors = new DifferentialDrive(lControllers, rControllers);
 
@@ -111,6 +113,9 @@ public class Drivetrain extends SubsystemBase {
 
         lMotorBack.setIdleMode(IdleMode.kBrake);
         rMotorBack.setIdleMode(IdleMode.kBrake);
+
+        lMotorMid.setIdleMode(IdleMode.kBrake);
+        rMotorMid.setIdleMode(IdleMode.kBrake);
 
         setEncoderFactor(kDrivetrain.Encoders.NEO_FACTOR_TO_FEET);
 

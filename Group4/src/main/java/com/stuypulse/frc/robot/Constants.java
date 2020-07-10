@@ -31,6 +31,9 @@ public interface Constants {
 
             int SOLENOID_A = -1;
             int SOLENOID_B = -1;
+
+            int LEFT_MID = -1;
+            int RIGHT_MID = -1;
         }
 
         interface Gears {
