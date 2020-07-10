@@ -4,9 +4,9 @@ import com.stuypulse.frc.robot.subsystems.Drivetrain;
 import com.stuypulse.stuylib.math.*;
 import com.stuypulse.stuylib.network.limelight.Limelight;
 
-public class DrivetrainDabCommand extends DrivetrainAlignCommand {
+public class DrivetrainGoalCommand extends DrivetrainAlignCommand {
 
-    public DrivetrainDabCommand(Drivetrain swag) {
+    public DrivetrainGoalCommand(Drivetrain swag) {
         super(swag);
     }
 
@@ -22,7 +22,6 @@ public class DrivetrainDabCommand extends DrivetrainAlignCommand {
         if (!Limelight.hasValidTarget()) {
             return 0.0;
         }
-
 
         return 0.0;
     }
