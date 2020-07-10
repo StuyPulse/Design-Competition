@@ -40,7 +40,7 @@ public interface Constants {
             // these thresholds are feet per second
             // there is no one threshhold to prevent flickering
             double HIGH_GEAR_THRESHOLD = 4.0;
-            double LOW_GEAR_THRESHOLD  = 3.0;
+            double LOW_GEAR_THRESHOLD = 3.0;
 
             double ROC_FILTER = 1;
         }
@@ -57,6 +57,12 @@ public interface Constants {
             double ANGLE_FILTER = 1;
             double SPEED_FILTER = 1;
         }
+
+        interface GoalCommand {
+            double GOAL_HEIGHT = 10;
+            double MAX_DISTANCE = 100;
+            double MIN_DISTANCE = 5;
+        }
     }
 
     public interface kIntake {
@@ -69,7 +75,6 @@ public interface Constants {
 
         double INTAKE_SPEED = 1;
     }
-
 
     public interface kShooter {
         interface Ports {
@@ -87,6 +92,19 @@ public interface Constants {
         }
 
         double SPIN_SPEED = 1;
+    }
+
+    public interface kLEDController {
+        int CHANNEL = -1;
+        /*
+         * 2.003ms = full "forward" 1.550ms = the "high end" of the deadband range
+         * 1.500ms = center of the deadband range (off) 1.460ms = the "low end" of the
+         * deadband range 0.999ms = full "reverse"
+         *
+         */
+
+        double BLACK = 0.99;
+        double WHITE = 0.93;
     }
 
 }
