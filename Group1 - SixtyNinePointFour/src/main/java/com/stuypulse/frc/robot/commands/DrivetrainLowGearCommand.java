@@ -4,7 +4,6 @@ import com.stuypulse.frc.robot.subsystems.Drivetrain;
 
 import edu.wpi.first.wpilibj.command.InstantCommand;
 
-
 public class DrivetrainLowGearCommand extends InstantCommand {
     private final Drivetrain drivetrain;
 

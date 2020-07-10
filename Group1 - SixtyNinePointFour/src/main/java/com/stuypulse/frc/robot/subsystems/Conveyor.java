@@ -14,7 +14,7 @@ import com.stuypulse.frc.robot.Constants.Ports;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Conveyor extends SubsystemBase {
-  CANSparkMax motor;
+  private CANSparkMax motor;
   public Conveyor() {
     motor = new CANSparkMax(Ports.Conveyor.CONVEYOR_MOTOR, MotorType.kBrushless);
   }

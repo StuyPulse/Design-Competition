@@ -17,9 +17,9 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.stuypulse.frc.robot.Constants.Ports;
 
 public class Intake extends SubsystemBase {
-  DoubleSolenoid piston;
-  CANSparkMax motor;
-  DigitalInput button1;
+  private DoubleSolenoid piston;
+  private CANSparkMax motor;
+  private DigitalInput button1;
 
   public Intake() {
     piston = new DoubleSolenoid(Ports.Intake.INTAKE_SOLENOID_FIRST_CHANNEL,Ports.Intake.INTAKE_SOLENOID_SECOND_CHANNEL);

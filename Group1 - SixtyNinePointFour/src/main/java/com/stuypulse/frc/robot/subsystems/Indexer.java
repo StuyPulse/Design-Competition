@@ -14,7 +14,7 @@ import com.stuypulse.frc.robot.Constants.Ports;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Indexer extends SubsystemBase {
-  CANSparkMax motor;
+  private CANSparkMax motor;
   public Indexer() {
     motor = new CANSparkMax(Ports.Indexer.INDEXER_MOTOR, MotorType.kBrushless);
   }

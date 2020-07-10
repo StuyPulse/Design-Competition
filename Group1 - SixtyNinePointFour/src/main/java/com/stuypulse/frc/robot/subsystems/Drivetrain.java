@@ -72,19 +72,18 @@ public class Drivetrain extends SubsystemBase {
     return gear;
   }
 
-  public void setGear(Gear gear) {
-    if (this.gear != gear) {
-      this.gear = gear;
-      gearShift.set(this.gear == Gear.HIGH);
-    } 
-  }
-
   public void setLowGear() {
-    setGear(Gear.LOW);
+    if (gear != Gear.LOW) {
+      gear = Gear.LOW;
+      gearShift.set(false);
+    }
   }
 
   public void setHighGear() {
-    setGear(Gear.HIGH);
+    if (gear != Gear.HIGH) {
+      gear = Gear.HIGH;
+      gearShift.set(true);
+    }
   }
 
   public AHRS getNavX() {
@@ -122,10 +121,6 @@ public class Drivetrain extends SubsystemBase {
   public void arcadeDrive(double speed, double rotation) {
     getCurrentDrive().arcadeDrive(speed, rotation);
   }
-
-  public void curvatureDrive(double speed, double rotation, boolean quickturn) {
-    getCurrentDrive().curvatureDrive(speed, rotation, quickturn);
-}
 
   @Override
   public void periodic() {

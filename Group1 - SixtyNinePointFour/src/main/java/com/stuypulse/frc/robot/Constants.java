@@ -52,6 +52,11 @@ public interface Constants {
         public interface Indexer {
             int INDEXER_MOTOR = -1;
         }
+
+        public interface Gamepad{
+            int DRIVER = -1;
+            int OPERATOR = -1;
+        }
     
     }
 }
