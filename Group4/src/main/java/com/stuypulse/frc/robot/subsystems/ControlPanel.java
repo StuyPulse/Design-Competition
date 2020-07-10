@@ -17,4 +17,12 @@ public class ControlPanel extends SubsystemBase{
         aMotor = new CANSparkMax(kControlPanel.Ports.MOTOR_A, MotorType.kBrushless);
     }
 
+    public void spin() {
+        aMotor.set(kControlPanel.SPIN_SPEED);
+    }
+
+    public void stop() {
+        aMotor.set(0);
+    }
+
 }
