@@ -67,7 +67,6 @@ public class GearSwitch extends GearController {
     /**
      * Checks if the rate of change crosses a threshold and returns the new gear.
      *
-     * @param newDistance the updated distance
      * @return new state of the gear
      */
     @Override
