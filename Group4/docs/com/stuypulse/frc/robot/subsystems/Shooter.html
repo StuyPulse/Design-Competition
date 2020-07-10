@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -185,30 +185,40 @@ extends edu.wpi.first.wpilibj2.command.SubsystemBase</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>double</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getRPM()">getRPM</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFeederRPM()">getFeederRPM</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>double</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTargetRPM()">getTargetRPM</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getShooterRPM()">getShooterRPM</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#periodic()">periodic</a></span>()</code></th>
+<td class="colFirst"><code>double</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTargetRPM()">getTargetRPM</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setShooter(double)">setShooter</a></span>&#8203;(double&nbsp;value)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#periodic()">periodic</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setTargetRPM(double)">setTargetRPM</a></span>&#8203;(double&nbsp;rpm)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setFeeder(double)">setFeeder</a></span>&#8203;(double&nbsp;value)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setShooter(double)">setShooter</a></span>&#8203;(double&nbsp;value)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setTargetRPM(double)">setTargetRPM</a></span>&#8203;(double&nbsp;rpm)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#stopShooter()">stopShooter</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
@@ -295,13 +305,22 @@ extends edu.wpi.first.wpilibj2.command.SubsystemBase</pre>
 <pre class="methodSignature">public&nbsp;double&nbsp;getTargetRPM()</pre>
 </li>
 </ul>
-<a id="getRPM()">
+<a id="getShooterRPM()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getRPM</h4>
-<pre class="methodSignature">public&nbsp;double&nbsp;getRPM()</pre>
+<h4>getShooterRPM</h4>
+<pre class="methodSignature">public&nbsp;double&nbsp;getShooterRPM()</pre>
+</li>
+</ul>
+<a id="getFeederRPM()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getFeederRPM</h4>
+<pre class="methodSignature">public&nbsp;double&nbsp;getFeederRPM()</pre>
 </li>
 </ul>
 <a id="setShooter(double)">
@@ -311,6 +330,15 @@ extends edu.wpi.first.wpilibj2.command.SubsystemBase</pre>
 <li class="blockList">
 <h4>setShooter</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setShooter&#8203;(double&nbsp;value)</pre>
+</li>
+</ul>
+<a id="setFeeder(double)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>setFeeder</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;setFeeder&#8203;(double&nbsp;value)</pre>
 </li>
 </ul>
 <a id="stopShooter()">

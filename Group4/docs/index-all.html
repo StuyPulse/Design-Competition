@@ -229,10 +229,6 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Construct a drivetrain command with a drivetrain.</div>
 </dd>
-<dt><a href="com/stuypulse/frc/robot/commands/DrivetrainDabCommand.html" title="class in com.stuypulse.frc.robot.commands"><span class="typeNameLink">DrivetrainDabCommand</span></a> - Class in <a href="com/stuypulse/frc/robot/commands/package-summary.html">com.stuypulse.frc.robot.commands</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/DrivetrainDabCommand.html#%3Cinit%3E(com.stuypulse.frc.robot.subsystems.Drivetrain)">DrivetrainDabCommand(Drivetrain)</a></span> - Constructor for class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/DrivetrainDabCommand.html" title="class in com.stuypulse.frc.robot.commands">DrivetrainDabCommand</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="com/stuypulse/frc/robot/commands/DrivetrainDriveCommand.html" title="class in com.stuypulse.frc.robot.commands"><span class="typeNameLink">DrivetrainDriveCommand</span></a> - Class in <a href="com/stuypulse/frc/robot/commands/package-summary.html">com.stuypulse.frc.robot.commands</a></dt>
 <dd>
 <div class="block">Controls the drivetrain with the gamepad with filtering.</div>
@@ -241,6 +237,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Create drivetrain drive command.</div>
 </dd>
+<dt><a href="com/stuypulse/frc/robot/commands/DrivetrainGoalCommand.html" title="class in com.stuypulse.frc.robot.commands"><span class="typeNameLink">DrivetrainGoalCommand</span></a> - Class in <a href="com/stuypulse/frc/robot/commands/package-summary.html">com.stuypulse.frc.robot.commands</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/DrivetrainGoalCommand.html#%3Cinit%3E(com.stuypulse.frc.robot.subsystems.Drivetrain)">DrivetrainGoalCommand(Drivetrain)</a></span> - Constructor for class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/DrivetrainGoalCommand.html" title="class in com.stuypulse.frc.robot.commands">DrivetrainGoalCommand</a></dt>
+<dd>&nbsp;</dd>
 </dl>
 <a id="I:E">
 <!--   -->
@@ -328,7 +328,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/DrivetrainAlignCommand.html#getAngleError()">getAngleError()</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/DrivetrainAlignCommand.html" title="class in com.stuypulse.frc.robot.commands">DrivetrainAlignCommand</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/DrivetrainDabCommand.html#getAngleError()">getAngleError()</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/DrivetrainDabCommand.html" title="class in com.stuypulse.frc.robot.commands">DrivetrainDabCommand</a></dt>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/DrivetrainGoalCommand.html#getAngleError()">getAngleError()</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/DrivetrainGoalCommand.html" title="class in com.stuypulse.frc.robot.commands">DrivetrainGoalCommand</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/RobotContainer.html#getAutonomousCommand()">getAutonomousCommand()</a></span> - Method in class com.stuypulse.frc.robot.<a href="com/stuypulse/frc/robot/RobotContainer.html" title="class in com.stuypulse.frc.robot">RobotContainer</a></dt>
 <dd>
@@ -349,6 +349,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">Returns the absolute max of each side of the robot's encoder values
  multiplied by a yield constant.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/subsystems/Shooter.html#getFeederRPM()">getFeederRPM()</a></span> - Method in class com.stuypulse.frc.robot.subsystems.<a href="com/stuypulse/frc/robot/subsystems/Shooter.html" title="class in com.stuypulse.frc.robot.subsystems">Shooter</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/DrivetrainAlignCommand.html#getGear()">getGear()</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/DrivetrainAlignCommand.html" title="class in com.stuypulse.frc.robot.commands">DrivetrainAlignCommand</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/DrivetrainCommand.html#getGear()">getGear()</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/DrivetrainCommand.html" title="class in com.stuypulse.frc.robot.commands">DrivetrainCommand</a></dt>
@@ -372,11 +374,11 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/swerve/SwervetrainCommand.html#getRotation()">getRotation()</a></span> - Method in class com.stuypulse.frc.robot.util.swerve.<a href="com/stuypulse/frc/robot/util/swerve/SwervetrainCommand.html" title="class in com.stuypulse.frc.robot.util.swerve">SwervetrainCommand</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/subsystems/Shooter.html#getRPM()">getRPM()</a></span> - Method in class com.stuypulse.frc.robot.subsystems.<a href="com/stuypulse/frc/robot/subsystems/Shooter.html" title="class in com.stuypulse.frc.robot.subsystems">Shooter</a></dt>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/subsystems/Shooter.html#getShooterRPM()">getShooterRPM()</a></span> - Method in class com.stuypulse.frc.robot.subsystems.<a href="com/stuypulse/frc/robot/subsystems/Shooter.html" title="class in com.stuypulse.frc.robot.subsystems">Shooter</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/DrivetrainAlignCommand.html#getSpeedError()">getSpeedError()</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/DrivetrainAlignCommand.html" title="class in com.stuypulse.frc.robot.commands">DrivetrainAlignCommand</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/DrivetrainDabCommand.html#getSpeedError()">getSpeedError()</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/DrivetrainDabCommand.html" title="class in com.stuypulse.frc.robot.commands">DrivetrainDabCommand</a></dt>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/DrivetrainGoalCommand.html#getSpeedError()">getSpeedError()</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/DrivetrainGoalCommand.html" title="class in com.stuypulse.frc.robot.commands">DrivetrainGoalCommand</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/subsystems/Shooter.html#getTargetRPM()">getTargetRPM()</a></span> - Method in class com.stuypulse.frc.robot.subsystems.<a href="com/stuypulse/frc/robot/subsystems/Shooter.html" title="class in com.stuypulse.frc.robot.subsystems">Shooter</a></dt>
 <dd>&nbsp;</dd>
@@ -436,6 +438,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/Constants.kDrivetrain.Ports.html#LEFT_BACK">LEFT_BACK</a></span> - Static variable in interface com.stuypulse.frc.robot.<a href="com/stuypulse/frc/robot/Constants.kDrivetrain.Ports.html" title="interface in com.stuypulse.frc.robot">Constants.kDrivetrain.Ports</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/Constants.kDrivetrain.Ports.html#LEFT_FRONT">LEFT_FRONT</a></span> - Static variable in interface com.stuypulse.frc.robot.<a href="com/stuypulse/frc/robot/Constants.kDrivetrain.Ports.html" title="interface in com.stuypulse.frc.robot">Constants.kDrivetrain.Ports</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/Constants.kDrivetrain.Ports.html#LEFT_MID">LEFT_MID</a></span> - Static variable in interface com.stuypulse.frc.robot.<a href="com/stuypulse/frc/robot/Constants.kDrivetrain.Ports.html" title="interface in com.stuypulse.frc.robot">Constants.kDrivetrain.Ports</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/GearController.Gear.html#LOW">LOW</a></span> - com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/GearController.Gear.html" title="enum in com.stuypulse.frc.robot.util">GearController.Gear</a></dt>
 <dd>&nbsp;</dd>
@@ -505,6 +509,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/Constants.kDrivetrain.Ports.html#RIGHT_FRONT">RIGHT_FRONT</a></span> - Static variable in interface com.stuypulse.frc.robot.<a href="com/stuypulse/frc/robot/Constants.kDrivetrain.Ports.html" title="interface in com.stuypulse.frc.robot">Constants.kDrivetrain.Ports</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/Constants.kDrivetrain.Ports.html#RIGHT_MID">RIGHT_MID</a></span> - Static variable in interface com.stuypulse.frc.robot.<a href="com/stuypulse/frc/robot/Constants.kDrivetrain.Ports.html" title="interface in com.stuypulse.frc.robot">Constants.kDrivetrain.Ports</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="com/stuypulse/frc/robot/Robot.html" title="class in com.stuypulse.frc.robot"><span class="typeNameLink">Robot</span></a> - Class in <a href="com/stuypulse/frc/robot/package-summary.html">com.stuypulse.frc.robot</a></dt>
 <dd>
 <div class="block">The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -548,6 +554,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">Sets an encoder conversion factor (from motor rotations &#x2192; human usable
  unit).</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/subsystems/Shooter.html#setFeeder(double)">setFeeder(double)</a></span> - Method in class com.stuypulse.frc.robot.subsystems.<a href="com/stuypulse/frc/robot/subsystems/Shooter.html" title="class in com.stuypulse.frc.robot.subsystems">Shooter</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/subsystems/Drivetrain.html#setGear(com.stuypulse.frc.robot.util.GearController.Gear)">setGear(GearController.Gear)</a></span> - Method in class com.stuypulse.frc.robot.subsystems.<a href="com/stuypulse/frc/robot/subsystems/Drivetrain.html" title="class in com.stuypulse.frc.robot.subsystems">Drivetrain</a></dt>
 <dd>
 <div class="block">Gear shifting.</div>
