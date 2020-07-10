@@ -21,9 +21,6 @@ public interface Constants {
 
     int GAMEPAD_PORT = -1;
 
-    // NOTE: our plan was to use `k` as a symbol that represented subsystem so that each interface nested from Constants
-    // can be imported with all of its relevant constants and nested interfaces without getting info for other subsystems and commands
-
     public interface kDrivetrain {
 
         interface Ports {
@@ -66,6 +63,8 @@ public interface Constants {
 
             int MOTOR_A = 1;
         }
+
+        double INTAKE_SPEED = 1;
     }
 
 
@@ -74,12 +73,8 @@ public interface Constants {
             int MOTOR_A = 1;
             int MOTOR_B = 1;
             int MOTOR_C = 1;
-        }
-    }
 
-    public interface kFeeder {
-        interface Ports {
-            int MOTOR_A = 1;
+            int FEEDER_MOTOR = 1;
         }
     }
 
@@ -87,6 +82,8 @@ public interface Constants {
         interface Ports {
             int MOTOR_A = 1;
         }
+
+        double SPIN_SPEED = 1;
     }
 
 }
