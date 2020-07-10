@@ -8,6 +8,8 @@ import com.stuypulse.frc.robot.Constants.kShooter;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import com.revrobotics.CANEncoder;
 
+import java.util.Arrays;
+
 import com.stuypulse.stuylib.control.*;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -16,7 +18,7 @@ public class Shooter extends SubsystemBase {
 
     private CANSparkMax feeder;
 
-    private CANSparkMax aMotor,bMotor,cMotor;
+    private CANSparkMax aMotor, bMotor, cMotor;
 
     private CANEncoder aEncoder, bEncoder, cEncoder, feederEncoder;
 
@@ -45,10 +47,12 @@ public class Shooter extends SubsystemBase {
         targetRPM = 0.0;
 
         //
-        shooterController = new PIDController(0,0,0);
-        feederController = new PIDController(0,0,0);
+        shooterController = new PIDController(0, 0, 0);
+        feederController = new PIDController(0, 0, 0);
 
         // do motor initialization here
+
+        // ....5
     }
 
     public void setTargetRPM(double rpm) {
@@ -59,12 +63,27 @@ public class Shooter extends SubsystemBase {
         return targetRPM;
     }
 
-    public double getRPM() {
-        return 0.0; // encoder value
+    private double getMedianShooterRPM() {
+        double[] vels = { aEncoder.getVelocity(), bEncoder.getVelocity(), cEncoder.getVelocity() };
+        Arrays.sort(vels);
+        return vels[1];
+    }
+
+    public double getShooterRPM() {
+        // choose algorithm to get rpm of the 3 motors here
+        return getMedianShooterRPM();
+    }
+
+    public double getFeederRPM() {
+        return feederEncoder.getVelocity();
     }
 
     public void setShooter(double value) {
-        // set shooter motors to some value
+        shooterMotors.set(value);
+    }
+
+    public void setFeeder(double value) {
+        feeder.set(value);
     }
 
     public void stopShooter() {
@@ -74,10 +93,13 @@ public class Shooter extends SubsystemBase {
     @Override
     public void periodic() {
 
-        // do some checks if it's done
-        double shooterError = shooterController.update(targetRPM - getRPM());
+        // do some checks if it's done ?
+        double shooterError = shooterController.update(targetRPM - getShooterRPM());
 
         setShooter(shooterError);
 
+        double feederError = feederController.update(targetRPM - getFeederRPM());
+
+        setFeeder(feederError);
     }
 }
