@@ -66,4 +66,18 @@ public interface Constants {
         }
     
     }
+
+    public interface DrivetrainMovement{
+        double P = -1;
+        double I = 0;
+        double D = -1;
+        double MOVEMENT_ERROR = 0.01;
+    }
+
+    public interface DrivetrainTurn{
+        double P = -1;
+        double I = 0;
+        double D = -1;
+        double TURNING_ERROR = 0.01;
+    }
 }

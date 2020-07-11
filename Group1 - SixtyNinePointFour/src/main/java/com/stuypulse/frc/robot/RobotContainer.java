@@ -20,6 +20,7 @@ import com.stuypulse.frc.robot.commands.IntakeExtendCommand;
 import com.stuypulse.frc.robot.commands.IntakeRetractCommand;
 import com.stuypulse.frc.robot.commands.ShooterFeedCommand;
 import com.stuypulse.frc.robot.commands.ShooterShootCommand;
+import com.stuypulse.frc.robot.commands.autons.DoNothingAutonCommand;
 import com.stuypulse.frc.robot.subsystems.Climber;
 import com.stuypulse.frc.robot.subsystems.Conveyor;
 import com.stuypulse.frc.robot.subsystems.Drivetrain;
@@ -49,6 +50,8 @@ public class RobotContainer {
   private final Indexer indexer = new Indexer();
   private final Intake intake = new Intake();
   private final Shooter shooter = new Shooter();
+
+  private final Command doNothingAutonCommand = new DoNothingAutonCommand();
 
   private final PS4 driver = new PS4(Ports.Gamepad.DRIVER);
   private final Logitech.XMode operator = new Logitech.XMode(Ports.Gamepad.OPERATOR);
@@ -90,6 +93,30 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return m_autoCommand;
+    return doNothingAutonCommand;
+  }
+
+  public Drivetrain getDrivetrain() {
+    return drivetrain;
+  }
+
+  public Climber getClimber() {
+    return climber;
+  }
+
+  public Conveyor getConveyor() {
+    return conveyor;
+  }
+
+  public Indexer getIndexer() {
+    return indexer;
+  }
+
+  public Intake getIntake() {
+    return intake;
+  }
+
+  public Shooter getShooter() {
+    return shooter;
   }
 }
