@@ -53,6 +53,13 @@ public interface Constants {
             int INDEXER_MOTOR = -1;
         }
 
+        public interface Shooter {
+            int LEFT_FEEDER = -1;
+            int RIGHT_FEEDER = -1;
+            int LEFT_SHOOTER = -1;
+            int RIGHT_SHOOTER = -1;
+        }
+
         public interface Gamepad{
             int DRIVER = -1;
             int OPERATOR = -1;
