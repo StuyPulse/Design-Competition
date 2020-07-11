@@ -7,6 +7,7 @@
 
 package com.stuypulse.frc.robot;
 
+import com.stuypulse.frc.robot.Constants.Ports.Gamepad;
 import com.stuypulse.frc.robot.commands.ClimberClimbCommand;
 import com.stuypulse.frc.robot.commands.ConveyorConveyCommand;
 import com.stuypulse.frc.robot.commands.DrivetrainHighGearCommand;
@@ -39,6 +40,8 @@ public class RobotContainer {
   private final Drivetrain drivetrain = new Drivetrain();
   private final Indexer indexer = new Indexer();
   private final Intake intake = new Intake();
+
+  private XboxController xboxController = new XboxController(Gamepad.DRIVER);
   //commands (formated as: private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);)
   private final ClimberClimbCommand climberClimbCommand = new ClimberClimbCommand(climber);
   private final ConveyorConveyCommand ConveyorConveyCommand = new ConveyorConveyCommand(conveyor);
