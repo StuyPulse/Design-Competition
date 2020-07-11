@@ -16,6 +16,10 @@ public class IntakeAcquireCommand extends CommandBase {
         intake.acquire();
     }
 
+    public boolean isFinished() {
+        return intake.isBallDetected();
+    }
+
     public void end(boolean interrupted) {
         intake.stop();
     }

@@ -17,14 +17,16 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.stuypulse.frc.robot.Constants.Ports;
 
 public class Intake extends SubsystemBase {
-  private DoubleSolenoid piston;
+  private DoubleSolenoid leftPiston;
+  private DoubleSolenoid rightPiston;
   private CANSparkMax motor;
-  private DigitalInput button1;
+  private DigitalInput button;
 
   public Intake() {
-    piston = new DoubleSolenoid(Ports.Intake.INTAKE_SOLENOID_FIRST_CHANNEL,Ports.Intake.INTAKE_SOLENOID_SECOND_CHANNEL);
+    leftPiston = new DoubleSolenoid(Ports.Intake.LEFT_INTAKE_SOLENOID_A,Ports.Intake.LEFT_INTAKE_SOLENOID_B);
+    rightPiston = new DoubleSolenoid(Ports.Intake.RIGHT_INTAKE_SOLENOID_A,Ports.Intake.RIGHT_INTAKE_SOLENOID_B);
     motor = new CANSparkMax(Ports.Intake.INTAKE_BUTTON, MotorType.kBrushless);
-    button1 = new DigitalInput(Ports.Intake.INTAKE_BUTTON);
+    button = new DigitalInput(Ports.Intake.INTAKE_BUTTON);
   }
   
   public void acquire() {
@@ -40,15 +42,17 @@ public class Intake extends SubsystemBase {
 
   }
   public void extend() {
-    piston.set(Value.kForward);
+    leftPiston.set(Value.kForward);
+    rightPiston.set(Value.kForward);
   }
 
   public void retract() {
-    piston.set(Value.kReverse);
+    leftPiston.set(Value.kReverse);
+    rightPiston.set(Value.kReverse);
   }
 
   public boolean isBallDetected() {
-    return button1.get();
+    return button.get();
   }
   @Override
   public void periodic() {

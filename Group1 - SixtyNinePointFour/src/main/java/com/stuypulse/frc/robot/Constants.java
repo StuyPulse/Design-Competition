@@ -28,12 +28,16 @@ public interface Constants {
             int DRIVETRAIN_BOTTOM_LEFT_MOTOR = -1;
             int DRIVETRAIN_BOTTOM_RIGHT_MOTOR = -1;
 
-            int GEAR_SHIFT = 0;
+            int LEFT_GEAR_SHIFT = -1;
+            int RIGHT_GEAR_SHIFT = -1;
         }
 
         public interface Intake {
-            int INTAKE_SOLENOID_FIRST_CHANNEL = -1;
-            int INTAKE_SOLENOID_SECOND_CHANNEL = -1;
+            int LEFT_INTAKE_SOLENOID_A = -1;
+            int LEFT_INTAKE_SOLENOID_B = -1;
+
+            int RIGHT_INTAKE_SOLENOID_A = -1;
+            int RIGHT_INTAKE_SOLENOID_B = -1;
 
             int INTAKE_MOTOR = -1;
 

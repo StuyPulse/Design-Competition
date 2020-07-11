@@ -46,4 +46,5 @@ After fixing any merge conflicts, make a pull request and let Renee or Sam know.
 - Indexer
     - 1 spark
 - Shooter
-    - ?????
+    - 2 sparks to shoot
+    - 2 sparks to feed

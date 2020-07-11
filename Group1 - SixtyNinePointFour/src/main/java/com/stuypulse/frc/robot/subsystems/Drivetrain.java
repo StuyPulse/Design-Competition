@@ -33,7 +33,8 @@ public class Drivetrain extends SubsystemBase {
   private CANEncoder rightEncoder;
 
   private Gear gear;
-  private Solenoid gearShift;
+  private Solenoid leftGearShift;
+  private Solenoid rightGearShift;
   private DifferentialDrive highGearDrive;
   private DifferentialDrive lowGearDrive;
 
@@ -65,7 +66,8 @@ public class Drivetrain extends SubsystemBase {
     leftEncoder.setPosition(0);
     rightEncoder.setPosition(0);
 
-    gearShift = new Solenoid(Ports.Drivetrain.GEAR_SHIFT);
+    leftGearShift = new Solenoid(Ports.Drivetrain.LEFT_GEAR_SHIFT);
+    rightGearShift = new Solenoid(Ports.Drivetrain.RIGHT_GEAR_SHIFT);
   }
   
   public Gear getGear() {
@@ -75,14 +77,16 @@ public class Drivetrain extends SubsystemBase {
   public void setLowGear() {
     if (gear != Gear.LOW) {
       gear = Gear.LOW;
-      gearShift.set(false);
+      leftGearShift.set(false);
+      rightGearShift.set(false);
     }
   }
 
   public void setHighGear() {
     if (gear != Gear.HIGH) {
       gear = Gear.HIGH;
-      gearShift.set(true);
+      leftGearShift.set(true);
+      rightGearShift.set(true);
     }
   }
 
