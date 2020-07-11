@@ -7,6 +7,7 @@
 
 package com.stuypulse.frc.robot;
 
+import com.stuypulse.frc.robot.Constants.Ports;
 import com.stuypulse.frc.robot.commands.ClimberClimbDownCommand;
 import com.stuypulse.frc.robot.commands.ClimberClimbUpCommand;
 import com.stuypulse.frc.robot.commands.FeederFeedCommand;
@@ -20,9 +21,11 @@ import com.stuypulse.frc.robot.commands.ShooterStopCommand;
 import com.stuypulse.frc.robot.subsystems.Climber;
 import com.stuypulse.frc.robot.subsystems.Intake;
 import com.stuypulse.frc.robot.subsystems.Shooter;
+import com.stuypulse.stuylib.input.gamepads.PS4;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
 
 /**
@@ -51,6 +54,10 @@ public class RobotContainer {
   private final ShooterShootCommand shooterShootCommand = new ShooterShootCommand(shooter);
   private final ShooterStopCommand ShooterStopCommand = new ShooterStopCommand(shooter);
 
+  private final PS4 driver = new PS4(Ports.Gamepad.DRIVER_PORT);
+  private final PS4 operator = new PS4(Ports.Gamepad.OPERATOR_PORT);
+  private static SendableChooser<Command> autonChooser = new SendableChooser<>();
+
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
    */
@@ -76,6 +83,7 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return m_autoCommand;
+    return autonChooser.getSelected();
   }
+
 }

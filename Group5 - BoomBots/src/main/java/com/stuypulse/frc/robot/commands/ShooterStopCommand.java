@@ -2,9 +2,9 @@ package com.stuypulse.frc.robot.commands;
 
 import com.stuypulse.frc.robot.subsystems.Shooter;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 
-public class ShooterStopCommand extends CommandBase {
+public class ShooterStopCommand extends InstantCommand {
 
     private final Shooter shooter;
 

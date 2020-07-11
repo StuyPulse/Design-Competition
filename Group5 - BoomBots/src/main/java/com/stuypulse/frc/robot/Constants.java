@@ -44,6 +44,13 @@ public interface Constants {
             double CLIMBER_LIFT_UP_SPEED = 1.0;
             double CLIMBER_LIFT_DOWN_SPEED = -1.0;
         }
+
+        public interface Gamepad {
+            int DRIVER_PORT = 0;
+            int OPERATOR_PORT = 1;
+        }
+        
     }
+
 }
 
