@@ -7,10 +7,8 @@
 
 package com.stuypulse.frc.robot;
 
-import com.stuypulse.frc.robot.Constants.Ports;
 import com.stuypulse.frc.robot.commands.ClimberClimbCommand;
 import com.stuypulse.frc.robot.commands.ConveyorConveyCommand;
-import com.stuypulse.frc.robot.commands.DrivetrainDriveCommand;
 import com.stuypulse.frc.robot.commands.DrivetrainHighGearCommand;
 import com.stuypulse.frc.robot.commands.DrivetrainLowGearCommand;
 import com.stuypulse.frc.robot.commands.IndexerRotateCommand;
@@ -23,9 +21,6 @@ import com.stuypulse.frc.robot.subsystems.Conveyor;
 import com.stuypulse.frc.robot.subsystems.Drivetrain;
 import com.stuypulse.frc.robot.subsystems.Indexer;
 import com.stuypulse.frc.robot.subsystems.Intake;
-import com.stuypulse.stuylib.input.WPIGamepad;
-import com.stuypulse.stuylib.input.gamepads.Logitech;
-import com.stuypulse.stuylib.input.gamepads.PS4;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
@@ -44,16 +39,21 @@ public class RobotContainer {
   private final Drivetrain drivetrain = new Drivetrain();
   private final Indexer indexer = new Indexer();
   private final Intake intake = new Intake();
-
-  private final PS4 driver = new PS4(Ports.Gamepad.DRIVER);
-  private final Logitech.XMode operator = new Logitech.XMode(Ports.Gamepad.OPERATOR);
+  //commands (formated as: private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);)
+  private final ClimberClimbCommand climberClimbCommand = new ClimberClimbCommand(climber);
+  private final ConveyorConveyCommand ConveyorConveyCommand = new ConveyorConveyCommand(conveyor);
+  private final DrivetrainHighGearCommand drivetrainHighGearCommand = new DrivetrainHighGearCommand(drivetrain);
+  private final DrivetrainLowGearCommand drivetrainLowGearCommand = new DrivetrainLowGearCommand(drivetrain);
+  private final IndexerRotateCommand indexerRotateCommand = new IndexerRotateCommand(indexer);
+  private final IntakeAcquireCommand intakeAcquireCommand = new IntakeAcquireCommand(intake);
+  private final IntakeDeacquireCommand intakeDeacquireCommand = new IntakeDeacquireCommand(intake);
+  private final IntakeExtendCommand intakeExtendCommand = new IntakeExtendCommand(intake);
+  private final IntakeRetractCommand intakeRetractCommand = new IntakeRetractCommand(intake);
 
   /**
-   * The container for the robot. Contains subsystems, OI devices, and commands.
+   * The container for the robot.  Contains subsystems, OI devices, and commands.
    */
   public RobotContainer() {
-    drivetrain.setDefaultCommand(new DrivetrainDriveCommand(drivetrain, driver));
-
     // Configure the button bindings
     configureButtonBindings();
   }
@@ -65,13 +65,6 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    driver.getTopButton().whenPressed(new DrivetrainHighGearCommand(drivetrain));
-    driver.getBottomButton().whenPressed(new DrivetrainLowGearCommand(drivetrain));
-
-    operator.getTopButton().whenPressed(new ClimberClimbCommand(climber));
-    operator.getLeftButton().toggleWhenPressed(new ConveyorConveyCommand(conveyor));
-    operator.getRightButton().whileHeld(new IntakeAcquireCommand(intake));
-    operator.getBottomButton().whileHeld(new IntakeDeacquireCommand(intake));
   }
 
 
@@ -80,8 +73,23 @@ public class RobotContainer {
    *
    * @return the command to run in autonomous
    */
-  public Command getAutonomousCommand() {
+  public Command DoNothing() {
     // An ExampleCommand will run in autonomous
-    return m_autoCommand;
+    return DoNothing();
+  }
+  public Drivetrain getDrivetrain() {
+    return drivetrain;
+  }
+  public Climber getClimber() {
+    return climber;
+  }
+  public Intake getIntake() {
+    return intake;
+  }
+  public Conveyor getConveyor() {
+    return conveyor;
+  }
+  public Indexer getIndexer() {
+    return indexer;
   }
 }
