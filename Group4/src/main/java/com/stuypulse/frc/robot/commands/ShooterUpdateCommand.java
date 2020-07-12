@@ -4,15 +4,21 @@ import com.stuypulse.frc.robot.subsystems.Shooter;
 
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 
+/**
+ * Sets the target RPM of the shooter.
+ */
 public class ShooterUpdateCommand extends InstantCommand {
 
     private final double goalRPM;
 
-    private final Shooter shooter;
+    protected final Shooter shooter;
 
     public ShooterUpdateCommand(Shooter shooter, double rpm) {
-        goalRPM = rpm;
         this.shooter = shooter;
+
+        goalRPM = rpm;
+
+        addRequirements(shooter);
     }
 
     @Override
