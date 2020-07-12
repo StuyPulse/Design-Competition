@@ -1,6 +1,7 @@
 package com.stuypulse.frc.robot.commands;
 
-import com.stuypulse.frc.robot.Constants.kDrivetrain;
+import static com.stuypulse.frc.robot.Constants.kDrivetrain.DriveCommand.*;
+import static com.stuypulse.frc.robot.Constants.kDrivetrain.Gears.*;
 import com.stuypulse.frc.robot.subsystems.Drivetrain;
 import com.stuypulse.frc.robot.util.FilteredVStream;
 import com.stuypulse.frc.robot.util.GearController;
@@ -43,19 +44,18 @@ public final class DrivetrainDriveCommand extends DrivetrainCommand {
 
         gearController = new GearSwitch(
             drivetrain,
-            kDrivetrain.Gears.LOW_GEAR_THRESHOLD,
-            kDrivetrain.Gears.HIGH_GEAR_THRESHOLD,
-            new LowPassFilter(kDrivetrain.Gears.ROC_FILTER)
+            LOW_GEAR_THRESHOLD,
+            HIGH_GEAR_THRESHOLD,
+            new LowPassFilter(ROC_FILTER)
         );
 
-        // use overloaded constructor with IFilterGroup in order to add more filters
         inputStream = new FilteredVStream(
 
             () -> gamepad.getLeftStick(),
 
-            new LowPassFilter(kDrivetrain.DriveCommand.SPEED_FILTER),
+            new LowPassFilter(SPEED_FILTER),
 
-            new LowPassFilter(kDrivetrain.DriveCommand.ANGLE_FILTER)
+            new LowPassFilter(ANGLE_FILTER)
 
         );
     }

@@ -10,6 +10,8 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
  * <p>
  * This is the base class for drivetrain commands.
  * </p>
+ * 
+ * Subclasses must define a direction for the drivetrain's arcade drive.
  */
 public abstract class DrivetrainCommand extends CommandBase {
 

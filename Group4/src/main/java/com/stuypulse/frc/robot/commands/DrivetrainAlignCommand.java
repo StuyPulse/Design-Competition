@@ -2,12 +2,18 @@ package com.stuypulse.frc.robot.commands;
 
 import com.stuypulse.stuylib.streams.filters.*;
 
+import static com.stuypulse.frc.robot.Constants.kDrivetrain.AlignCommand.*;
+
 import com.stuypulse.frc.robot.subsystems.Drivetrain;
 import com.stuypulse.frc.robot.util.GearController.Gear;
 import com.stuypulse.stuylib.math.*;
 
 import com.stuypulse.stuylib.control.*;
 
+/**
+ * Command in which rather than defining the direction of the robot, errors are
+ * defined and a controller is used to get the drivetrain to that point.
+ */
 public abstract class DrivetrainAlignCommand extends DrivetrainCommand {
 
     private final Controller speedController, angleController;
@@ -19,12 +25,12 @@ public abstract class DrivetrainAlignCommand extends DrivetrainCommand {
         super(drivetrain);
 
         // create constants
-        speedController = new PIDController(0, 0, 0);
-        angleController = new PIDController(0, 0, 0);
+        speedController = new PIDController(SPEED_P, SPEED_I, SPEED_D);
+        angleController = new PIDController(ANGLE_P, ANGLE_I, ANGLE_D);
 
         // create constants
-        speedController.setOutputFilter(new LowPassFilter(1));
-        angleController.setOutputFilter(new LowPassFilter(1));
+        speedController.setOutputFilter(new LowPassFilter(SPEED_PID_FILTER));
+        angleController.setOutputFilter(new LowPassFilter(ANGLE_PID_FILTER));
 
         targetAngle = Angle.fromDegrees(0);
         targetSpeed = 0.0;
@@ -32,9 +38,10 @@ public abstract class DrivetrainAlignCommand extends DrivetrainCommand {
 
     /**
      * <p>
-     * Everytime this command is called, initialize will be run. Target angle and speed are the
-     * setpoints that will be determined when the command is started by taking the
-     * getError functions and adding it to the drivetrain's current speed and angle.
+     * Everytime this command is called, initialize will be run. Target angle and
+     * speed are the setpoints that will be determined when the command is started
+     * by taking the getError functions and adding it to the drivetrain's current
+     * speed and angle.
      * </p>
      *
      * ...
@@ -46,10 +53,8 @@ public abstract class DrivetrainAlignCommand extends DrivetrainCommand {
     }
 
     public Vector2D getDirection() {
-        return new Vector2D(
-            speedController.update(targetSpeed - drivetrain.getDistance()),
-            angleController.update(targetAngle.sub(drivetrain.getAngle()).toDegrees())
-        );
+        return new Vector2D(speedController.update(targetSpeed - drivetrain.getDistance()),
+                angleController.update(targetAngle.sub(drivetrain.getAngle()).toDegrees()));
     }
 
     public abstract double getSpeedError();
@@ -59,7 +64,8 @@ public abstract class DrivetrainAlignCommand extends DrivetrainCommand {
     @Override
     public boolean isFinished() {
         // needs to be constants
-        return speedController.isDone(0, 0) && angleController.isDone(0, 0);
+        return speedController.isDone(ANGLE_MAX_VELOCITY, SPEED_MAX_VELOCITY)
+                && angleController.isDone(ANGLE_MAX_ERROR, ANGLE_MAX_VELOCITY);
     }
 
     @Override
