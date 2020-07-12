@@ -12,7 +12,7 @@ import com.revrobotics.CANEncoder;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMax.IdleMode;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-import com.stuypulse.frc.robot.Constants.kDrivetrain;
+import static com.stuypulse.frc.robot.Constants.kDrivetrain.*;
 import com.stuypulse.frc.robot.util.GearController.Gear;
 import com.stuypulse.stuylib.math.Angle;
 import com.stuypulse.stuylib.math.Vector2D;
@@ -84,13 +84,13 @@ public class Drivetrain extends SubsystemBase {
      */
     public Drivetrain() {
 
-        lMotorFront = new CANSparkMax(kDrivetrain.Ports.LEFT_FRONT, MotorType.kBrushless);
-        lMotorBack = new CANSparkMax(kDrivetrain.Ports.LEFT_BACK, MotorType.kBrushless);
-        lMotorMid = new CANSparkMax(kDrivetrain.Ports.LEFT_MID, MotorType.kBrushless);
+        lMotorFront = new CANSparkMax(Ports.LEFT_FRONT, MotorType.kBrushless);
+        lMotorBack = new CANSparkMax(Ports.LEFT_BACK, MotorType.kBrushless);
+        lMotorMid = new CANSparkMax(Ports.LEFT_MID, MotorType.kBrushless);
 
-        rMotorFront = new CANSparkMax(kDrivetrain.Ports.RIGHT_BACK, MotorType.kBrushless);
-        rMotorBack = new CANSparkMax(kDrivetrain.Ports.RIGHT_FRONT, MotorType.kBrushless);
-        rMotorMid = new CANSparkMax(kDrivetrain.Ports.RIGHT_MID, MotorType.kBrushless);
+        rMotorFront = new CANSparkMax(Ports.RIGHT_BACK, MotorType.kBrushless);
+        rMotorBack = new CANSparkMax(Ports.RIGHT_FRONT, MotorType.kBrushless);
+        rMotorMid = new CANSparkMax(Ports.RIGHT_MID, MotorType.kBrushless);
 
         lControllers = new SpeedControllerGroup(lMotorFront, lMotorMid, lMotorBack);
         rControllers = new SpeedControllerGroup(rMotorFront, rMotorMid, rMotorBack);
@@ -100,7 +100,7 @@ public class Drivetrain extends SubsystemBase {
         rEncoder = rMotorBack.getEncoder();
         lEncoder = rMotorBack.getEncoder();
 
-        gearShift = new DoubleSolenoid(kDrivetrain.Ports.SOLENOID_A, kDrivetrain.Ports.SOLENOID_B);
+        gearShift = new DoubleSolenoid(Ports.SOLENOID_A, Ports.SOLENOID_B);
 
         // DO MOTOR/SOLENOID/GYRO/ENCODER SETUP HERE
 
@@ -117,7 +117,7 @@ public class Drivetrain extends SubsystemBase {
         lMotorMid.setIdleMode(IdleMode.kBrake);
         rMotorMid.setIdleMode(IdleMode.kBrake);
 
-        setEncoderFactor(kDrivetrain.Encoders.NEO_FACTOR_TO_FEET);
+        setEncoderFactor(Encoders.NEO_FACTOR_TO_FEET);
 
     }
 
@@ -226,15 +226,15 @@ public class Drivetrain extends SubsystemBase {
      * multiplied by a yield constant. Each encoder value is multiplied by a yield
      * constant.
      *
-     * @see {@link com.stuypulse.frc.robot.Constants.kDrivetrain.Encoders}
+     * @see {@link com.stuypulse.frc.robot.Constants.Encoders}
      * @return approximate distance
      */
     public double getDistance() {
-        double lDistance = lEncoder.getPosition() * kDrivetrain.Encoders.NEO_LEFT_YIELD;
-        double rDistance = rEncoder.getPosition() * kDrivetrain.Encoders.NEO_RIGHT_YIELD;
+        double lDistance = lEncoder.getPosition() * Encoders.NEO_LEFT_YIELD;
+        double rDistance = rEncoder.getPosition() * Encoders.NEO_RIGHT_YIELD;
 
-        return ((lDistance + rDistance)/2) * kDrivetrain.Encoders.NEO_YIELD;
-        // return Math.max(Math.abs(lDistance), Math.abs(rDistance)) * kDrivetrain.Encoders.NEO_YIELD;
+        return ((lDistance + rDistance)/2) * Encoders.NEO_YIELD;
+        // return Math.max(Math.abs(lDistance), Math.abs(rDistance)) * Encoders.NEO_YIELD;
     }
 
     /**
