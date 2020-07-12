@@ -106,45 +106,99 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </tr>
 <tbody>
 <tr class="altColor">
-<th class="colFirst" scope="row"><a href="ControlPanelSpinCommand.html" title="class in com.stuypulse.frc.robot.commands">ControlPanelSpinCommand</a></th>
-<td class="colLast">&nbsp;</td>
+<th class="colFirst" scope="row"><a href="ControlPanelControlCommand.html" title="class in com.stuypulse.frc.robot.commands">ControlPanelControlCommand</a></th>
+<td class="colLast">
+<div class="block">Command that allows the gamepad to control the ControlPanel by using the
+ gamepad's stick rotation.</div>
+</td>
 </tr>
 <tr class="rowColor">
-<th class="colFirst" scope="row"><a href="ControlPanelStopCommand.html" title="class in com.stuypulse.frc.robot.commands">ControlPanelStopCommand</a></th>
-<td class="colLast">&nbsp;</td>
+<th class="colFirst" scope="row"><a href="ControlPanelRotateCommand.html" title="class in com.stuypulse.frc.robot.commands">ControlPanelRotateCommand</a></th>
+<td class="colLast">
+<div class="block">Command that allows the ControlPanel to rotate a certain number of times
+ (assuming the encoder is set to return rotations) by tuning error.</div>
+</td>
 </tr>
 <tr class="altColor">
-<th class="colFirst" scope="row"><a href="DrivetrainAlignCommand.html" title="class in com.stuypulse.frc.robot.commands">DrivetrainAlignCommand</a></th>
-<td class="colLast">&nbsp;</td>
+<th class="colFirst" scope="row"><a href="ControlPanelStopCommand.html" title="class in com.stuypulse.frc.robot.commands">ControlPanelStopCommand</a></th>
+<td class="colLast">
+<div class="block">Stop the control panel.</div>
+</td>
 </tr>
 <tr class="rowColor">
+<th class="colFirst" scope="row"><a href="DrivetrainAlignCommand.html" title="class in com.stuypulse.frc.robot.commands">DrivetrainAlignCommand</a></th>
+<td class="colLast">
+<div class="block">Command in which rather than defining the direction of the robot, errors are
+ defined and a controller is used to get the drivetrain to that point.</div>
+</td>
+</tr>
+<tr class="altColor">
 <th class="colFirst" scope="row"><a href="DrivetrainCommand.html" title="class in com.stuypulse.frc.robot.commands">DrivetrainCommand</a></th>
 <td class="colLast">
 <div class="block">
  This is the base class for drivetrain commands.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <th class="colFirst" scope="row"><a href="DrivetrainDriveCommand.html" title="class in com.stuypulse.frc.robot.commands">DrivetrainDriveCommand</a></th>
 <td class="colLast">
 <div class="block">Controls the drivetrain with the gamepad with filtering.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <th class="colFirst" scope="row"><a href="DrivetrainGoalCommand.html" title="class in com.stuypulse.frc.robot.commands">DrivetrainGoalCommand</a></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Drivetrain command to align with the goal.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="IntakeAcquireCommand.html" title="class in com.stuypulse.frc.robot.commands">IntakeAcquireCommand</a></th>
+<td class="colLast">
+<div class="block">Instant command that sets the intake to acquire.</div>
+</td>
 </tr>
 <tr class="altColor">
-<th class="colFirst" scope="row"><a href="IntakeAcquireCommand.html" title="class in com.stuypulse.frc.robot.commands">IntakeAcquireCommand</a></th>
-<td class="colLast">&nbsp;</td>
+<th class="colFirst" scope="row"><a href="IntakeAcquireWhileCommand.html" title="class in com.stuypulse.frc.robot.commands">IntakeAcquireWhileCommand</a></th>
+<td class="colLast">
+<div class="block">Intake command to acquire and then stop (presumably used with a gamepad)</div>
+</td>
 </tr>
 <tr class="rowColor">
-<th class="colFirst" scope="row"><a href="ShooterControlCommand.html" title="class in com.stuypulse.frc.robot.commands">ShooterControlCommand</a></th>
-<td class="colLast">&nbsp;</td>
+<th class="colFirst" scope="row"><a href="IntakeDeacquireCommand.html" title="class in com.stuypulse.frc.robot.commands">IntakeDeacquireCommand</a></th>
+<td class="colLast">
+<div class="block">Instant command that sets the intake to acquire.</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="IntakeDeacquireWhileCommand.html" title="class in com.stuypulse.frc.robot.commands">IntakeDeacquireWhileCommand</a></th>
+<td class="colLast">
+<div class="block">Intake command to deacquire and then stop (presumably used with a gamepad)</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="IntakeStopCommand.html" title="class in com.stuypulse.frc.robot.commands">IntakeStopCommand</a></th>
+<td class="colLast">
+<div class="block">Instant command to stop the intake</div>
+</td>
+</tr>
+<tr class="altColor">
+<th class="colFirst" scope="row"><a href="ShooterStopCommand.html" title="class in com.stuypulse.frc.robot.commands">ShooterStopCommand</a></th>
+<td class="colLast">
+<div class="block">Sets the target RPM to 0 and stops the motors.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colFirst" scope="row"><a href="ShooterTuneCommand.html" title="class in com.stuypulse.frc.robot.commands">ShooterTuneCommand</a></th>
+<td class="colLast">
+<div class="block">Uses PID tuning to set the motors of the shooter (and feeder) to a target
+ RPM.</div>
+</td>
 </tr>
 <tr class="altColor">
 <th class="colFirst" scope="row"><a href="ShooterUpdateCommand.html" title="class in com.stuypulse.frc.robot.commands">ShooterUpdateCommand</a></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Sets the target RPM of the shooter.</div>
+</td>
 </tr>
 </tbody>
 </table>

@@ -151,6 +151,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public abstract class <span class="typeNameLabel">DrivetrainAlignCommand</span>
 extends <a href="DrivetrainCommand.html" title="class in com.stuypulse.frc.robot.commands">DrivetrainCommand</a></pre>
+<div class="block">Command in which rather than defining the direction of the robot, errors are
+ defined and a controller is used to get the drivetrain to that point.</div>
 </li>
 </ul>
 </div>
@@ -333,9 +335,10 @@ extends <a href="DrivetrainCommand.html" title="class in com.stuypulse.frc.robot
 <h4>initialize</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;initialize()</pre>
 <div class="block"><p>
- Everytime this command is called, initialize will be run. Target angle and speed are the
- setpoints that will be determined when the command is started by taking the
- getError functions and adding it to the drivetrain's current speed and angle.
+ Everytime this command is called, initialize will be run. Target angle and
+ speed are the setpoints that will be determined when the command is started
+ by taking the getError functions and adding it to the drivetrain's current
+ speed and angle.
  </p>
 
  ...</div>
