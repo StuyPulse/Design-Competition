@@ -7,13 +7,6 @@
 
 package com.stuypulse.frc.robot.commands.autons;
 
-import com.stuypulse.frc.robot.commands.ConveyorConveyCommand;
-import com.stuypulse.frc.robot.commands.DrivetrainMovementCommand;
-import com.stuypulse.frc.robot.commands.DrivetrainTurnCommand;
-import com.stuypulse.frc.robot.commands.IntakeAcquireCommand;
-import com.stuypulse.frc.robot.commands.IntakeExtendCommand;
-import com.stuypulse.frc.robot.commands.ShooterFeedCommand;
-import com.stuypulse.frc.robot.commands.ShooterShootCommand;
 import com.stuypulse.frc.robot.subsystems.Conveyor;
 import com.stuypulse.frc.robot.subsystems.Drivetrain;
 import com.stuypulse.frc.robot.subsystems.Intake;
@@ -24,25 +17,24 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/latest/docs/software/commandbased/convenience-features.html
-public class SixBallTrenchAutonCommand extends SequentialCommandGroup {
-  private final double DegreesTowardTrench = 135;
-  private final double DistanceTowardTrench = 110;
-  private final double DegreesTowardBalls = 45;
-  private final double DistanceTowardBalls = 30 + 36.5*2;
-  private final double DistanceTowardGoal = 180;
-  public SixBallTrenchAutonCommand(Drivetrain drivetrain, Shooter shooter, Intake intake, Conveyor conveyor) {
+public class FiveBallControlPanelAutonCommand extends SequentialCommandGroup {
+  private final double DegreesTowardControlPanel = -135;
+  private final double DistanceTowardControlPanel = 150;
+  private final double DegreesTowardBalls = -45;
+  private final double DistanceTowardBalls = 60;
+  private final double DegreesTowardGoal = 180;
+  public FiveBallControlPanelAutonCommand(Drivetrain drivetrain, Intake intake, Conveyor conveyor, Shooter shooter) {
     addCommands(
-      DrivetrainTurnCommand(drivetrain, DegreesTowardTrench),
-      DrivetrainMovementCommand(drivetrain, DistanceTowardTrench),
+      DrivetrainTurnCommand(drivetrain, DegreesTowardControlPanel),
+      DrivetrainMovementCommand(drivetrain, DistanceTowardControlPanel),
       DrivetrainTurnCommand(drivetrain, DegreesTowardBalls),
       IntakeExtendCommand(intake),
       IntakeAcquireCommand(intake),
       DrivetrainMovementCommand(drivetrain, DistanceTowardBalls),
-      DrivetrainTurnCommand(drivetrain,DistanceTowardGoal),
+      DrivetrainTurnCommand(drivetrain, DegreesTowardGoal),
       ConveyorConveyCommand(conveyor),
       ShooterFeedCommand(shooter),
       ShooterShootCommand(shooter)
     );
-
   }
 }

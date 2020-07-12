@@ -20,13 +20,15 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 // information, see:
 // https://docs.wpilib.org/en/latest/docs/software/commandbased/convenience-features.html
 public class ThreeBallDriveTowardTrenchAutonCommand extends SequentialCommandGroup {
-
+  private final double DegreesTowardTrench = 135;
+  private final double DistanceTowardsTrench = 110;
+  private final double DegreesTowardBalls = 45;
   public ThreeBallDriveTowardTrenchAutonCommand(Shooter shooter, Drivetrain drivetrain) {
     addCommands(
       ShooterShootCommand(shooter),
-      DrivetrainTurnCommand(drivetrain, 135),
-      DrivetrainMovementCommand(drivetrain, 110),
-      DrivetrainTurnCommand(drivetrain, 45)
+      DrivetrainTurnCommand(drivetrain, DegreesTowardTrench),
+      DrivetrainMovementCommand(drivetrain, DistanceTowardsTrench),
+      DrivetrainTurnCommand(drivetrain, DegreesTowardBalls)
     );
   }
 }
