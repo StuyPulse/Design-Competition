@@ -58,6 +58,26 @@ public interface Constants {
             double SPEED_FILTER = 1;
         }
 
+        interface AlignCommand {
+            double SPEED_P = 1;
+            double SPEED_I = 1;
+            double SPEED_D = 1;
+
+            double SPEED_PID_FILTER = 1;
+
+            double ANGLE_P = 1;
+            double ANGLE_I = 1;
+            double ANGLE_D = 1;
+
+            double ANGLE_PID_FILTER = 1;
+
+            double SPEED_MAX_VELOCITY = 1;
+            double SPEED_MAX_ERROR = 1;
+
+            double ANGLE_MAX_VELOCITY = 1;
+            double ANGLE_MAX_ERROR = 1;
+        }
+
         interface GoalCommand {
             double GOAL_HEIGHT = 10;
             double MAX_DISTANCE = 100;
@@ -84,6 +104,16 @@ public interface Constants {
 
             int FEEDER_MOTOR = 1;
         }
+
+        interface TuneCommand {
+            double SHOOTER_P = 1;
+            double SHOOTER_I = 1;
+            double SHOOTER_D = 1;
+
+            double FEEDER_P = 1;
+            double FEEDER_I = 1;
+            double FEEDER_D = 1;
+        }
     }
 
     public interface kControlPanel {
@@ -92,6 +122,21 @@ public interface Constants {
         }
 
         double SPIN_SPEED = 1;
+        double NEO_FACTOR_TO_ROTATIONS = 1;
+
+        interface ControlCommand {
+            double MIN_FORCE = 0.1;
+        }
+
+        interface RotateCommand {
+            double ROT_P = 1;
+            double ROT_I = 1;
+            double ROT_D = 1;
+
+            double ROT_MAX_VELOCITY = 1;
+            double ROT_MAX_ERROR = 1;
+        }
+
     }
 
     public interface kLEDController {
@@ -105,6 +150,16 @@ public interface Constants {
 
         double BLACK = 0.99;
         double WHITE = 0.93;
+    }
+
+    public interface kClimber {
+        interface Ports {
+            int MOTOR_A = -1;
+            // int MOTOR_B = -1;
+        }
+
+        double UP_SPEED = 1;
+        double DOWN_SPEED = -1;
     }
 
 }
