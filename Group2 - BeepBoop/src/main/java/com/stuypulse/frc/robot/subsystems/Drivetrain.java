@@ -38,13 +38,13 @@ public class Drivetrain extends SubsystemBase {
     private Solenoid gearShift;
  
     public Drivetrain() {
-        leftFrontMotor = new CANSparkMax(Constants.Ports.Drivetrain.LEFT_FRONT_MOTOR, MotorType.kBrushless);
-        leftMidMotor = new CANSparkMax(Constants.Ports.Drivetrain.LEFT_MID_MOTOR, MotorType.kBrushless);
-        leftBackMotor = new CANSparkMax(Constants.Ports.Drivetrain.LEFT_BACK_MOTOR, MotorType.kBrushless);
+        leftFrontMotor = new CANSparkMax(Constants.Drivetrain.LEFT_FRONT_MOTOR_PORT, MotorType.kBrushless);
+        leftMidMotor = new CANSparkMax(Constants.Drivetrain.LEFT_MID_MOTOR_PORT, MotorType.kBrushless);
+        leftBackMotor = new CANSparkMax(Constants.Drivetrain.LEFT_BACK_MOTOR_PORT, MotorType.kBrushless);
 
-        rightFrontMotor = new CANSparkMax(Constants.Ports.Drivetrain.RIGHT_FRONT_MOTOR, MotorType.kBrushless);
-        rightMidMotor = new CANSparkMax(Constants.Ports.Drivetrain.RIGHT_MID_MOTOR, MotorType.kBrushless);
-        rightBackMotor = new CANSparkMax(Constants.Ports.Drivetrain.RIGHT_BACK_MOTOR, MotorType.kBrushless);
+        rightFrontMotor = new CANSparkMax(Constants.Drivetrain.RIGHT_FRONT_MOTOR_PORT, MotorType.kBrushless);
+        rightMidMotor = new CANSparkMax(Constants.Drivetrain.RIGHT_MID_MOTOR_PORT, MotorType.kBrushless);
+        rightBackMotor = new CANSparkMax(Constants.Drivetrain.RIGHT_BACK_MOTOR_PORT, MotorType.kBrushless);
 
         leftMotors = new SpeedControllerGroup(leftFrontMotor, leftMidMotor, leftBackMotor);
         rightMotors = new SpeedControllerGroup(rightFrontMotor, rightMidMotor, rightBackMotor); 
@@ -56,7 +56,7 @@ public class Drivetrain extends SubsystemBase {
         
         gyro = new AHRS(SPI.Port.kMXP);
 
-        gearShift = new Solenoid(Constants.Ports.Drivetrain.GEAR_SHIFT_SOLENOID);
+        gearShift = new Solenoid(Constants.Drivetrain.GEAR_SHIFT_SOLENOID_CHANNEL);
     }
 
     public void tankDrive(double left, double right) {

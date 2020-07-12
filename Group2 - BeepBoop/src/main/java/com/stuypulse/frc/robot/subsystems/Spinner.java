@@ -12,7 +12,7 @@ public class Spinner extends SubsystemBase {
     private CANEncoder neoEncoder;
 
     public Spinner() {
-        motor = new CANSparkMax(Constants.Ports.Spinner.MOTOR, MotorType.kBrushless);
+        motor = new CANSparkMax(Constants.Spinner.MOTOR_PORT, MotorType.kBrushless);
         neoEncoder = motor.getEncoder();
     }
 

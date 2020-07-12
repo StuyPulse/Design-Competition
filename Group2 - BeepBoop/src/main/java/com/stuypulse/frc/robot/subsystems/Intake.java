@@ -19,7 +19,7 @@ public class Intake extends SubsystemBase {
   private CANEncoder neoEncoder; 
   
   public Intake() {
-    motor = new CANSparkMax(Constants.Ports.Intake.MOTOR, MotorType.kBrushless); 
+    motor = new CANSparkMax(Constants.Intake.MOTOR_PORT, MotorType.kBrushless); 
     neoEncoder = motor.getEncoder(); 
   }
 

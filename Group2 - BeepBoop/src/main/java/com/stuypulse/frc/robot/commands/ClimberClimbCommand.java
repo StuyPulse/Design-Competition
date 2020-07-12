@@ -22,8 +22,8 @@ public class ClimberClimbCommand extends CommandBase {
    * Creates a new ClimberClimbCommand.
    */
   public ClimberClimbCommand(Climber climber, Gamepad operatorGamepad) {
-    this.climber=climber;
-    this.operatorGamepad=operatorGamepad;
+    this.climber = climber;
+    this.operatorGamepad = operatorGamepad;
     addRequirements(climber);
 
     // Use addRequirements() here to declare subsystem dependencies.

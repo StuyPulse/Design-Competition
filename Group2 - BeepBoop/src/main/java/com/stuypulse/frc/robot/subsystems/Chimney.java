@@ -12,7 +12,7 @@ public class Chimney extends SubsystemBase {
   private CANEncoder neoEncoder; 
   
   public Chimney() {
-    motor = new CANSparkMax(Constants.Ports.Chimney.MOTOR, MotorType.kBrushless); 
+    motor = new CANSparkMax(Constants.Chimney.MOTOR_PORT, MotorType.kBrushless); 
     neoEncoder = motor.getEncoder(); 
   }
 

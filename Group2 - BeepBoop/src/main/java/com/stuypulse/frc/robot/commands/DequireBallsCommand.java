@@ -9,18 +9,18 @@ package com.stuypulse.frc.robot.commands;
 
 import com.stuypulse.frc.robot.Constants;
 import com.stuypulse.frc.robot.subsystems.Chimney;
+import com.stuypulse.frc.robot.subsystems.Intake;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-public class ChimneyLiftUpCommand extends CommandBase {
-  private Chimney chimney;
+public class DequireBallsCommand extends CommandBase {
+  private Intake intake; 
+  private Chimney chimney; 
 
-  /**
-   * Creates a new ChimneyAcquireCommand.
-   */
-  public ChimneyLiftUpCommand(Chimney chimney) {
-    this.chimney = chimney;
-    addRequirements(chimney);
+  public DequireBallsCommand(Intake intake, Chimney chimney) {
+    this.intake = intake; 
+    this.chimney = chimney; 
+    addRequirements(intake, chimney); 
   }
 
   // Called when the command is initially scheduled.
@@ -31,13 +31,15 @@ public class ChimneyLiftUpCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    chimney.liftUp(Constants.CHIMNEY_SPEED);
+    intake.deacquire(Constants.Intake.SPEED);
+    chimney.liftDown(Constants.Chimney.SPEED);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    chimney.stop();
+    intake.stop();
+    chimney.stop(); 
   }
 
   // Returns true when the command should end.

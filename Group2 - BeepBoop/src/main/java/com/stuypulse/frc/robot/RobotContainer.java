@@ -7,13 +7,14 @@
 
 package com.stuypulse.frc.robot;
 
+import com.stuypulse.frc.robot.commands.AcquireBallsCommand;
 import com.stuypulse.frc.robot.commands.ClimberClimbCommand;
+import com.stuypulse.frc.robot.commands.DequireBallsCommand;
 import com.stuypulse.frc.robot.commands.DrivetrainDriveCommand;
 import com.stuypulse.frc.robot.commands.DrivetrainSetHighGearCommand;
 import com.stuypulse.frc.robot.commands.DrivetrainSetLowGearCommand;
-import com.stuypulse.frc.robot.commands.IntakeAcquireCommand;
-import com.stuypulse.frc.robot.commands.IntakeDequireCommand;
 import com.stuypulse.frc.robot.commands.SpinnerSpinWheelCommand;
+import com.stuypulse.frc.robot.subsystems.Chimney;
 import com.stuypulse.frc.robot.subsystems.Climber;
 import com.stuypulse.frc.robot.subsystems.Drivetrain;
 import com.stuypulse.frc.robot.subsystems.Intake;
@@ -39,6 +40,7 @@ public class RobotContainer {
 
   private Drivetrain drivetrain;
   private Intake intake;  
+  private Chimney chimney; 
   private Spinner spinner; 
   private Climber climber;
 
@@ -46,11 +48,12 @@ public class RobotContainer {
    * The container for the robot.  Contains subsystems, OI devices, and commands.
    */
   public RobotContainer() {
-    driverGamepad = new PS4(Constants.Ports.Gamepads.DRIVER);
-    operatorGamepad = new Logitech.XMode(Constants.Ports.Gamepads.OPERATOR);
+    driverGamepad = new PS4(Constants.Gamepads.DRIVER);
+    operatorGamepad = new Logitech.XMode(Constants.Gamepads.OPERATOR);
   
     drivetrain = new Drivetrain();
     intake = new Intake(); 
+    chimney = new Chimney(); 
     spinner = new Spinner(); 
     climber = new Climber();
     
@@ -82,10 +85,10 @@ public class RobotContainer {
     );
 
     operatorGamepad.getLeftBumper().whileHeld(
-      new IntakeDequireCommand(intake)
+      new DequireBallsCommand(intake, chimney)
     ); 
     operatorGamepad.getRightBumper().whileHeld(
-      new IntakeAcquireCommand(intake)
+      new AcquireBallsCommand(intake, chimney)
     ); 
   }
 

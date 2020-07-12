@@ -17,41 +17,40 @@ package com.stuypulse.frc.robot;
  */
 public interface Constants {
 
-    public interface Ports {
-        public interface Gamepads {    
-            public static final int DRIVER = 0;
-            public static final int OPERATOR = 1;
-        } 
+    public interface Gamepads {    
+        public static final int DRIVER = 0;
+        public static final int OPERATOR = 1;
+    } 
         
-        public interface Drivetrain {
-            public static final int LEFT_FRONT_MOTOR = -1;
-            public static final int LEFT_MID_MOTOR = -1;
-            public static final int LEFT_BACK_MOTOR = -1;
-            public static final int RIGHT_FRONT_MOTOR = -1;
-            public static final int RIGHT_MID_MOTOR = -1;
-            public static final int RIGHT_BACK_MOTOR = -1;
+    public interface Drivetrain {
+        public static final int LEFT_FRONT_MOTOR_PORT = -1;
+        public static final int LEFT_MID_MOTOR_PORT = -1;
+        public static final int LEFT_BACK_MOTOR_PORT = -1;
+        public static final int RIGHT_FRONT_MOTOR_PORT = -1;
+        public static final int RIGHT_MID_MOTOR_PORT = -1;
+        public static final int RIGHT_BACK_MOTOR_PORT = -1;
 
-            public static final int GEAR_SHIFT_SOLENOID = -1; 
-        }
-
-        public interface Intake {
-            public static final int MOTOR = -1; 
-        }
-
-        public interface Chimney {
-            public static final int MOTOR = -1;
-        }
-
-        public interface Spinner {
-            public static final int MOTOR = -1;
-        }
-
-        public interface Climber {
-            public static final int MOTOR = -1;
-        }
+        public static final int GEAR_SHIFT_SOLENOID_CHANNEL = -1; 
     }
 
-    public static final double INTAKE_SPEED = 0.5; 
-    public static final double CHIMNEY_SPEED = 0.5;
+    public interface Intake {
+        public static final int MOTOR_PORT = -1;
+        
+        public static final double SPEED = 0.5; 
+    }
+
+    public interface Chimney {
+        public static final int MOTOR_PORT = -1;
+
+        public static final double SPEED = 0.5; 
+    }
+
+    public interface Spinner {
+        public static final int MOTOR_PORT = -1;
+    }
+
+    public interface Climber {
+        public static final int MOTOR_PORT = -1;
+    }
     
 }
