@@ -73,8 +73,24 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-  }
 
+    // Shooter Controls
+    operator.getRightTriggerButton().whileHeld(new ShooterShootCommand(shooter));
+    operator.getLeftTriggerButton().whileHeld(new ShooterStopCommand(shooter));
+    operator.getDPadRight().whenPressed(new FeederFeedCommand(shooter));
+    operator.getDPadLeft().whenPressed(new FeederReverseCommand(shooter));
+
+    // Intake Controls
+    operator.getTopButton().toggleWhenPressed(new IntakeExtendCommand(intake));
+    operator.getBottomButton().toggleWhenPressed(new IntakeRetractCommand(intake));
+    operator.getRightButton().whileHeld(new IntakeAcquireCommand(intake));
+    operator.getLeftButton().whileHeld(new IntakeDeacquireCommand(intake));
+
+    // Climber Controls
+    operator.getDPadUp().toggleWhenPressed(new ClimberClimbUpCommand(climber));
+    operator.getDPadDown().toggleWhenPressed(new ClimberClimbDownCommand(climber));
+
+  }
 
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
