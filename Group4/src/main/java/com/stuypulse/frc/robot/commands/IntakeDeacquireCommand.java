@@ -6,16 +6,16 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 /**
  * Instant command that sets the intake to acquire. (necessary for autons)
  */
-public class IntakeAcquireCommand extends InstantCommand {
+public class IntakeDeacquireCommand extends InstantCommand {
 
     private final Intake intake;
 
-    public IntakeAcquireCommand(Intake intake) {
+    public IntakeDeacquireCommand(Intake intake) {
         this.intake = intake;
     }
 
     public void initialize() {
-        intake.acquire();
+        intake.deacquire();
     }
 
 }

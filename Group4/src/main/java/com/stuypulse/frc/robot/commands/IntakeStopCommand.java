@@ -1,21 +1,22 @@
 package com.stuypulse.frc.robot.commands;
 
 import com.stuypulse.frc.robot.subsystems.Intake;
+
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 
 /**
- * Instant command that sets the intake to acquire. (necessary for autons)
+ * Instant command to stop the intake
  */
-public class IntakeAcquireCommand extends InstantCommand {
-
+public class IntakeStopCommand extends InstantCommand {
+    
     private final Intake intake;
 
-    public IntakeAcquireCommand(Intake intake) {
+    public IntakeStopCommand(Intake intake) {
         this.intake = intake;
     }
 
     public void initialize() {
-        intake.acquire();
+        intake.stop();
     }
 
 }
