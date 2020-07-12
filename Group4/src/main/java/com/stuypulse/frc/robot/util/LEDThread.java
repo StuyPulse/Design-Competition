@@ -1,4 +1,4 @@
-package src.main.java.com.stuypulse.frc.robot.util;
+package com.stuypulse.frc.robot.util;
 
 import java.util.function.Consumer;
 
@@ -34,22 +34,8 @@ public class LEDThread extends Thread {
 
             // do some logic to change the mode
 
-            /*
+            // whenever the mode is changed the code runs
 
-            controller.setMode(Consumer<> mode) {
-
-                this.mode = mode;
-
-
-                this.mode.execute(this) ???
-            }
-
-            or do you execute it at the bottom of this loop
-
-            */
-            if ((controllerMode = controller.getMode()) != null) {
-                controllerMode.accept(controller);
-            }
         }
     }
 

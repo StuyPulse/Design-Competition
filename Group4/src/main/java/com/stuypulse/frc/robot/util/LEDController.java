@@ -1,4 +1,4 @@
-package src.main.java.com.stuypulse.frc.robot.util;
+package com.stuypulse.frc.robot.util;
 
 import java.util.function.Consumer;
 import java.util.Random;
@@ -93,7 +93,11 @@ public class LEDController {
     }
 
     public void setMode(Consumer<LEDController> mode) {
-        this.mode = mode;
+        if (mode == null) {
+            this.mode = x -> {};
+        }
+
+        this.mode.accept(this);
     }
 
     public void set(double value) {
