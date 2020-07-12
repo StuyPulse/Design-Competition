@@ -25,7 +25,15 @@
   - 1 Motor
 - Control Panel
   - 1 Motor
+- Climber
+  - 2 motors
 
 ## Todo
 
-- Climber ???
+- Add second motor to climber
+- Climber Commands
+- LED Commands & review functionality
+- Drivetrain command for movement
+- OI and Autons
+- rename motor and constants (?)
+- solenoid on intake (is double solenoid and what is it for)
