@@ -8,7 +8,7 @@
 package com.stuypulse.frc.robot;
 
 import com.stuypulse.frc.robot.commands.DrivetrainDriveCommand;
-import com.stuypulse.frc.robot.commands.autons.DoNothingAuton;
+import com.stuypulse.frc.robot.autons.DoNothingAuton;
 import com.stuypulse.frc.robot.subsystems.Drivetrain;
 import com.stuypulse.stuylib.input.Gamepad;
 import com.stuypulse.stuylib.input.gamepads.PS4;

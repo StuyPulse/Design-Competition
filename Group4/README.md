@@ -33,7 +33,8 @@
 - Add second motor to climber
 - Climber Commands
 - LED Commands & review functionality
-- Drivetrain command for movement
+- Drivetrain command for auton movement
+- Add shooter control commands ( reverse, etc. )
 - OI and Autons
 - rename motor and constants (?)
-- solenoid on intake (is double solenoid and what is it for)
+- solenoid on intake (is it a double solenoid and what is it for)

@@ -29,6 +29,8 @@ public class ControlPanelRotateCommand extends CommandBase {
         currentGoal = 0.0;
 
         rotController = new PIDController(ROT_P, ROT_I, ROT_D);
+
+        addRequirements(controlPanel);
     }
 
     @Override

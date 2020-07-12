@@ -12,6 +12,8 @@ public class IntakeAcquireCommand extends InstantCommand {
 
     public IntakeAcquireCommand(Intake intake) {
         this.intake = intake;
+
+        addRequirements(intake);
     }
 
     public void initialize() {
