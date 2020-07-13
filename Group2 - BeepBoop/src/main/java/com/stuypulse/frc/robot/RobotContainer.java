@@ -9,15 +9,18 @@ package com.stuypulse.frc.robot;
 
 import com.stuypulse.frc.robot.commands.AcquireBallsCommand;
 import com.stuypulse.frc.robot.commands.ClimberClimbCommand;
-import com.stuypulse.frc.robot.commands.DequireBallsCommand;
+import com.stuypulse.frc.robot.commands.DeacquireBallsCommand;
+import com.stuypulse.frc.robot.commands.DrivetrainAlignmentCommand;
 import com.stuypulse.frc.robot.commands.DrivetrainDriveCommand;
 import com.stuypulse.frc.robot.commands.DrivetrainSetHighGearCommand;
 import com.stuypulse.frc.robot.commands.DrivetrainSetLowGearCommand;
+import com.stuypulse.frc.robot.commands.ShooterShootCommand;
 import com.stuypulse.frc.robot.commands.SpinnerSpinWheelCommand;
 import com.stuypulse.frc.robot.subsystems.Chimney;
 import com.stuypulse.frc.robot.subsystems.Climber;
 import com.stuypulse.frc.robot.subsystems.Drivetrain;
 import com.stuypulse.frc.robot.subsystems.Intake;
+import com.stuypulse.frc.robot.subsystems.Shooter;
 import com.stuypulse.frc.robot.subsystems.Spinner;
 import com.stuypulse.stuylib.input.gamepads.Logitech;
 import com.stuypulse.stuylib.input.gamepads.PS4;
@@ -40,7 +43,8 @@ public class RobotContainer {
 
   private Drivetrain drivetrain;
   private Intake intake;  
-  private Chimney chimney; 
+  private Chimney chimney;
+  private Shooter shooter; 
   private Spinner spinner; 
   private Climber climber;
 
@@ -53,13 +57,17 @@ public class RobotContainer {
   
     drivetrain = new Drivetrain();
     intake = new Intake(); 
-    chimney = new Chimney(); 
+    chimney = new Chimney();
+    shooter = new Shooter();
     spinner = new Spinner(); 
     climber = new Climber();
     
     drivetrain.setDefaultCommand(
       new DrivetrainDriveCommand(drivetrain, driverGamepad)
     ); 
+    shooter.setDefaultCommand(
+      new ShooterShootCommand(shooter, operatorGamepad)
+    );
     spinner.setDefaultCommand(
       new SpinnerSpinWheelCommand(spinner, operatorGamepad)
     );
@@ -85,10 +93,13 @@ public class RobotContainer {
     );
 
     operatorGamepad.getLeftBumper().whileHeld(
-      new DequireBallsCommand(intake, chimney)
+      new DeacquireBallsCommand(intake, chimney)
     ); 
     operatorGamepad.getRightBumper().whileHeld(
       new AcquireBallsCommand(intake, chimney)
+    ); 
+    operatorGamepad.getRightButton().whileHeld(
+      new DrivetrainAlignmentCommand(drivetrain)
     ); 
   }
 

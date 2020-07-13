@@ -7,20 +7,19 @@
 
 package com.stuypulse.frc.robot.commands;
 
-import com.stuypulse.frc.robot.Constants;
-import com.stuypulse.frc.robot.subsystems.Chimney;
-import com.stuypulse.frc.robot.subsystems.Intake;
+import com.stuypulse.frc.robot.subsystems.Shooter;
+import com.stuypulse.stuylib.input.Gamepad;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-public class DequireBallsCommand extends CommandBase {
-  private Intake intake; 
-  private Chimney chimney; 
-
-  public DequireBallsCommand(Intake intake, Chimney chimney) {
-    this.intake = intake; 
-    this.chimney = chimney; 
-    addRequirements(intake, chimney); 
+public class ShooterShootCommand extends CommandBase {
+  private Shooter shooter;
+  private Gamepad gamepad;
+  
+  public ShooterShootCommand(Shooter shooter, Gamepad gamepad) {
+    this.shooter = shooter;
+    this.gamepad = gamepad;
+    addRequirements(shooter);
   }
 
   // Called when the command is initially scheduled.
@@ -31,15 +30,14 @@ public class DequireBallsCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    intake.deacquire(Constants.Intake.SPEED);
-    chimney.liftDown(Constants.Chimney.SPEED);
+    // Separate triggers to allow shooter motors to achieve desired speed before feeding
+    shooter.shoot(gamepad.getRightTrigger());
+    shooter.feed(gamepad.getLeftTrigger());
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    intake.stop();
-    chimney.stop(); 
   }
 
   // Returns true when the command should end.

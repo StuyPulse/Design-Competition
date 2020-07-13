@@ -7,43 +7,50 @@
 
 package com.stuypulse.frc.robot.commands;
 
+import com.stuypulse.frc.robot.Constants;
 import com.stuypulse.frc.robot.subsystems.Drivetrain;
-import com.stuypulse.stuylib.input.Gamepad;
+import com.stuypulse.stuylib.control.PIDController;
+import com.stuypulse.stuylib.network.limelight.Limelight;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-public class DrivetrainDriveCommand extends CommandBase {
+public class DrivetrainAlignmentCommand extends CommandBase {
   private Drivetrain drivetrain; 
-  private Gamepad gamepad;
+  private PIDController controller;
+  private double error;
 
-  public DrivetrainDriveCommand(Drivetrain drivetrain, Gamepad gamepad) {
+  public DrivetrainAlignmentCommand(Drivetrain drivetrain) {
     this.drivetrain = drivetrain;
-    this.gamepad = gamepad;  
-    addRequirements(drivetrain); 
+    addRequirements(drivetrain);
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
+    controller = new PIDController(
+      Constants.Drivetrain.kp, 
+      Constants.Drivetrain.ki,
+      Constants.Drivetrain.kd
+    );
+    error = Limelight.getTargetXAngle(); 
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    drivetrain.curvatureDrive(
-      gamepad.getLeftTrigger() - gamepad.getRightTrigger(), 
-      gamepad.getLeftX()
-    ); 
+    drivetrain.arcadeDrive(0, controller.update(error));
+    error = Limelight.getTargetXAngle();
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
+    drivetrain.stop();
   }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return Math.abs(error) <= 0.1;
   }
 }

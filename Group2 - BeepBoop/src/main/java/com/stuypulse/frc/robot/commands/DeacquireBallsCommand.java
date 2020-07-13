@@ -7,26 +7,20 @@
 
 package com.stuypulse.frc.robot.commands;
 
-import com.stuypulse.frc.robot.subsystems.Climber;
-import com.stuypulse.stuylib.input.Gamepad;
+import com.stuypulse.frc.robot.Constants;
+import com.stuypulse.frc.robot.subsystems.Chimney;
+import com.stuypulse.frc.robot.subsystems.Intake;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-public class ClimberClimbCommand extends CommandBase {
-  private Climber climber;
-  private Gamepad gamepad;
+public class DeacquireBallsCommand extends CommandBase {
+  private Intake intake; 
+  private Chimney chimney; 
 
-  private final double DEADBAND_LIMIT = 0.1;
-
-  /**
-   * Creates a new ClimberClimbCommand.
-   */
-  public ClimberClimbCommand(Climber climber, Gamepad operatorGamepad) {
-    this.climber = climber;
-    this.gamepad = operatorGamepad;
-    addRequirements(climber);
-
-    // Use addRequirements() here to declare subsystem dependencies.
+  public DeacquireBallsCommand(Intake intake, Chimney chimney) {
+    this.intake = intake; 
+    this.chimney = chimney; 
+    addRequirements(intake, chimney); 
   }
 
   // Called when the command is initially scheduled.
@@ -37,16 +31,15 @@ public class ClimberClimbCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    double speed = gamepad.getLeftY();
-    if(Math.abs(speed) > DEADBAND_LIMIT)
-      climber.climb(speed);
-    else
-      climber.stop();
+    intake.deacquire(Constants.Intake.SPEED);
+    chimney.liftDown(Constants.Chimney.SPEED);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
+    intake.stop();
+    chimney.stop(); 
   }
 
   // Returns true when the command should end.

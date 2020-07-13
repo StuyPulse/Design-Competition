@@ -3,6 +3,7 @@ package com.stuypulse.frc.robot.subsystems;
 import com.kauailabs.navx.frc.AHRS;
 import com.revrobotics.CANEncoder;
 import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMax.IdleMode;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.stuypulse.frc.robot.Constants;
 
@@ -46,6 +47,14 @@ public class Drivetrain extends SubsystemBase {
         rightMidMotor = new CANSparkMax(Constants.Drivetrain.RIGHT_MID_MOTOR_PORT, MotorType.kBrushless);
         rightBackMotor = new CANSparkMax(Constants.Drivetrain.RIGHT_BACK_MOTOR_PORT, MotorType.kBrushless);
 
+        leftFrontMotor.setIdleMode(IdleMode.kBrake); 
+        leftMidMotor.setIdleMode(IdleMode.kBrake);
+        leftBackMotor.setIdleMode(IdleMode.kBrake);
+
+        rightFrontMotor.setIdleMode(IdleMode.kBrake);
+        rightMidMotor.setIdleMode(IdleMode.kBrake);
+        rightBackMotor.setIdleMode(IdleMode.kBrake);
+        
         leftMotors = new SpeedControllerGroup(leftFrontMotor, leftMidMotor, leftBackMotor);
         rightMotors = new SpeedControllerGroup(rightFrontMotor, rightMidMotor, rightBackMotor); 
 

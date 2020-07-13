@@ -18,13 +18,13 @@ public class SpinnerSpinWheelCommand extends CommandBase {
    */
 
   private Spinner spinner; 
-  private Gamepad operatorGamepad; 
+  private Gamepad gamepad; 
 
   private final double DEADBAND_LIMIT = 0.1;
 
   public SpinnerSpinWheelCommand(Spinner spinner, Gamepad operatorGamepad) {
     this.spinner = spinner;
-    this.operatorGamepad = operatorGamepad;
+    this.gamepad = operatorGamepad;
     addRequirements(spinner);
   }
 
@@ -36,7 +36,7 @@ public class SpinnerSpinWheelCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    double speed = operatorGamepad.getLeftX(); 
+    double speed = gamepad.getLeftX(); 
     if(Math.abs(speed) > DEADBAND_LIMIT) 
       spinner.spin(speed);
     else 

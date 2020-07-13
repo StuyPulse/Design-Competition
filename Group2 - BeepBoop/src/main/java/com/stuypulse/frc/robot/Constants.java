@@ -31,6 +31,11 @@ public interface Constants {
         public static final int RIGHT_BACK_MOTOR_PORT = -1;
 
         public static final int GEAR_SHIFT_SOLENOID_CHANNEL = -1; 
+
+        // Not tested :P
+        public static final double kp = 0.8; 
+        public static final double ki = 0.0; 
+        public static final double kd = 0.01;
     }
 
     public interface Intake {
@@ -43,6 +48,14 @@ public interface Constants {
         public static final int MOTOR_PORT = -1;
 
         public static final double SPEED = 0.5; 
+    }
+
+    public interface Shooter {
+        public static final int LEFT_SHOOTER_MOTOR_PORT = -1;
+        public static final int MID_SHOOTER_MOTOR_PORT = -1;  
+        public static final int RIGHT_SHOOTER_MOTOR_PORT = -1;
+
+        public static final int FEEDER_MOTOR_PORT = -1; 
     }
 
     public interface Spinner {
