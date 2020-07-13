@@ -30,11 +30,26 @@
 
 ## Todo
 
-- Add second motor to climber
-- Climber Commands
 - LED Commands & review functionality
-- Drivetrain command for auton movement
-- Add shooter control commands ( reverse, etc. )
-- OI and Autons
 - rename motor and constants (?)
 - solenoid on intake (is it a double solenoid and what is it for)
+
+## Team Mascot
+
+           FISHKISSFISHKIS               
+       SFISHKISSFISHKISSFISH            F
+    ISHK   ISSFISHKISSFISHKISS         FI
+  SHKISS   FISHKISSFISHKISSFISS       FIS
+HKISSFISHKISSFISHKISSFISHKISSFISH    KISS
+  FISHKISSFISHKISSFISHKISSFISHKISS  FISHK
+      SSFISHKISSFISHKISSFISHKISSFISHKISSF
+  ISHKISSFISHKISSFISHKISSFISHKISSF  ISHKI
+SSFISHKISSFISHKISSFISHKISSFISHKIS    SFIS
+  HKISSFISHKISSFISHKISSFISHKISS       FIS
+    HKISSFISHKISSFISHKISSFISHK         IS
+       SFISHKISSFISHKISSFISH            K
+         ISSFISHKISSFISHK
+
+## Quote
+
+- "That which does not kill us makes us stronger."-Friedrich Nietzsche
