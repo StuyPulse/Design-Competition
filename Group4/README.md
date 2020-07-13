@@ -36,19 +36,21 @@
 
 ## Team Mascot
 
-           FISHKISSFISHKIS               
-       SFISHKISSFISHKISSFISH            F
-    ISHK   ISSFISHKISSFISHKISS         FI
-  SHKISS   FISHKISSFISHKISSFISS       FIS
-HKISSFISHKISSFISHKISSFISHKISSFISH    KISS
-  FISHKISSFISHKISSFISHKISSFISHKISS  FISHK
-      SSFISHKISSFISHKISSFISHKISSFISHKISSF
-  ISHKISSFISHKISSFISHKISSFISHKISSF  ISHKI
-SSFISHKISSFISHKISSFISHKISSFISHKIS    SFIS
-  HKISSFISHKISSFISHKISSFISHKISS       FIS
-    HKISSFISHKISSFISHKISSFISHK         IS
-       SFISHKISSFISHKISSFISH            K
-         ISSFISHKISSFISHK
+░░░░░░░░░░░░░░░░░░░░░▄▀░░▌<br>
+░░░░░░░░░░░░░░░░░░░▄▀▐░░░▌<br>
+░░░░░░░░░░░░░░░░▄▀▀▒▐▒░░░▌<br>
+░░░░░▄▀▀▄░░░▄▄▀▀▒▒▒▒▌▒▒░░▌<br>
+░░░░▐▒░░░▀▄▀▒▒▒▒▒▒▒▒▒▒▒▒▒█<br>
+░░░░▌▒░░░░▒▀▄▒▒▒▒▒▒▒▒▒▒▒▒▒▀▄<br>
+░░░░▐▒░░░░░▒▒▒▒▒▒▒▒▒▌▒▐▒▒▒▒▒▀▄<br>
+░░░░▌▀▄░░▒▒▒▒▒▒▒▒▐▒▒▒▌▒▌▒▄▄▒▒▐<br>
+░░░▌▌▒▒▀▒▒▒▒▒▒▒▒▒▒▐▒▒▒▒▒█▄█▌▒▒▌<br>
+░▄▀▒▐▒▒▒▒▒▒▒▒▒▒▒▄▀█▌▒▒▒▒▒▀▀▒▒▐░░░▄<br>
+▀▒▒▒▒▌▒▒▒▒▒▒▒▄▒▐███▌▄▒▒▒▒▒▒▒▄▀▀▀▀<br>
+▒▒▒▒▒▐▒▒▒▒▒▄▀▒▒▒▀▀▀▒▒▒▒▄█▀░░▒▌▀▀▄▄<br>
+▒▒▒▒▒▒█▒▄▄▀▒▒▒▒▒▒▒▒▒▒▒░░▐▒▀▄▀▄░░░░▀<br>
+▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▄▒▒▒▒▄▀▒▒▒▌░░▀▄<br>
+▒▒▒▒▒▒▒▒▀▄▒▒▒▒▒▒▒▒▀▀▀▀▒▒▒▄▀<br>
 
 ## Quote
 
