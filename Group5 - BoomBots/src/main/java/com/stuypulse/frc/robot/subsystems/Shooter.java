@@ -3,7 +3,7 @@ package com.stuypulse.frc.robot.subsystems;
 import com.revrobotics.CANEncoder;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-import com.stuypulse.frc.robot.Constants.Ports;
+import com.stuypulse.frc.robot.Constants;
 
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -24,9 +24,9 @@ public class Shooter extends SubsystemBase {
     private SpeedControllerGroup shooterMotors;
 
     public Shooter() {
-        feederMotor = new CANSparkMax(Ports.Shooter.FEEDER_PORT, MotorType.kBrushless);
-        topShooterMotor = new CANSparkMax(Ports.Shooter.SHOOTER_TOP_PORT, MotorType.kBrushless);
-        bottomShooterMotor = new CANSparkMax(Ports.Shooter.SHOOTER_BOTTOM_PORT, MotorType.kBrushless);
+        feederMotor = new CANSparkMax(Constants.Shooter.FEEDER_PORT, MotorType.kBrushless);
+        topShooterMotor = new CANSparkMax(Constants.Shooter.SHOOTER_TOP_PORT, MotorType.kBrushless);
+        bottomShooterMotor = new CANSparkMax(Constants.Shooter.SHOOTER_BOTTOM_PORT, MotorType.kBrushless);
 
         feederEncoder = new CANEncoder(feederMotor);
         topShooterEncoder = new CANEncoder(topShooterMotor);
@@ -52,11 +52,11 @@ public class Shooter extends SubsystemBase {
     }
 
     public void feed() {
-        feederMotor.set(Ports.Shooter.FEEDER_FEED_CONSTANT);
+        feederMotor.set(Constants.Shooter.FEEDER_FEED_CONSTANT);
     }
 
     public void vomit() {
-        feederMotor.set(-1 * Ports.Shooter.FEEDER_FEED_CONSTANT);
+        feederMotor.set(-1 * Constants.Shooter.FEEDER_FEED_CONSTANT);
     }
 
     public void stopShooter() {

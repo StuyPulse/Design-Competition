@@ -1,6 +1,6 @@
 package com.stuypulse.frc.robot.subsystems;
 
-import com.stuypulse.frc.robot.Constants.Ports;
+import com.stuypulse.frc.robot.Constants;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
@@ -15,17 +15,17 @@ public class Intake extends SubsystemBase {
     private DigitalInput sensor;
 
     public Intake() {
-        motor = new Talon(Ports.Intake.INTAKE_MOTOR_PORT);
-        solenoid = new DoubleSolenoid(Ports.Intake.INTAKE_SOLENOID_CHANNEL_A,Ports.Intake.INTAKE_SOLENOID_CHANNEL_B);
-        sensor = new DigitalInput(Ports.Intake.INTAKE_SENSOR_PORT);
+        motor = new Talon(Constants.Intake.INTAKE_MOTOR_PORT);
+        solenoid = new DoubleSolenoid(Constants.Intake.INTAKE_SOLENOID_CHANNEL_A,Constants.Intake.INTAKE_SOLENOID_CHANNEL_B);
+        sensor = new DigitalInput(Constants.Intake.INTAKE_SENSOR_PORT);
     }
 
     public void acquire() {
-        motor.set(Ports.Intake.INTAKE_MOTOR_ACQUIRE_SPEED);
+        motor.set(Constants.Intake.INTAKE_MOTOR_ACQUIRE_SPEED);
     }
 
     public void deacquire() {
-        motor.set(-1 * Ports.Intake.INTAKE_MOTOR_ACQUIRE_SPEED);
+        motor.set(-1 * Constants.Intake.INTAKE_MOTOR_ACQUIRE_SPEED);
     }
 
     public void stop() {

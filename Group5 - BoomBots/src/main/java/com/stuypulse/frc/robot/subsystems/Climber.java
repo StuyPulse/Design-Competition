@@ -2,7 +2,7 @@ package com.stuypulse.frc.robot.subsystems;
 
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-import com.stuypulse.frc.robot.Constants.Ports;
+import com.stuypulse.frc.robot.Constants;
 
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -15,8 +15,8 @@ public class Climber extends SubsystemBase {
     private SpeedControllerGroup liftMotors;
 
     public Climber() {
-        leftMotor = new CANSparkMax(Ports.Climber.CLIMBER_LEFT_MOTOR_PORT, MotorType.kBrushless);
-        rightMotor = new CANSparkMax(Ports.Climber.CLIMBER_RIGHT_MOTOR_PORT, MotorType.kBrushless);
+        leftMotor = new CANSparkMax(Constants.Climber.CLIMBER_LEFT_MOTOR_PORT, MotorType.kBrushless);
+        rightMotor = new CANSparkMax(Constants.Climber.CLIMBER_RIGHT_MOTOR_PORT, MotorType.kBrushless);
 
         liftMotors = new SpeedControllerGroup(leftMotor, rightMotor);
     }
@@ -26,11 +26,11 @@ public class Climber extends SubsystemBase {
     }
 
     public void climbUp() {
-        climb(Ports.Climber.CLIMBER_LIFT_UP_SPEED);
+        climb(Constants.Climber.CLIMBER_LIFT_UP_SPEED);
     }
 
     public void climbDown() {
-        climb(Ports.Climber.CLIMBER_LIFT_DOWN_SPEED);
+        climb(Constants.Climber.CLIMBER_LIFT_DOWN_SPEED);
     }
 
     public void stop() {
@@ -38,3 +38,4 @@ public class Climber extends SubsystemBase {
     }
     
 }
+
