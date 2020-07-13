@@ -5,17 +5,22 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import static com.stuypulse.frc.robot.Constants.kClimber.*;
 
+import edu.wpi.first.wpilibj.SpeedControllerGroup;
+
 public class Climber extends SubsystemBase {
 
-    private CANSparkMax aMotor;//, bMotor;
+    private CANSparkMax sideA, sideB;
+
+    private SpeedControllerGroup lift;
 
     public Climber() {
 
-        aMotor = new CANSparkMax(Ports.MOTOR_A, MotorType.kBrushless);
+        sideA = new CANSparkMax(Ports.MOTOR_A, MotorType.kBrushless);
+        sideB = new CANSparkMax(Ports.MOTOR_B, MotorType.kBrushless);
 
-        // 𐌁Motor is in jail until further notice
+        lift = new SpeedControllerGroup(sideA, sideB);
 
-        // bMotor = new CANSparkMax(Ports.MOTOR_B, MotorType.kBrushless);
+        // motor initialization here
 
     }
 
@@ -28,7 +33,7 @@ public class Climber extends SubsystemBase {
     }
 
     public void setLift(double value) {
-        aMotor.set(value);
+        lift.set(value);
     }
 
     public void stop() {
