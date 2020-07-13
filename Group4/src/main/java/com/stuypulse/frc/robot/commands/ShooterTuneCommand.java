@@ -9,7 +9,8 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /**
  * Uses PID tuning to set the motors of the shooter (and feeder) to a target
- * RPM.
+ * RPM. Having this as a default command I think has more predicted behavior
+ * than having Shooter.periodic() handle tuning.
  */
 public class ShooterTuneCommand extends CommandBase {
 
@@ -18,7 +19,7 @@ public class ShooterTuneCommand extends CommandBase {
     private Controller shooterController;
     private Controller feederController;
 
-    public ShooterTuneCommand(Shooter shooter, double rpm) {
+    public ShooterTuneCommand(Shooter shooter) {
         this.shooter = shooter;
 
         shooterController = new PIDController(SHOOTER_P, SHOOTER_I, SHOOTER_D);
