@@ -152,7 +152,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">DrivetrainGoalCommand</span>
 extends <a href="DrivetrainAlignCommand.html" title="class in com.stuypulse.frc.robot.commands">DrivetrainAlignCommand</a></pre>
-<div class="block">Drivetrain command to align with the goal.</div>
+<div class="block">Drivetrain command to align with the goal from a certain distance offset. For
+ example, if the offset were zero, it would go as close as possible. If the
+ offset were something like the distance from the trench to the goal, it would
+ settle at the trench.</div>
 </li>
 </ul>
 </div>
@@ -197,7 +200,8 @@ extends <a href="DrivetrainAlignCommand.html" title="class in com.stuypulse.frc.
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(com.stuypulse.frc.robot.subsystems.Drivetrain)">DrivetrainGoalCommand</a></span>&#8203;(<a href="../subsystems/Drivetrain.html" title="class in com.stuypulse.frc.robot.subsystems">Drivetrain</a>&nbsp;swag)</code></th>
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(com.stuypulse.frc.robot.subsystems.Drivetrain,double)">DrivetrainGoalCommand</a></span>&#8203;(<a href="../subsystems/Drivetrain.html" title="class in com.stuypulse.frc.robot.subsystems">Drivetrain</a>&nbsp;swag,
+                     double&nbsp;distanceOffset)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -287,13 +291,14 @@ extends <a href="DrivetrainAlignCommand.html" title="class in com.stuypulse.frc.
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(com.stuypulse.frc.robot.subsystems.Drivetrain)">
+<a id="&lt;init&gt;(com.stuypulse.frc.robot.subsystems.Drivetrain,double)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>DrivetrainGoalCommand</h4>
-<pre>public&nbsp;DrivetrainGoalCommand&#8203;(<a href="../subsystems/Drivetrain.html" title="class in com.stuypulse.frc.robot.subsystems">Drivetrain</a>&nbsp;swag)</pre>
+<pre>public&nbsp;DrivetrainGoalCommand&#8203;(<a href="../subsystems/Drivetrain.html" title="class in com.stuypulse.frc.robot.subsystems">Drivetrain</a>&nbsp;swag,
+                             double&nbsp;distanceOffset)</pre>
 </li>
 </ul>
 </li>

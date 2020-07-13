@@ -143,7 +143,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre>public class <span class="typeNameLabel">ShooterTuneCommand</span>
 extends edu.wpi.first.wpilibj2.command.CommandBase</pre>
 <div class="block">Uses PID tuning to set the motors of the shooter (and feeder) to a target
- RPM.</div>
+ RPM. Having this as a default command I think has more predicted behavior
+ than having Shooter.periodic() handle tuning.</div>
 </li>
 </ul>
 </div>
@@ -181,8 +182,7 @@ extends edu.wpi.first.wpilibj2.command.CommandBase</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr class="altColor">
-<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(com.stuypulse.frc.robot.subsystems.Shooter,double)">ShooterTuneCommand</a></span>&#8203;(<a href="../subsystems/Shooter.html" title="class in com.stuypulse.frc.robot.subsystems">Shooter</a>&nbsp;shooter,
-                  double&nbsp;rpm)</code></th>
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(com.stuypulse.frc.robot.subsystems.Shooter)">ShooterTuneCommand</a></span>&#8203;(<a href="../subsystems/Shooter.html" title="class in com.stuypulse.frc.robot.subsystems">Shooter</a>&nbsp;shooter)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -258,14 +258,13 @@ extends edu.wpi.first.wpilibj2.command.CommandBase</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a id="&lt;init&gt;(com.stuypulse.frc.robot.subsystems.Shooter,double)">
+<a id="&lt;init&gt;(com.stuypulse.frc.robot.subsystems.Shooter)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>ShooterTuneCommand</h4>
-<pre>public&nbsp;ShooterTuneCommand&#8203;(<a href="../subsystems/Shooter.html" title="class in com.stuypulse.frc.robot.subsystems">Shooter</a>&nbsp;shooter,
-                          double&nbsp;rpm)</pre>
+<pre>public&nbsp;ShooterTuneCommand&#8203;(<a href="../subsystems/Shooter.html" title="class in com.stuypulse.frc.robot.subsystems">Shooter</a>&nbsp;shooter)</pre>
 </li>
 </ul>
 </li>
