@@ -9,9 +9,12 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
  */
 public class DoNothingAuton extends SequentialCommandGroup {
 
+    // "Sometimes people don’t want to hear the truth because they don’t want their
+    // illusions destroyed."
+
     public DoNothingAuton() {
         addCommands(
-            // add commands
+        // add commands
         );
     }
 
