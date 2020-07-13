@@ -19,7 +19,25 @@ package com.stuypulse.frc.robot;
  */
 public interface Constants {
 
-    int GAMEPAD_PORT = -1;
+    int DRIVER_PORT = -1;
+    int OPERATOR_PORT = -1;
+
+    // SHOOTER VALUES
+    double INITATION_LINE_RPM = 0;
+    double TRENCH_RPM= 0;
+    double FAR_RPM = 0;
+
+    double REVERSE_VALUE = -1;
+    double FORWARD_VALUE = 1;
+
+    // DRIVETRAIN VALUES
+    double INITATION_LINE_DISTANCE = 0;
+    double TRENCH_DISTANCE = 0;
+
+    // CONTROLL PANEL ROTATION
+    double CONTROL_PANEL_ROTATIONZ = 1000000;
+
+    // "There are no facts, only interpretations."
 
     public interface kDrivetrain {
 
@@ -80,8 +98,7 @@ public interface Constants {
 
         interface GoalCommand {
             double GOAL_HEIGHT = 10;
-            double MAX_DISTANCE = 100;
-            double MIN_DISTANCE = 5;
+            double MIN_ERROR = 5;
         }
     }
 
@@ -155,7 +172,7 @@ public interface Constants {
     public interface kClimber {
         interface Ports {
             int MOTOR_A = -1;
-            // int MOTOR_B = -1;
+            int MOTOR_B = -1;
         }
 
         double UP_SPEED = 1;

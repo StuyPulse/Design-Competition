@@ -7,14 +7,16 @@
 
 package com.stuypulse.frc.robot;
 
-import com.stuypulse.frc.robot.commands.DrivetrainDriveCommand;
-import com.stuypulse.frc.robot.autons.DoNothingAuton;
-import com.stuypulse.frc.robot.subsystems.Drivetrain;
-import com.stuypulse.stuylib.input.Gamepad;
-import com.stuypulse.stuylib.input.gamepads.PS4;
+import com.stuypulse.frc.robot.commands.*;
+import com.stuypulse.frc.robot.autons.*;
+import com.stuypulse.frc.robot.subsystems.*;
+import com.stuypulse.frc.robot.util.*;
 
-import edu.wpi.first.wpilibj.GenericHID;
-import edu.wpi.first.wpilibj.XboxController;
+import com.stuypulse.stuylib.input.Gamepad;
+import com.stuypulse.stuylib.input.gamepads.*;
+
+import static com.stuypulse.frc.robot.Constants.*;
+
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
 
@@ -30,15 +32,27 @@ public class RobotContainer {
     private static final SendableChooser<Command> AUTON_CHOOSER = new SendableChooser<>();
 
     // The robot's subsystems and commands are defined here...
-    private final Gamepad gamepad;
+    private final Gamepad driver;
+    private final Gamepad operator;
+
     private final Drivetrain drivetrain;
+    private final Intake intake;
+    private final Climber climber;
+    private final Shooter shooter;
+    private final ControlPanel controlPanel;
 
     /**
      * The container for the robot. Contains subsystems, OI devices, and commands.
      */
     public RobotContainer() {
-        gamepad = new PS4(Constants.GAMEPAD_PORT);
+        driver = new PS4(DRIVER_PORT);
+        operator = new PS4(OPERATOR_PORT);
+
         drivetrain = new Drivetrain();
+        intake = new Intake();
+        climber = new Climber();
+        shooter = new Shooter();
+        controlPanel = new ControlPanel();
 
         // configure default commands
         configureDefaultCommands();
@@ -51,7 +65,9 @@ public class RobotContainer {
     }
 
     private void configureDefaultCommands() {
-        drivetrain.setDefaultCommand(new DrivetrainDriveCommand(drivetrain, gamepad));
+        drivetrain.setDefaultCommand(new DrivetrainDriveCommand(drivetrain, driver));
+        shooter.setDefaultCommand(new ShooterTuneCommand(shooter));
+        controlPanel.setDefaultCommand(new ControlPanelControlCommand(controlPanel, operator));
     }
 
     /**
@@ -61,11 +77,41 @@ public class RobotContainer {
      * passing it to a {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
      */
     private void configureButtonBindings() {
+        operator.getLeftButton().whileHeld(new IntakeDeacquireWhileCommand(intake));
+        operator.getRightButton().whileHeld(new IntakeAcquireWhileCommand(intake));
+
+        // idk if this works because does it end the command after it's pressed because
+        // control panel rotate is not instant
+        operator.getBottomButton().whenPressed(new ControlPanelRotateCommand(controlPanel, CONTROL_PANEL_ROTATIONZ));
+
+        // stop
+        operator.getDPadDown().whenPressed(new ShooterStopCommand(shooter));
+
+        // update shooter prm
+        operator.getDPadUp().whenPressed(new ShooterUpdateCommand(shooter, FAR_RPM));
+        operator.getDPadLeft().whenPressed(new ShooterUpdateCommand(shooter, INITATION_LINE_RPM));
+        operator.getDPadRight().whenPressed(new ShooterUpdateCommand(shooter, TRENCH_RPM));
+
+        // send shooter full forward or full backwards
+        operator.getSelectButton().whileHeld(new ShooterControlCommand(shooter, REVERSE_VALUE));
+        operator.getStartButton().whileHeld(new ShooterControlCommand(shooter, FORWARD_VALUE));
+
+        operator.getRightAnalogButton().whileHeld(new ClimberLiftUpCommand(climber));
+        operator.getLeftAnalogButton().whileHeld(new ClimberLiftDownCommand(climber));
+
+        // "To live is to suffer, to survive is to find some meaning in the suffering."
+
+        driver.getSelectButton().whileHeld(new DrivetrainGoalCommand(drivetrain, INITATION_LINE_DISTANCE))
+                .whileHeld(new IntakeAcquireWhileCommand(intake));
+
+        driver.getStartButton().whileHeld(new DrivetrainGoalCommand(drivetrain, TRENCH_DISTANCE))
+                .whileHeld(new IntakeAcquireWhileCommand(intake));
 
     }
 
     private void configureAutons() {
         AUTON_CHOOSER.addOption("Do Nothing", new DoNothingAuton());
+        AUTON_CHOOSER.addOption("Five Ballz Auton", new FiveBallzAuton(drivetrain, shooter, intake));
     }
 
     /**
