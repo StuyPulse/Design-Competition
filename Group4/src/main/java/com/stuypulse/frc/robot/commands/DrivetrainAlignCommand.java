@@ -64,7 +64,7 @@ public abstract class DrivetrainAlignCommand extends DrivetrainCommand {
     @Override
     public boolean isFinished() {
         // needs to be constants
-        return speedController.isDone(ANGLE_MAX_VELOCITY, SPEED_MAX_VELOCITY)
+        return speedController.isDone(SPEED_MAX_ERROR, SPEED_MAX_VELOCITY)
                 && angleController.isDone(ANGLE_MAX_ERROR, ANGLE_MAX_VELOCITY);
     }
 

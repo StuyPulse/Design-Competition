@@ -53,16 +53,18 @@ public final class DrivetrainDriveCommand extends DrivetrainCommand {
 
             () -> gamepad.getLeftStick(),
 
-            new LowPassFilter(SPEED_FILTER),
+            new LowPassFilter(ANGLE_FILTER),
 
-            new LowPassFilter(ANGLE_FILTER)
+            new LowPassFilter(SPEED_FILTER)
 
         );
     }
 
     @Override
     public Vector2D getDirection() {
-        return inputStream.get();
+        Vector2D direction = inputStream.get();
+
+        return new Vector2D(direction.y, direction.x);
     }
 
     @Override

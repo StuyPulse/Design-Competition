@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /**
  * <p>
- * This is the base class for drivetrain commands.
+ * This is the base class for drivetrain commands that is similar to Edwin's.
  * </p>
  *
  * Subclasses must define a direction for the drivetrain's arcade drive.
@@ -50,7 +50,8 @@ public abstract class DrivetrainCommand extends CommandBase {
      * </p>
      *
      * This replaces using auto gear in Drivetrain.periodic(). With this, it is
-     * still possible to use automatic gear shifting when it can be applied (e.g. drive with gamepad).
+     * still possible to use automatic gear shifting when it can be applied (e.g.
+     * drive with gamepad).
      *
      * @return gear of the drivetrain
      */
