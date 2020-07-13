@@ -1,6 +1,7 @@
 package com.stuypulse.frc.robot.util;
 
-import java.util.function.Consumer;
+
+import static com.stuypulse.frc.robot.util.LEDController.*;
 
 public class LEDThread extends Thread {
 
@@ -28,13 +29,14 @@ public class LEDThread extends Thread {
 
     @Override
     public void run() {
-        Consumer<LEDController> controllerMode;
-
         while (isRunning) {
 
-            // do some logic to change the mode
+            // do some logic to change mode
+            if (2 > 1) {
+                controller.setMode(kPartyMode);
+            }
 
-            // whenever the mode is changed the code runs
+            controller.executeMode();
 
         }
     }

@@ -79,25 +79,26 @@ public class LEDController {
 
     public static final Consumer<LEDController> kPulse = kPulse(kOn, kOff);
 
-    private final PWMSparkMax pwmController;
-
     private Consumer<LEDController> mode;
 
-    public LEDController() {
-        pwmController = new PWMSparkMax(kLEDController.CHANNEL);
-        mode = kOff;
-    }
+    private final PWMSparkMax pwmController;
 
-    public Consumer<LEDController> getMode() {
-        return mode;
+    public LEDController() {
+        mode = kOff;
+        pwmController = new PWMSparkMax(kLEDController.CHANNEL);
     }
 
     public void setMode(Consumer<LEDController> mode) {
-        if (mode == null) {
-            this.mode = x -> {};
-        }
+        if (mode == null)
+            mode = kOff;
 
-        this.mode.accept(this);
+        this.mode = mode;
+
+        // mode.accept(this);
+    }
+
+    public void executeMode() {
+        mode.accept(this);
     }
 
     public void set(double value) {
