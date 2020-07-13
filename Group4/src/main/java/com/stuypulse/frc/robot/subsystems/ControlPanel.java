@@ -8,15 +8,16 @@ import static com.stuypulse.frc.robot.Constants.kControlPanel.*;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 /**
- * - Control Panel
-  - 1 Motor
+ * Control panel subsytem that spins the control panel. It doesn't have a color
+ * sensor but if the encoder is used correctly it should return rotations, which
+ * allows for control over how many spins with PID.
  */
 public class ControlPanel extends SubsystemBase {
     private CANSparkMax aMotor;
 
     private CANEncoder aEncoder;
 
-    public ControlPanel () {
+    public ControlPanel() {
         aMotor = new CANSparkMax(Ports.MOTOR_A, MotorType.kBrushless);
         aEncoder = aMotor.getEncoder();
 
