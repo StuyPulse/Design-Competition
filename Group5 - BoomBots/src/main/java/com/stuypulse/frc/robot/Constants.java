@@ -22,7 +22,7 @@ public interface Constants {
             int SHOOTER_TOP_PORT = -1;
             int SHOOTER_BOTTOM_PORT = -1;
 
-            int SHOOTER_TARGET_VELOCITY = -1;
+            double SHOOTER_TARGET_VELOCITY = -1.0;
             double FEEDER_FEED_CONSTANT = 1.0;
         }
 
@@ -50,7 +50,7 @@ public interface Constants {
 
             int DRIVETRAIN_TOP_RIGHT_MOTOR_PORT = -1;
             int DRIVETRAIN_MIDDLE_RIGHT_MOTOR_PORT = -1;
-            int DRIVETRAIN_BOTTOM_RIGHT_MOTOR_PORT = 1;
+            int DRIVETRAIN_BOTTOM_RIGHT_MOTOR_PORT = -1;
 
             double DRIVETRAIN_P = 0.0;
             double DRIVETRAIN_I = 0.0;
