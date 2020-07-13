@@ -52,7 +52,7 @@ public interface Constants {
             int DRIVETRAIN_MIDDLE_RIGHT_MOTOR_PORT = -1;
             int DRIVETRAIN_BOTTOM_RIGHT_MOTOR_PORT = -1;
 
-            // todo: figure out PID
+            // TODO: figure out PID
             double DRIVETRAIN_P = 0.0;
             double DRIVETRAIN_I = 0.0;
             double DRIVETRAIN_D = 0.0;
