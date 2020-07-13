@@ -9,6 +9,7 @@ import com.stuypulse.stuylib.math.Angle;
 
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
+import edu.wpi.first.wpilibj.SPI.Port;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
@@ -53,6 +54,8 @@ public class Drivetrain extends SubsystemBase {
 
         leftMotors = new SpeedControllerGroup(topLeftMotor, middleLeftMotor, bottomLeftMotor);
         rightMotors = new SpeedControllerGroup(topRightMotor, middleRightMotor, bottomRightMotor);
+
+        navx = new AHRS(Port.kMXP);
     }
 
     public Gear getGear(Gear gear) {
@@ -94,10 +97,6 @@ public class Drivetrain extends SubsystemBase {
         return Angle.degrees(navx.getAngle());
     }
 
-    public void tankDrive(double left, double right) {
-        getCurrentDrive().tankDrive(left, right);
-    }
-
     public void drive() {
         leftMotors.set(1.0);
         rightMotors.set(1.0);
@@ -109,6 +108,10 @@ public class Drivetrain extends SubsystemBase {
 
     public void stop() {
         getCurrentDrive().tankDrive(0,0);
+    }
+
+    public void tankDrive(double left, double right) {
+        getCurrentDrive().tankDrive(left, right);
     }
 
     public void arcadeDrive(double speed, double rotation) {

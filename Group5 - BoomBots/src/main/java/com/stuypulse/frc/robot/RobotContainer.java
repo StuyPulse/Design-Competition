@@ -23,6 +23,7 @@ import com.stuypulse.frc.robot.subsystems.Climber;
 import com.stuypulse.frc.robot.subsystems.Drivetrain;
 import com.stuypulse.frc.robot.subsystems.Intake;
 import com.stuypulse.frc.robot.subsystems.Shooter;
+import com.stuypulse.stuylib.input.gamepads.Logitech;
 import com.stuypulse.stuylib.input.gamepads.PS4;
 
 import edu.wpi.first.wpilibj.GenericHID;
@@ -46,7 +47,7 @@ public class RobotContainer {
   private final Shooter shooter = new Shooter();
 
   private final PS4 driver = new PS4(Constants.Gamepad.DRIVER_PORT);
-  private final PS4 operator = new PS4(Constants.Gamepad.OPERATOR_PORT);
+  private final Logitech operator = new Logitech.XMode(Constants.Gamepad.OPERATOR_PORT);
   private static SendableChooser<Command> autonChooser = new SendableChooser<>();
 
   /**

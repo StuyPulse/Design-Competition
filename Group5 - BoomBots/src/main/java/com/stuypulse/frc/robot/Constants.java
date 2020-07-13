@@ -7,6 +7,8 @@
 
 package com.stuypulse.frc.robot;
 
+import edu.wpi.first.wpilibj.SPI.Port;
+
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
  * constants.  This class should not be used for any other purpose.  All constants should be
@@ -51,6 +53,8 @@ public interface Constants {
             int DRIVETRAIN_TOP_RIGHT_MOTOR_PORT = -1;
             int DRIVETRAIN_MIDDLE_RIGHT_MOTOR_PORT = -1;
             int DRIVETRAIN_BOTTOM_RIGHT_MOTOR_PORT = 1;
+
+            int DRIVETRAIN_GYRO_PORT = -1;
 
             double DRIVETRAIN_P = 0.0;
             double DRIVETRAIN_I = 0.0;

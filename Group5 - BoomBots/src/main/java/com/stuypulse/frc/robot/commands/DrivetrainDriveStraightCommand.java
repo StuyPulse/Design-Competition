@@ -4,12 +4,12 @@ import com.stuypulse.frc.robot.subsystems.Drivetrain;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-public class DrivetrainMovementCommand extends CommandBase {
+public class DrivetrainDriveStraightCommand extends CommandBase {
 
     private Drivetrain drivetrain;
     private double distance;
 
-    public DrivetrainMovementCommand(Drivetrain drivetrain, double distance) {
+    public DrivetrainDriveStraightCommand(Drivetrain drivetrain, double distance) {
         this.drivetrain = drivetrain;
         this.distance = distance;
         addRequirements(drivetrain);
