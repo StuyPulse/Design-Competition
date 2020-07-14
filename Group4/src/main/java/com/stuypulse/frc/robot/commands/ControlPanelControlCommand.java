@@ -6,6 +6,8 @@ import com.stuypulse.frc.robot.subsystems.ControlPanel;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import com.stuypulse.stuylib.input.Gamepad;
 
+import com.stuypulse.stuylib.math.SLMath;
+
 /**
  * Command that allows the gamepad to control the ControlPanel by using the
  * gamepad's stick rotation.
