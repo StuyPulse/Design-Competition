@@ -23,7 +23,7 @@ public interface Constants {
     int OPERATOR_PORT = -1;
 
     // SHOOTER VALUES
-    double INITATION_LINE_RPM = 0;
+    double INITIATION_LINE_RPM = 0;
     double TRENCH_RPM= 0;
     double FAR_RPM = 0;
 
@@ -158,15 +158,9 @@ public interface Constants {
 
     public interface kLEDController {
         int CHANNEL = -1;
-        /*
-         * 2.003ms = full "forward" 1.550ms = the "high end" of the deadband range
-         * 1.500ms = center of the deadband range (off) 1.460ms = the "low end" of the
-         * deadband range 0.999ms = full "reverse"
-         *
-         */
 
-        double BLACK = 0.99;
-        double WHITE = 0.93;
+        long WAIT_TIME = 20;
+
     }
 
     public interface kClimber {

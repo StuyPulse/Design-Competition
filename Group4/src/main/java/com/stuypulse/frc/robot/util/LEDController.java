@@ -1,6 +1,5 @@
 package com.stuypulse.frc.robot.util;
 
-import java.util.function.Consumer;
 import java.util.Random;
 
 import com.stuypulse.frc.robot.Constants.kLEDController;
@@ -9,112 +8,136 @@ import edu.wpi.first.wpilibj.PWMSparkMax;
 
 public class LEDController {
 
-    private static class Wait implements Consumer<LEDController> {
-
-        private final long time;
-        public Wait(long time) {
-            this.time = time;
-        }
-
-        @Override
-        public void accept(LEDController in) {
-            try {
-                Thread.sleep(time);
-            } catch (Exception e) {}
-        }
-    }
-
-    public static final Consumer<LEDController> kOn = x->x.on();
-    public static final Consumer<LEDController> kOff = x->x.off();
-
-    public static final Consumer<LEDController> kWait(long waitTime) {
-        return new Wait(waitTime);
-    }
-    public static final Consumer<LEDController> kWait = kWait(500);
-
-    public static final Consumer<LEDController> kHotPink = x->x.set(0.57);
-    public static final Consumer<LEDController> kDarkRed = x->x.set(0.59);
-    public static final Consumer<LEDController> kRed = x->x.set(0.61);
-    public static final Consumer<LEDController> kRedOrange = x->x.set(0.63);
-    public static final Consumer<LEDController> kOrange = x->x.set(0.65);
-    public static final Consumer<LEDController> kGold = x->x.set(0.67);
-    public static final Consumer<LEDController> kYellow = x->x.set(0.69);
-    public static final Consumer<LEDController> kLawnGreen = x->x.set(0.71);
-    public static final Consumer<LEDController> kLime = x->x.set(0.73);
-    public static final Consumer<LEDController> kDarkGreen = x->x.set(0.75);
-    public static final Consumer<LEDController> kGreen = x->x.set(0.77);
-    public static final Consumer<LEDController> kBlueGreen = x->x.set(0.79);
-    public static final Consumer<LEDController> kAqua = x->x.set(0.81);
-    public static final Consumer<LEDController> kSkyBlue = x->x.set(0.83);
-    public static final Consumer<LEDController> kDarkBlue = x->x.set(0.85);
-    public static final Consumer<LEDController> kBlue = x->x.set(0.87);
-    public static final Consumer<LEDController> kBlueViolet = x->x.set(0.89);
-    public static final Consumer<LEDController> kViolet = x->x.set(0.91);
-    public static final Consumer<LEDController> kWhite = x->x.set(0.93);
-    public static final Consumer<LEDController> kGray = x->x.set(0.95);
-    public static final Consumer<LEDController> kDarkGray = x->x.set(0.97);
-    public static final Consumer<LEDController> kBlack = x->x.set(0.99);
-
     private static final Random rn = new Random();
 
-    public static final Consumer<LEDController> kRandom = x -> {
+    public static final Mode kWhite = new Mode(0.93);
+    public static final Mode kBlack = new Mode(0.99);
+
+    public static final Mode kPulse = new Mode(0.93,true);
+    public static final Mode kRandom = new Mode();
+    public static final Mode kParty = new Mode(true);
+
+    public static class Mode {
+
+        private final double value;
+
+        private final boolean pulse;
+        private final boolean isRandom;
+
+        /**
+         * Create a mode by explcitily setting each variable.
+         *
+         * @param value value to set LED controller
+         * @param pulse whether or not to pulse before ending
+         * @param isRandom should generate random value (ignore given value)
+         */
+        private Mode(double value, boolean pulse, boolean isRandom) {
+            this.value = value;
+            this.pulse = pulse;
+            this.isRandom = isRandom;
+        }
+
+        /**
+         * Create non-random mode that sets to a given value.
+         *
+         * @param value value
+         * @param pulse should pulse
+         */
+        public Mode(double value, boolean pulse) {
+            this(value, pulse, false);
+        }
+
+        /**
+         * Creates a non-random, non-pulsing mode.
+         *
+         * @param value value
+         */
+        public Mode(double value) {
+            this(value, false);
+        }
+
+        /**
+         * Creates a random generating mode.
+         *
+         * @param pulse
+         */
+        public Mode(boolean pulse) {
+            this(0.0, pulse, true);
+        }
+
+        /**
+         * Creates a random generating, non-pulsing mode.
+         */
+        public Mode() {
+            this(false);
+        }
+
+    }
+
+    private final static double getRandomValue() {
         double min = 0.57;
         double max = 0.99;
 
         int limit = ((int)((max-min)*100));
         int rand = rn.nextInt(limit+1);
 
-        x.set( min + (rand/100.0) );
-    };
-
-    public static final Consumer<LEDController> kPartyMode = kPulse(kRandom, kRandom);
-
-    public static final Consumer<LEDController> kPulse(Consumer<LEDController> a, Consumer<LEDController> b) {
-        return a.andThen(kWait).andThen(b).andThen(kWait);
+        return ( min + (rand/100.0) );
     }
-
-    public static final Consumer<LEDController> kPulse(Consumer<LEDController> a) {
-        return kPulse(a, kOff);
-    }
-
-    public static final Consumer<LEDController> kPulse = kPulse(kOn, kOff);
-
-    private Consumer<LEDController> mode;
 
     private final PWMSparkMax pwmController;
+    private Mode currentMode;
 
     public LEDController() {
-        mode = kOff;
         pwmController = new PWMSparkMax(kLEDController.CHANNEL);
+        currentMode = kBlack;
     }
 
-    public void setMode(Consumer<LEDController> mode) {
-        if (mode == null)
-            mode = kOff;
+    public void setMode(Mode newMode) {
+        this.currentMode = newMode;
+    }
 
-        this.mode = mode;
-
-        // mode.accept(this);
+    public Mode getMode() {
+        return currentMode;
     }
 
     public void executeMode() {
-        mode.accept(this);
+
+        double value = currentMode.isRandom ? getRandomValue() : currentMode.value;
+
+        set(value);
+
+        if (currentMode.pulse) {
+
+            try {
+                Thread.sleep(kLEDController.WAIT_TIME);
+            } catch (Exception e) { }
+
+            off();
+
+            try {
+                Thread.sleep(kLEDController.WAIT_TIME);
+            } catch (Exception e) { }
+
+            set(value);
+
+        }
+
     }
 
-    public void set(double value) {
+    private void set(double value) {
         pwmController.set(value);
     }
 
-    public double get() {
+    private double get() {
         return pwmController.get();
     }
 
-    public void off() {
-        set(kLEDController.BLACK);
+    private void off() {
+        set(0.99);
     }
 
-    public void on() {
-        set(kLEDController.WHITE);
+    private void on() {
+        set(0.93);
     }
 
 }

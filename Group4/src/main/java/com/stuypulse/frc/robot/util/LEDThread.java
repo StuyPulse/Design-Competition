@@ -32,9 +32,6 @@ public class LEDThread extends Thread {
         while (isRunning) {
 
             // do some logic to change mode
-            if (2 > 1) {
-                controller.setMode(kPartyMode);
-            }
 
             controller.executeMode();
 

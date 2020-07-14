@@ -41,6 +41,8 @@ public class RobotContainer {
     private final Shooter shooter;
     private final ControlPanel controlPanel;
 
+    private final LEDController ledController;
+
     /**
      * The container for the robot. Contains subsystems, OI devices, and commands.
      */
@@ -54,6 +56,8 @@ public class RobotContainer {
         shooter = new Shooter();
         controlPanel = new ControlPanel();
 
+        ledController = new LEDController();
+
         // configure default commands
         configureDefaultCommands();
 
@@ -62,6 +66,10 @@ public class RobotContainer {
 
         // set up auton chooser
         configureAutons();
+    }
+
+    protected LEDController getLEDController() {
+        return ledController;
     }
 
     private void configureDefaultCommands() {
@@ -89,7 +97,7 @@ public class RobotContainer {
 
         // update shooter prm
         operator.getDPadUp().whenPressed(new ShooterUpdateCommand(shooter, FAR_RPM));
-        operator.getDPadLeft().whenPressed(new ShooterUpdateCommand(shooter, INITATION_LINE_RPM));
+        operator.getDPadLeft().whenPressed(new ShooterUpdateCommand(shooter, INITIATION_LINE_RPM));
         operator.getDPadRight().whenPressed(new ShooterUpdateCommand(shooter, TRENCH_RPM));
 
         // send shooter full forward or full backwards
