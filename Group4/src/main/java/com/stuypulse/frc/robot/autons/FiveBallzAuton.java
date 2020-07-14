@@ -31,10 +31,8 @@ public class FiveBallzAuton extends SequentialCommandGroup {
             new IntakeAcquireCommand(intake),
             new DrivetrainMoveCommand(drivetrain, -DISTANCE, Angle.fromDegrees(0)),
 
-            new WithTimeout(
-                1,
-                new DrivetrainGoalCommand(drivetrain, DISTANCE)
-            ),
+            new DrivetrainGoalCommand(drivetrain, DISTANCE).withTimeout(MAX_TIMEOUT),
+
             new ShooterUpdateCommand(shooter, TRENCH_RPM)
 
         );
