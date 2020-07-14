@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10};
+var data = {"i0":10,"i1":10,"i2":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -217,10 +217,10 @@ extends <a href="DrivetrainCommand.html" title="class in com.stuypulse.frc.robot
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>com.stuypulse.stuylib.math.Vector2D</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getDirection()">getDirection</a></span>()</code></th>
+<td class="colFirst"><code>double</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAngle()">getAngle</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Returns the desired direction of the robot.</div>
+<div class="block">Returns the desired angle of the robot</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
@@ -229,6 +229,13 @@ extends <a href="DrivetrainCommand.html" title="class in com.stuypulse.frc.robot
 <td class="colLast">
 <div class="block">
  In order to stay consistent, all drivetrain commands must give a gear.</div>
+</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>double</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSpeed()">getSpeed</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Returns the desired speed of the robot.</div>
 </td>
 </tr>
 </table>
@@ -309,20 +316,37 @@ extends <a href="DrivetrainCommand.html" title="class in com.stuypulse.frc.robot
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="getDirection()">
+<a id="getSpeed()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>getDirection</h4>
-<pre class="methodSignature">public&nbsp;com.stuypulse.stuylib.math.Vector2D&nbsp;getDirection()</pre>
-<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="DrivetrainCommand.html#getDirection()">DrivetrainCommand</a></code></span></div>
-<div class="block">Returns the desired direction of the robot.</div>
+<h4>getSpeed</h4>
+<pre class="methodSignature">public&nbsp;double&nbsp;getSpeed()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="DrivetrainCommand.html#getSpeed()">DrivetrainCommand</a></code></span></div>
+<div class="block">Returns the desired speed of the robot.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="DrivetrainCommand.html#getDirection()">getDirection</a></code>&nbsp;in class&nbsp;<code><a href="DrivetrainCommand.html" title="class in com.stuypulse.frc.robot.commands">DrivetrainCommand</a></code></dd>
+<dd><code><a href="DrivetrainCommand.html#getSpeed()">getSpeed</a></code>&nbsp;in class&nbsp;<code><a href="DrivetrainCommand.html" title="class in com.stuypulse.frc.robot.commands">DrivetrainCommand</a></code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>vector representing the direction of the robot.</dd>
+<dd>speed of the robot</dd>
+</dl>
+</li>
+</ul>
+<a id="getAngle()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getAngle</h4>
+<pre class="methodSignature">public&nbsp;double&nbsp;getAngle()</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from class:&nbsp;<code><a href="DrivetrainCommand.html#getAngle()">DrivetrainCommand</a></code></span></div>
+<div class="block">Returns the desired angle of the robot</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="DrivetrainCommand.html#getAngle()">getAngle</a></code>&nbsp;in class&nbsp;<code><a href="DrivetrainCommand.html" title="class in com.stuypulse.frc.robot.commands">DrivetrainCommand</a></code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>angle of the robot</dd>
 </dl>
 </li>
 </ul>
