@@ -7,48 +7,52 @@
 
 package com.stuypulse.frc.robot.commands;
 
-import com.stuypulse.frc.robot.subsystems.Spinner;
-import com.stuypulse.stuylib.input.Gamepad;
+import com.stuypulse.frc.robot.Constants;
+import com.stuypulse.frc.robot.subsystems.Shooter;
+import com.stuypulse.stuylib.control.PIDController;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-public class SpinnerSpinWheelCommand extends CommandBase {
-  private Spinner spinner; 
-  private Gamepad gamepad; 
+public class ShooterAchieveSpeedCommand extends CommandBase {
+  private final double TOLERANCE = 5; 
 
-  private final double DEADBAND_LIMIT = 0.1;
-
-  public SpinnerSpinWheelCommand(Spinner spinner, Gamepad operatorGamepad) {
-    this.spinner = spinner;
-    this.gamepad = operatorGamepad;
-    addRequirements(spinner);
+  private Shooter shooter;
+  private double targetRPM;
+  private PIDController controller;  
+   
+  public ShooterAchieveSpeedCommand(Shooter shooter, double targetRPM) {
+    this.shooter = shooter; 
+    this.targetRPM = targetRPM;
+    addRequirements(shooter);
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
+    controller = new PIDController(
+      Constants.Shooter.kp,
+      Constants.Shooter.ki, 
+      Constants.Shooter.kd
+    );
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    double speed = gamepad.getLeftX(); 
-    if(Math.abs(speed) >= DEADBAND_LIMIT) 
-      spinner.spin(speed);
-    else 
-      spinner.stop(); 
+    double error = targetRPM - shooter.getMedianShooterRPM();
+    double out = controller.update(error); 
+    double volts = shooter.getShooterVoltage() + out; 
+    shooter.setShooterVoltage(volts);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    // this is a default command 
-    spinner.stop();
   }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return controller.isDone(TOLERANCE); 
   }
 }

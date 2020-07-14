@@ -7,21 +7,17 @@
 
 package com.stuypulse.frc.robot.commands;
 
-import com.stuypulse.frc.robot.subsystems.Spinner;
-import com.stuypulse.stuylib.input.Gamepad;
+import com.stuypulse.frc.robot.Constants;
+import com.stuypulse.frc.robot.subsystems.Shooter;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-public class SpinnerSpinWheelCommand extends CommandBase {
-  private Spinner spinner; 
-  private Gamepad gamepad; 
-
-  private final double DEADBAND_LIMIT = 0.1;
-
-  public SpinnerSpinWheelCommand(Spinner spinner, Gamepad operatorGamepad) {
-    this.spinner = spinner;
-    this.gamepad = operatorGamepad;
-    addRequirements(spinner);
+public class ShooterFeedCommand extends CommandBase {
+  private Shooter shooter;
+ 
+  public ShooterFeedCommand(Shooter shooter) {
+    this.shooter = shooter; 
+    addRequirements(shooter);
   }
 
   // Called when the command is initially scheduled.
@@ -32,18 +28,12 @@ public class SpinnerSpinWheelCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    double speed = gamepad.getLeftX(); 
-    if(Math.abs(speed) >= DEADBAND_LIMIT) 
-      spinner.spin(speed);
-    else 
-      spinner.stop(); 
+    shooter.feed(Constants.Shooter.FEED_SPEED);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    // this is a default command 
-    spinner.stop();
   }
 
   // Returns true when the command should end.

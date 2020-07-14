@@ -1,5 +1,8 @@
 package com.stuypulse.frc.robot.subsystems;
 
+import java.util.Arrays;
+
+import com.revrobotics.CANEncoder;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMax.IdleMode;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
@@ -13,9 +16,14 @@ public class Shooter extends SubsystemBase {
     private CANSparkMax midShooterMotor;
     private CANSparkMax rightShooterMotor;
 
+    private CANEncoder leftShooterEncoder;
+    private CANEncoder midShooterEncoder;
+    private CANEncoder rightShooterEncoder;
+
     private SpeedControllerGroup shooterMotors;
 
     private CANSparkMax feederMotor;
+    private CANEncoder feederEncoder; 
 
     public Shooter() {
         leftShooterMotor = new CANSparkMax(Constants.Shooter.LEFT_SHOOTER_MOTOR_PORT, MotorType.kBrushless);
@@ -27,11 +35,17 @@ public class Shooter extends SubsystemBase {
         leftShooterMotor.setIdleMode(IdleMode.kCoast);
         midShooterMotor.setIdleMode(IdleMode.kCoast);
         rightShooterMotor.setIdleMode(IdleMode.kCoast);
+        
+        leftShooterEncoder = leftShooterMotor.getEncoder(); 
+        midShooterEncoder = midShooterMotor.getEncoder();
+        rightShooterEncoder = rightShooterMotor.getEncoder();
 
-        shooterMotors = new SpeedControllerGroup(leftShooterMotor,midShooterMotor, rightShooterMotor);
+        shooterMotors = new SpeedControllerGroup(leftShooterMotor, midShooterMotor, rightShooterMotor);
 
         feederMotor = new CANSparkMax(Constants.Shooter.FEEDER_MOTOR_PORT, MotorType.kBrushless);
         feederMotor.setInverted(true);
+
+        feederEncoder = feederMotor.getEncoder();
     }
 
     public void shoot(double speed) {
@@ -48,5 +62,28 @@ public class Shooter extends SubsystemBase {
 
     public void stopFeeder() {
         feederMotor.set(0); 
+    }
+
+    public double getShooterVoltage() {
+        // TODO: account for other motors 
+        return leftShooterMotor.getBusVoltage(); 
+    }
+
+    public void setShooterVoltage(double volts) {
+        shooterMotors.setVoltage(volts);
+    }
+
+    public double getMedianShooterRPM() {
+        double[] speed = {
+            leftShooterEncoder.getVelocity(), 
+            midShooterEncoder.getVelocity(), 
+            rightShooterEncoder.getVelocity()
+        }; 
+        Arrays.sort(speed); 
+        return speed[1]; 
+    }
+
+    public double getFeederRPM() {
+        return feederEncoder.getVelocity(); 
     }
 }

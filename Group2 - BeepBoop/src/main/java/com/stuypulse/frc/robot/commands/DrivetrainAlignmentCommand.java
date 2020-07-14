@@ -15,9 +15,10 @@ import com.stuypulse.stuylib.network.limelight.Limelight;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 public class DrivetrainAlignmentCommand extends CommandBase {
+  private final double TOLERANCE = 0.1; 
+
   private Drivetrain drivetrain; 
   private PIDController controller;
-  private double error;
 
   public DrivetrainAlignmentCommand(Drivetrain drivetrain) {
     this.drivetrain = drivetrain;
@@ -32,14 +33,14 @@ public class DrivetrainAlignmentCommand extends CommandBase {
       Constants.Drivetrain.ki,
       Constants.Drivetrain.kd
     );
-    error = Limelight.getTargetXAngle(); 
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    drivetrain.arcadeDrive(0, controller.update(error));
-    error = Limelight.getTargetXAngle();
+    double error = Limelight.getTargetXAngle();
+    double turn = controller.update(error); 
+    drivetrain.arcadeDrive(0, turn);
   }
 
   // Called once the command ends or is interrupted.
@@ -51,6 +52,6 @@ public class DrivetrainAlignmentCommand extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return Math.abs(error) <= 0.1;
+    return controller.isDone(TOLERANCE); 
   }
 }

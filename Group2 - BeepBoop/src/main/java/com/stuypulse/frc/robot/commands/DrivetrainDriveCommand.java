@@ -30,9 +30,11 @@ public class DrivetrainDriveCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    // while top buttom is pressed quickturn  
     drivetrain.curvatureDrive(
       gamepad.getLeftTrigger() - gamepad.getRightTrigger(), 
-      gamepad.getLeftX()
+      gamepad.getLeftX(), 
+      gamepad.getRawTopButton()
     ); 
   }
 

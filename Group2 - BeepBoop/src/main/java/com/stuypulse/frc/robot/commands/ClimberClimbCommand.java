@@ -18,15 +18,10 @@ public class ClimberClimbCommand extends CommandBase {
 
   private final double DEADBAND_LIMIT = 0.1;
 
-  /**
-   * Creates a new ClimberClimbCommand.
-   */
   public ClimberClimbCommand(Climber climber, Gamepad operatorGamepad) {
     this.climber = climber;
     this.gamepad = operatorGamepad;
     addRequirements(climber);
-
-    // Use addRequirements() here to declare subsystem dependencies.
   }
 
   // Called when the command is initially scheduled.
@@ -37,8 +32,8 @@ public class ClimberClimbCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    double speed = gamepad.getLeftY();
-    if(Math.abs(speed) > DEADBAND_LIMIT)
+    double speed = gamepad.getRightY();
+    if(Math.abs(speed) >= DEADBAND_LIMIT)
       climber.climb(speed);
     else
       climber.stop();

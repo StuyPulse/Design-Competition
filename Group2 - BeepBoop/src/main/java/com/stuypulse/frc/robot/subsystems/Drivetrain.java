@@ -80,12 +80,15 @@ public class Drivetrain extends SubsystemBase {
         differentialDrive.arcadeDrive(speed, rotation);
     }
 
+    public void curvatureDrive(double speed, double rotation, boolean qturn) {
+        differentialDrive.curvatureDrive(speed, rotation, qturn);
+    }
+
     public void curvatureDrive(double speed, double rotation) {
-        differentialDrive.curvatureDrive(speed, rotation, false);
+        curvatureDrive(speed, rotation, false);
     }
 
     public double getAngle() { 
-        // TODO: wait on engineering
         return gyro.getAngle(); 
     }
 
@@ -99,6 +102,25 @@ public class Drivetrain extends SubsystemBase {
 
     public double getRawRightNEOEncoderPosition() {
         return rightNEOEncoder.getPosition();
+    }
+
+    public double getRawEncoderPosition() {
+        return Math.max(
+            getRawLeftNEOEncoderPosition(), 
+            getRawRightNEOEncoderPosition()
+        ); 
+    }
+
+    public double getLeftEncoderPosition() {   
+        return getRawLeftNEOEncoderPosition() * Constants.Drivetrain.ENCODER_CONVERSION_FACTOR;  
+    }
+
+    public double getRightEncoderPosition() {
+        return getRawRightNEOEncoderPosition() * Constants.Drivetrain.ENCODER_CONVERSION_FACTOR;
+    }
+
+    public double getEncoderPosition() {
+        return getRawEncoderPosition() * Constants.Drivetrain.ENCODER_CONVERSION_FACTOR;
     }
 
     public void resetNEOEncoders() {
