@@ -1,4 +1,4 @@
-package com.stuypulse.frc.robot.commands;
+package com.stuypulse.frc.robot.commands.autopid;
 
 import static com.stuypulse.frc.robot.Constants.kDrivetrain.GoalCommand.*;
 import com.stuypulse.frc.robot.subsystems.Drivetrain;
@@ -7,18 +7,15 @@ import com.stuypulse.stuylib.math.*;
 import com.stuypulse.stuylib.network.limelight.Limelight;
 
 /**
- * Drivetrain command to align with the goal from a certain distance offset. For
- * example, if the offset were zero, it would go as close as possible. If the
- * offset were something like the distance from the trench to the goal, it would
- * settle at the trench.
+ * Drivetrain goal command with AutoPID
  */
-public class DrivetrainGoalCommand extends DrivetrainAlignCommand {
+public class DrivetrainAutoGoalCommand extends DrivetrainAutoCommand {
 
     // TODO: fix returning zero on target not foudn
 
     private final double offset;
 
-    public DrivetrainGoalCommand(Drivetrain swag, double distanceOffset) {
+    public DrivetrainAutoGoalCommand(Drivetrain swag, double distanceOffset) {
         super(swag);
 
         offset = distanceOffset;

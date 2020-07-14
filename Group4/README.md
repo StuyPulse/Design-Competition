@@ -30,9 +30,8 @@
 
 ## Todo
 
-- LED Commands & review functionality
-- rename motor and constants (?)
-- solenoid on intake (is it a double solenoid and what is it for)
+- rename motors?
+- rewrite led integration
 
 ## Team Mascot
 

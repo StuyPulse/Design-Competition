@@ -92,6 +92,9 @@ public class RobotContainer {
         // control panel rotate is not instant
         operator.getBottomButton().whenPressed(new ControlPanelRotateCommand(controlPanel, CONTROL_PANEL_ROTATIONZ));
 
+        operator.getLeftBumper().whenPressed(new IntakeExtendCommand(intake));
+        operator.getRightBumper().whenPressed(new IntakeRetractCommand(intake));
+
         // stop
         operator.getDPadDown().whenPressed(new ShooterStopCommand(shooter));
 
