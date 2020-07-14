@@ -45,7 +45,6 @@ public class Shooter extends SubsystemBase {
 
         // do motor initialization here
 
-        // ....5
     }
 
     public void setTargetRPM(double rpm) {

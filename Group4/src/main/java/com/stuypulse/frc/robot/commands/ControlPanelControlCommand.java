@@ -24,14 +24,8 @@ public class ControlPanelControlCommand extends CommandBase {
     }
 
     public void execute() {
-        double d = gamepad.getRightX();
-        if (Math.abs(d) > MIN_FORCE) {
-            controlPanel.spin(d);
-        }
-
-        else {
-            controlPanel.stop();
-        }
+        double d = SLMath.deadband(gamepad.getRightX(), MIN_FORCE);
+        controlPanel.spin(d);
     }
 
     public void end(boolean interrupted) {

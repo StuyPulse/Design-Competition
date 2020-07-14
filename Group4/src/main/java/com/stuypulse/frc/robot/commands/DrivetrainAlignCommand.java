@@ -36,6 +36,8 @@ public abstract class DrivetrainAlignCommand extends DrivetrainCommand {
         targetSpeed = 0.0;
     }
 
+    // TODO: don't rely on the encoders / check up with the limelight
+
     /**
      * <p>
      * Everytime this command is called, initialize will be run. Target angle and
@@ -43,8 +45,6 @@ public abstract class DrivetrainAlignCommand extends DrivetrainCommand {
      * by taking the getError functions and adding it to the drivetrain's current
      * speed and angle.
      * </p>
-     *
-     * ...
      */
     @Override
     public void initialize() {
@@ -52,9 +52,12 @@ public abstract class DrivetrainAlignCommand extends DrivetrainCommand {
         targetSpeed = drivetrain.getDistance() + getSpeedError();
     }
 
-    public Vector2D getDirection() {
-        return new Vector2D(speedController.update(targetSpeed - drivetrain.getDistance()),
-                angleController.update(targetAngle.sub(drivetrain.getAngle()).toDegrees()));
+    public double getSpeed() {
+        return speedController.update(targetSpeed - drivetrain.getDistance());
+    }
+
+    public double getAngle() {
+        return angleController.update(targetAngle.sub(drivetrain.getAngle()).toDegrees());
     }
 
     public abstract double getSpeedError();
@@ -63,9 +66,7 @@ public abstract class DrivetrainAlignCommand extends DrivetrainCommand {
 
     @Override
     public boolean isFinished() {
-        // needs to be constants
-        return speedController.isDone(SPEED_MAX_ERROR, SPEED_MAX_VELOCITY)
-                && angleController.isDone(ANGLE_MAX_ERROR, ANGLE_MAX_VELOCITY);
+        return speedController.isDone(SPEED_MAX_ERROR, SPEED_MAX_VELOCITY) && angleController.isDone(ANGLE_MAX_ERROR, ANGLE_MAX_VELOCITY);
     }
 
     @Override

@@ -38,7 +38,7 @@ public class ShooterTuneCommand extends CommandBase {
 
         shooter.setFeeder(feederController.update(feederError));
 
-    } // "God is dead"
+    }
 
     public boolean isFinished() {
         return false;

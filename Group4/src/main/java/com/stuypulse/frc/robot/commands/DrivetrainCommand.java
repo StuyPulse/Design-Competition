@@ -2,7 +2,6 @@ package com.stuypulse.frc.robot.commands;
 
 import com.stuypulse.frc.robot.subsystems.Drivetrain;
 import com.stuypulse.frc.robot.util.GearController.Gear;
-import com.stuypulse.stuylib.math.Vector2D;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
@@ -37,12 +36,21 @@ public abstract class DrivetrainCommand extends CommandBase {
 
     }
 
+    // TODO: vector usage appropiate?
+
     /**
-     * Returns the desired direction of the robot.
+     * Returns the desired speed of the robot.
      *
-     * @return vector representing the direction of the robot.
+     * @return speed of the robot
      */
-    public abstract Vector2D getDirection();
+    public abstract double getSpeed();
+
+    /**
+     * Returns the desired angle of the robot
+     *
+     * @return angle of the robot
+     */
+    public abstract double getAngle();
 
     /**
      * <p>
@@ -68,7 +76,7 @@ public abstract class DrivetrainCommand extends CommandBase {
     public void execute() {
         drivetrain.setGear(getGear());
 
-        drivetrain.arcadeDrive(getDirection());
+        drivetrain.arcadeDrive(getSpeed(), getAngle());
     }
 
 }

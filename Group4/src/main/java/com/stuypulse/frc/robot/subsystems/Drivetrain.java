@@ -15,7 +15,6 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import static com.stuypulse.frc.robot.Constants.kDrivetrain.*;
 import com.stuypulse.frc.robot.util.GearController.Gear;
 import com.stuypulse.stuylib.math.Angle;
-import com.stuypulse.stuylib.math.Vector2D;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
@@ -98,7 +97,7 @@ public class Drivetrain extends SubsystemBase {
         motors = new DifferentialDrive(lControllers, rControllers);
 
         rEncoder = rMotorBack.getEncoder();
-        lEncoder = rMotorBack.getEncoder();
+        lEncoder = lMotorBack.getEncoder();
 
         gearShift = new DoubleSolenoid(Ports.SOLENOID_A, Ports.SOLENOID_B);
 
@@ -132,21 +131,6 @@ public class Drivetrain extends SubsystemBase {
     }
 
     /**
-     * <p>
-     * Arcade drive.
-     * </p>
-     *
-     * Works like {@link #arcadeDrive(double, double)} but takes in a
-     * {@link com.stuypulse.stuylib.math.Vector2D}
-     *
-     * @see {@link com.stuypulse.stuylib.math.Vector2D}
-     * @param drive vector describing robot's speed and angle rate.
-     */
-    public void arcadeDrive(Vector2D drive) {
-        arcadeDrive(drive.x, drive.y);
-    }
-
-    /**
      * Tank drive.
      *
      * @param lSpeed robot's left side speed
@@ -154,21 +138,6 @@ public class Drivetrain extends SubsystemBase {
      */
     public void tankDrive(double lSpeed, double rSpeed) {
         motors.tankDrive(lSpeed, rSpeed);
-    }
-
-    /**
-     * <p>
-     * Tank drive.
-     * </p>
-     *
-     * Works like {@link #tankDrive(double, double)} but takes in a
-     * {@link com.stuypulse.stuylib.math.Vector2D}
-     *
-     * @see {@link com.stuypulse.stuylib.math.Vector2D}
-     * @param drive vector describing robot's left and right x-axis speeds
-     */
-    public void tankDrive(Vector2D drive) {
-        tankDrive(drive.x, drive.y);
     }
 
     /**
