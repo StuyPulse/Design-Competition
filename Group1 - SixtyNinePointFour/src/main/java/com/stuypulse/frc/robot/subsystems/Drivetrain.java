@@ -11,7 +11,7 @@ import com.kauailabs.navx.frc.AHRS;
 import com.revrobotics.CANEncoder;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-
+import com.stuypulse.frc.robot.Constants.ConversionConstants;
 import com.stuypulse.frc.robot.Constants.Ports;
 import com.stuypulse.stuylib.math.Angle;
 
@@ -100,16 +100,20 @@ public class Drivetrain extends SubsystemBase {
     return Angle.degrees(navx.getAngle());
   }
 
-  public double getLeftEncoderDistance() {
+  public double getRawLeftEncoderDistance() {
     return leftEncoder.getPosition();
   }
 
-  public double getRightEncoderDistance() {
+  public double getRawRightEncoderDistance() {
     return rightEncoder.getPosition();
   }
 
+  public double getRawDistance() {
+    return Math.abs(Math.max(getRawLeftEncoderDistance(), getRawRightEncoderDistance()));
+  }
+
   public double getDistance() {
-    return Math.abs(Math.max(getLeftEncoderDistance(), getRightEncoderDistance()));
+    return getRawDistance() * ConversionConstants.Drivetrain.ENCODER_DISTANCE_TO_FEET;
   }
 
   public DifferentialDrive getCurrentDrive() {

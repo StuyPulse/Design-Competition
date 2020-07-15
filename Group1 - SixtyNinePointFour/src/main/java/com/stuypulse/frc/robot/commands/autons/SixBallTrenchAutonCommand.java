@@ -14,6 +14,8 @@ import com.stuypulse.frc.robot.commands.IntakeAcquireCommand;
 import com.stuypulse.frc.robot.commands.IntakeExtendCommand;
 import com.stuypulse.frc.robot.commands.ShooterFeedCommand;
 import com.stuypulse.frc.robot.commands.ShooterShootCommand;
+import com.stuypulse.frc.robot.commands.ShooterStopFeedCommand;
+import com.stuypulse.frc.robot.commands.ShooterStopShootCommand;
 import com.stuypulse.frc.robot.subsystems.Conveyor;
 import com.stuypulse.frc.robot.subsystems.Drivetrain;
 import com.stuypulse.frc.robot.subsystems.Intake;
@@ -21,6 +23,7 @@ import com.stuypulse.frc.robot.subsystems.Shooter;
 import com.stuypulse.frc.robot.Constants.AutonConstants;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+import edu.wpi.first.wpilibj2.command.WaitCommand;
 
 public class SixBallTrenchAutonCommand extends SequentialCommandGroup {
   public SixBallTrenchAutonCommand(Drivetrain drivetrain, Shooter shooter, Intake intake, Conveyor conveyor) {
@@ -34,7 +37,10 @@ public class SixBallTrenchAutonCommand extends SequentialCommandGroup {
       new DrivetrainTurnCommand(drivetrain, AutonConstants.DEGREES_TOWARDS_GOAL),
       new ConveyorConveyCommand(conveyor),
       new ShooterFeedCommand(shooter),
-      new ShooterShootCommand(shooter, AutonConstants.SHOOTING_RPM)
+      new ShooterShootCommand(shooter, AutonConstants.SHOOTING_RPM),
+      new WaitCommand(1.0),
+      new ShooterStopFeedCommand(shooter),
+      new ShooterStopShootCommand(shooter)
     );
   }
 }

@@ -44,7 +44,6 @@ public interface Constants {
             int RIGHT_INTAKE_SOLENOID_B = -1;
 
             int INTAKE_MOTOR = -1;
-
             int INTAKE_BUTTON = -1;
         }
 
@@ -78,6 +77,28 @@ public interface Constants {
     public interface ConversionConstants {
         public interface Shooter {
             double VELOCITY_TO_RPM = -1;
+        }
+
+        public interface Drivetrain {
+            double ENCODER_DISTANCE_TO_FEET = -1;
+        }
+    }
+
+    public interface MotorSpeeds {
+        public interface Intake {
+            double SPEED = -1;
+        }
+
+        public interface Indexer {
+            double SPEED = -1;
+        }
+
+        public interface Conveyor {
+            double SPEED = -1;
+        }
+
+        public interface Climber {
+            double SPEED = -1;
         }
     }
 

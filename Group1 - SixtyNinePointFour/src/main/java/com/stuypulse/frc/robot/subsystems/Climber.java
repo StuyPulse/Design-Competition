@@ -9,6 +9,7 @@ package com.stuypulse.frc.robot.subsystems;
 
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import com.stuypulse.frc.robot.Constants.MotorSpeeds;
 import com.stuypulse.frc.robot.Constants.Ports;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -23,8 +24,8 @@ public class Climber extends SubsystemBase {
   }
 
   public void climb() {
-    leftMotor.set(1);
-    rightMotor.set(1);
+    leftMotor.set(MotorSpeeds.Climber.SPEED);
+    rightMotor.set(MotorSpeeds.Climber.SPEED);
   }
 
   public void stopClimb() {

@@ -6,7 +6,6 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.stuypulse.frc.robot.Constants.ConversionConstants;
 import com.stuypulse.frc.robot.Constants.Ports;
 
-import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Shooter extends SubsystemBase {
@@ -15,14 +14,8 @@ public class Shooter extends SubsystemBase {
     private CANSparkMax leftShooter;
     private CANSparkMax rightShooter;
 
-    private SpeedControllerGroup shooterMotors;
-
     private CANEncoder leftShooterEncoder;
     private CANEncoder rightShooterEncoder;
-
-    private double currentVelocity;
-    private double targetVelocity;
-
     
     public Shooter() {
         leftFeeder = new CANSparkMax(Ports.Shooter.LEFT_FEEDER, MotorType.kBrushless);
@@ -36,10 +29,6 @@ public class Shooter extends SubsystemBase {
     
     public double getVelocity() {
         return (leftShooterEncoder.getVelocity() + rightShooterEncoder.getVelocity()) / 2;
-    }
-
-    public void setVelocity(double targetVelocity) {
-        this.targetVelocity = targetVelocity;
     }
 
     public double getRPM() {

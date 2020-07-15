@@ -9,6 +9,7 @@ package com.stuypulse.frc.robot.subsystems;
 
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import com.stuypulse.frc.robot.Constants.MotorSpeeds;
 import com.stuypulse.frc.robot.Constants.Ports;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -20,7 +21,7 @@ public class Conveyor extends SubsystemBase {
   }
 
   public void convey() {
-    motor.set(1);
+    motor.set(MotorSpeeds.Conveyor.SPEED);
   }
 
   public void stop() {

@@ -14,6 +14,8 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+
+import com.stuypulse.frc.robot.Constants.MotorSpeeds;
 import com.stuypulse.frc.robot.Constants.Ports;
 
 public class Intake extends SubsystemBase {
@@ -30,11 +32,11 @@ public class Intake extends SubsystemBase {
   }
   
   public void acquire() {
-    motor.set(1);
+    motor.set(MotorSpeeds.Intake.SPEED);
   }
 
   public void deacquire() {
-    motor.set(-1);
+    motor.set(-MotorSpeeds.Intake.SPEED);
   }
 
   public void stop() {
