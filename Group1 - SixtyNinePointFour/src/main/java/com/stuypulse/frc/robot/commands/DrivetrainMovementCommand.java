@@ -27,7 +27,8 @@ public class DrivetrainMovementCommand extends CommandBase {
     }
 
     public boolean isFinished() {
-        return (targetDistance - drivetrain.getDistance() < DrivetrainMovement.MOVEMENT_ERROR);
+        // Controller.isDone()
+        return controller.isDone(DrivetrainMovement.MOVEMENT_ERROR);
     }
 }
 

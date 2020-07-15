@@ -5,21 +5,25 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package com.stuypulse.frc.robot; //ah i have found my prioblem
+package com.stuypulse.frc.robot;
+
+import com.stuypulse.stuylib.math.Angle;
 
 /**
- * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
- * constants.  This class should not be used for any other purpose.  All constants should be
- * declared globally (i.e. public static).  Do not put anything functional in this class.
+ * The Constants class provides a convenient place for teams to hold robot-wide
+ * numerical or boolean constants. This class should not be used for any other
+ * purpose. All constants should be declared globally (i.e. public static). Do
+ * not put anything functional in this class.
  *
- * <p>It is advised to statically import this class (or one of its inner classes) wherever the
- * constants are needed, to reduce verbosity.
+ * <p>
+ * It is advised to statically import this class (or one of its inner classes)
+ * wherever the constants are needed, to reduce verbosity.
  */
 public interface Constants {
 
     //
     public interface Ports {
-    
+
         public interface Drivetrain {
             int DRIVETRAIN_TOP_LEFT_MOTOR = -1;
             int DRIVETRAIN_TOP_RIGHT_MOTOR = -1;
@@ -43,7 +47,7 @@ public interface Constants {
 
             int INTAKE_BUTTON = -1;
         }
-    
+
         public interface Climber {
             int CLIMBER_LEFT_MOTOR = -1;
             int CLIMBER_RIGHT_MOTOR = -1;
@@ -64,24 +68,32 @@ public interface Constants {
             int RIGHT_SHOOTER = -1;
         }
 
-        public interface Gamepad{
+        public interface Gamepad {
             int DRIVER = -1;
             int OPERATOR = -1;
         }
-    
+
     }
 
-    public interface DrivetrainMovement{
+    public interface DrivetrainMovement {
         double P = -1;
         double I = 0;
         double D = -1;
         double MOVEMENT_ERROR = 0.01;
     }
 
-    public interface DrivetrainTurn{
+    public interface DrivetrainTurn {
         double P = -1;
         double I = 0;
         double D = -1;
         double TURNING_ERROR = 0.01;
+    }
+
+    public interface AutonConstants {
+        Angle DEGREES_TOWARDS_TRENCH = Angle.degrees(135);
+        double DISTANCE_TOWARDS_TRENCH = 110;
+        Angle DEGREES_TOWARDS_BALL = Angle.degrees(45);
+        double DISTANCE_TOWARDS_BALLS = 30 + 36.5*2;
+        Angle DEGREES_TOWARDS_GOAL = Angle.degrees(180);
     }
 }

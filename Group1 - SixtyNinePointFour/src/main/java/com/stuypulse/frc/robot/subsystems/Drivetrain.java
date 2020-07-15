@@ -35,6 +35,8 @@ public class Drivetrain extends SubsystemBase {
   private Gear gear;
   private Solenoid leftGearShift;
   private Solenoid rightGearShift;
+
+  // remove
   private DifferentialDrive highGearDrive;
   private DifferentialDrive lowGearDrive;
 

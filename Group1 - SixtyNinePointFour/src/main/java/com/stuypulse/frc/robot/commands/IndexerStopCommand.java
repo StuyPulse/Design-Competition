@@ -4,6 +4,7 @@ import com.stuypulse.frc.robot.subsystems.Indexer;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
+//make instance command
 public class IndexerStopCommand extends CommandBase {
     private final Indexer indexer;
 

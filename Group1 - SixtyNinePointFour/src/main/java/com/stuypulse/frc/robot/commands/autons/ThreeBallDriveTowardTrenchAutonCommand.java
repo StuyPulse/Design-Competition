@@ -7,28 +7,22 @@
 
 package com.stuypulse.frc.robot.commands.autons;
 
-import com.stuypulse.frc.robot.Constants.Ports.Shooter;
-import com.stuypulse.frc.robot.commands.DrivetrainDriveCommand;
 import com.stuypulse.frc.robot.commands.DrivetrainMovementCommand;
 import com.stuypulse.frc.robot.commands.DrivetrainTurnCommand;
 import com.stuypulse.frc.robot.commands.ShooterShootCommand;
 import com.stuypulse.frc.robot.subsystems.Drivetrain;
+import com.stuypulse.frc.robot.subsystems.Shooter;
+import com.stuypulse.frc.robot.Constants.AutonConstants;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
-// NOTE:  Consider using this command inline, rather than writing a subclass.  For more
-// information, see:
-// https://docs.wpilib.org/en/latest/docs/software/commandbased/convenience-features.html
 public class ThreeBallDriveTowardTrenchAutonCommand extends SequentialCommandGroup {
-  private final double DegreesTowardTrench = 135;
-  private final double DistanceTowardsTrench = 110;
-  private final double DegreesTowardBalls = 45;
   public ThreeBallDriveTowardTrenchAutonCommand(Shooter shooter, Drivetrain drivetrain) {
     addCommands(
-      ShooterShootCommand(shooter),
-      DrivetrainTurnCommand(drivetrain, DegreesTowardTrench),
-      DrivetrainMovementCommand(drivetrain, DistanceTowardsTrench),
-      DrivetrainTurnCommand(drivetrain, DegreesTowardBalls)
+      new ShooterShootCommand(shooter),
+      new DrivetrainTurnCommand(drivetrain, AutonConstants.DEGREES_TOWARDS_TRENCH),
+      new DrivetrainMovementCommand(drivetrain, AutonConstants.DISTANCE_TOWARDS_TRENCH),
+      new DrivetrainTurnCommand(drivetrain, AutonConstants.DEGREES_TOWARDS_BALL)
     );
   }
 }

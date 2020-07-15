@@ -28,7 +28,7 @@ public class DrivetrainTurnCommand extends CommandBase {
     }
 
     public boolean isFinished() {
-        return ((targetAngle.sub(drivetrain.getGyroAngle())).toDegrees() < DrivetrainTurn.TURNING_ERROR);
+        return (controller.isDone(DrivetrainTurn.TURNING_ERROR));
     }
 }
 

@@ -4,6 +4,9 @@ import com.stuypulse.frc.robot.subsystems.Conveyor;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
+
+
+// make instance command
 public class ConveyorStopCommand extends CommandBase {
     private final Conveyor conveyor;
 

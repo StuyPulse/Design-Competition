@@ -20,7 +20,6 @@ import com.stuypulse.frc.robot.commands.IntakeExtendCommand;
 import com.stuypulse.frc.robot.commands.IntakeRetractCommand;
 import com.stuypulse.frc.robot.commands.ShooterFeedCommand;
 import com.stuypulse.frc.robot.commands.ShooterShootCommand;
-import com.stuypulse.frc.robot.commands.autons.DoNothingAutonCommand;
 import com.stuypulse.frc.robot.subsystems.Climber;
 import com.stuypulse.frc.robot.subsystems.Conveyor;
 import com.stuypulse.frc.robot.subsystems.Drivetrain;

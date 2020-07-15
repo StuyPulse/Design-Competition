@@ -1,5 +1,6 @@
 package com.stuypulse.frc.robot.subsystems;
 
+import com.revrobotics.CANEncoder;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.stuypulse.frc.robot.Constants.Ports;
