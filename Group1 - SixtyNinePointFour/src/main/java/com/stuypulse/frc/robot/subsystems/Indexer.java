@@ -21,7 +21,7 @@ public class Indexer extends SubsystemBase {
   }
 
   public void rotate() {
-    motor.set(MotorSpeeds.Conveyor.SPEED);
+    motor.set(MotorSpeeds.Indexer.SPEED);
   }
 
   public void stop() {
