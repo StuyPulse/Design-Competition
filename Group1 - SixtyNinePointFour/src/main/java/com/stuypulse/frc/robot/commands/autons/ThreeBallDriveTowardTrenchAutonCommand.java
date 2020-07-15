@@ -19,7 +19,7 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 public class ThreeBallDriveTowardTrenchAutonCommand extends SequentialCommandGroup {
   public ThreeBallDriveTowardTrenchAutonCommand(Shooter shooter, Drivetrain drivetrain) {
     addCommands(
-      new ShooterShootCommand(shooter),
+      new ShooterShootCommand(shooter, AutonConstants.SHOOTING_RPM),
       new DrivetrainTurnCommand(drivetrain, AutonConstants.DEGREES_TOWARDS_TRENCH),
       new DrivetrainMovementCommand(drivetrain, AutonConstants.DISTANCE_TOWARDS_TRENCH),
       new DrivetrainTurnCommand(drivetrain, AutonConstants.DEGREES_TOWARDS_BALL)

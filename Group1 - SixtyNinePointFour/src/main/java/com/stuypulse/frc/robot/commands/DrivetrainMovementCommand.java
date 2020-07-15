@@ -22,12 +22,10 @@ public class DrivetrainMovementCommand extends CommandBase {
     }
 
     public void execute() {
-        double error = targetDistance - drivetrain.getDistance();
-        drivetrain.arcadeDrive(controller.update(error), 0);
+        drivetrain.arcadeDrive(controller.update(drivetrain.getDistance(), targetDistance), 0);
     }
 
     public boolean isFinished() {
-        // Controller.isDone()
         return controller.isDone(DrivetrainMovement.MOVEMENT_ERROR);
     }
 }

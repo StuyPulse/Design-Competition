@@ -75,6 +75,12 @@ public interface Constants {
 
     }
 
+    public interface ConversionConstants {
+        public interface Shooter {
+            double VELOCITY_TO_RPM = -1;
+        }
+    }
+
     public interface DrivetrainMovement {
         double P = -1;
         double I = 0;
@@ -89,7 +95,15 @@ public interface Constants {
         double TURNING_ERROR = 0.01;
     }
 
+    public interface ShooterShoot {
+        double P = -1;
+        double I = 0;
+        double D = 0;
+        double SHOOTING_ERROR = 0.01;
+    }
+
     public interface AutonConstants {
+        double SHOOTING_RPM = 2000;
         Angle DEGREES_TOWARDS_TRENCH = Angle.degrees(135);
         double DISTANCE_TOWARDS_TRENCH = 110;
         Angle DEGREES_TOWARDS_BALL = Angle.degrees(45);

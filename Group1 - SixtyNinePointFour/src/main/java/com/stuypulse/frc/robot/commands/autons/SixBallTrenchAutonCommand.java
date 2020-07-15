@@ -34,7 +34,7 @@ public class SixBallTrenchAutonCommand extends SequentialCommandGroup {
       new DrivetrainTurnCommand(drivetrain, AutonConstants.DEGREES_TOWARDS_GOAL),
       new ConveyorConveyCommand(conveyor),
       new ShooterFeedCommand(shooter),
-      new ShooterShootCommand(shooter)
+      new ShooterShootCommand(shooter, AutonConstants.SHOOTING_RPM)
     );
   }
 }

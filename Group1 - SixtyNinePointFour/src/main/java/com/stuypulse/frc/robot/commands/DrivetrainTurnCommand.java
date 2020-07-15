@@ -23,12 +23,11 @@ public class DrivetrainTurnCommand extends CommandBase {
     }
 
     public void execute() {
-        double error = targetAngle.sub(drivetrain.getGyroAngle()).toDegrees();
-        drivetrain.arcadeDrive(0, controller.update(error));
+        drivetrain.arcadeDrive(0, controller.update(drivetrain.getGyroAngle().toDegrees(), targetAngle.toDegrees()));
     }
 
     public boolean isFinished() {
-        return (controller.isDone(DrivetrainTurn.TURNING_ERROR));
+        return controller.isDone(DrivetrainTurn.TURNING_ERROR);
     }
 }
 
