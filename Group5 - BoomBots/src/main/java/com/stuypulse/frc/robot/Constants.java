@@ -53,10 +53,15 @@ public interface Constants {
             int DRIVETRAIN_BOTTOM_RIGHT_MOTOR_PORT = -1;
 
             // TODO: figure out PID
-            double DRIVETRAIN_P = 0.0;
-            double DRIVETRAIN_I = 0.0;
-            double DRIVETRAIN_D = 0.0;
 
+            double DRIVETRAIN_DRIVE_P = 0.0;
+            double DRIVETRAIN_DRIVE_I = 0.0;
+            double DRIVETRAIN_DRIVE_D = 0.0;
+            double DRIVETRAIN_DRIVE_ERROR_TOLERANCE = 0.01;
+
+            double DRIVETRAIN_TURN_P = 0.0;
+            double DRIVETRAIN_TURN_I = 0.0;
+            double DRIVETRAIN_TURN_D = 0.0;
             double DRIVETRAIN_TURNING_ERROR_TOLERANCE = 0.01;
         }
 

@@ -16,7 +16,7 @@ public class DrivetrainDriveCommand extends CommandBase {
     }
 
     public void execute() {
-        drivetrain.tankDrive(operator.getLeftY(), operator.getLeftX());
+        drivetrain.tankDrive(operator.getLeftY(), operator.getRightY());
     }
 
     public void end() {
