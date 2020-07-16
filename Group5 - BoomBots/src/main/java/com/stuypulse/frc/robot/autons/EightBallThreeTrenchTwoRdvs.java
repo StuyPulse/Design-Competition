@@ -9,7 +9,6 @@ import com.stuypulse.frc.robot.subsystems.Shooter;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
-// Based off of EightBallThreeTrenchTwoRdvsAutonCommand from Edwin
 public class EightBallThreeTrenchTwoRdvs extends SequentialCommandGroup {
     public EightBallThreeTrenchTwoRdvs(Drivetrain drivetrain, Shooter shooter) {
         addCommands(

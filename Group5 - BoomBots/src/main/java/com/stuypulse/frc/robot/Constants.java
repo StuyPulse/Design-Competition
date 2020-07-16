@@ -72,6 +72,13 @@ public interface Constants {
             double ANGLE_FROM_RDVS_TO_TWO_BALL = 25;
             double DISTANCE_BETWEEN_TWO_BALL = 16.57;
             double DISTANCE_FROM_RDVS_TO_INTERSECTION_BEWTWEEN_TWO_BALL_AND_GOAL = 40;
+
+            double DISTANCE_TO_RDVS_IN_FEET = 10.75;
+            double ANGLE_TO_RDVS = 70.0;
+            double DISTANCE_TO_ACQUIRE_RDVS_BALLS_IN_FEET = 2.35;
+            double DISTANCE_TO_BACKUP_AFTER_RDVS = -1.6;
+            double ANGLE_TO_TRENCH = -50.0;
+            double DISTANCE_TO_ACQUIRE_TRENCH_BALLS = 8.5;
         }
 
         public interface Gamepad {
