@@ -13,7 +13,8 @@ public class IntakeRetractCommand extends InstantCommand {
         addRequirements(intake);
     }
 
-    public void execute() {
+    @Override
+    public void initialize() {
         intake.retract();
     }
 

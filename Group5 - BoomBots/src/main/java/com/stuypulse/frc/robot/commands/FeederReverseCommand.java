@@ -13,11 +13,13 @@ public class FeederReverseCommand extends CommandBase {
         addRequirements(shooter);
     }
 
+    @Override
     public void execute() {
         shooter.vomit();
     }
 
-    public void end() {
+    @Override
+    public void end(boolean interrupted) {
         shooter.stopFeeder();
     }
     

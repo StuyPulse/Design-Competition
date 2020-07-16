@@ -13,11 +13,13 @@ public class IntakeAcquireCommand extends CommandBase {
         addRequirements(intake);
     }
 
+    @Override
     public void execute() {
         intake.acquire();
     }
 
-    public void end() {
+    @Override
+    public void end(boolean interrupted) {
         intake.stop();
     }
     

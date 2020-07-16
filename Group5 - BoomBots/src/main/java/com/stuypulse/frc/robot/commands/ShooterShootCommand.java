@@ -14,11 +14,13 @@ public class ShooterShootCommand extends CommandBase {
         addRequirements(shooter);
     }
 
+    @Override
     public void execute() {
         shooter.setShooterSpeed(Constants.Shooter.SHOOTER_TARGET_VELOCITY);
     }
 
-    public void end() {
+    @Override
+    public void end(boolean interrupted) {
         shooter.stopShooter();
     }
     

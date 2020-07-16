@@ -13,11 +13,13 @@ public class FeederFeedCommand extends CommandBase {
         addRequirements(shooter);
     }
 
+    @Override
     public void execute() {
         shooter.feed();
     }
 
-    public void end() {
+    @Override
+    public void end(boolean interrupted) {
         shooter.stopFeeder();
     }
     

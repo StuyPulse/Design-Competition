@@ -13,11 +13,13 @@ public class IntakeDeacquireCommand extends CommandBase {
         addRequirements(intake);
     }
 
+    @Override
     public void execute() {
         intake.deacquire();
     }
 
-    public void end() {
+    @Override
+    public void end(boolean interrupted) {
         intake.stop();
     }
     

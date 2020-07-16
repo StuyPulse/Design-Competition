@@ -13,7 +13,8 @@ public class ShooterStopCommand extends InstantCommand {
         addRequirements(shooter);
     }
 
-    public void execute() {
+    @Override
+    public void initialize() {
         shooter.stopShooter();
     }
 

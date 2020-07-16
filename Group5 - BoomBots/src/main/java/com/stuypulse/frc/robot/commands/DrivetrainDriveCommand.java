@@ -15,11 +15,13 @@ public class DrivetrainDriveCommand extends CommandBase {
         addRequirements(drivetrain);
     }
 
+    @Override
     public void execute() {
         drivetrain.tankDrive(operator.getLeftY(), operator.getRightY());
     }
 
-    public void end() {
+    @Override
+    public void end(boolean interrupted) {
         drivetrain.stop();
     }
     

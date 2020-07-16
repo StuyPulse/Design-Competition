@@ -13,11 +13,13 @@ public class ClimberClimbUpCommand extends CommandBase {
         addRequirements(climber);
     }
 
+    @Override
     public void execute() {
         climber.climbUp();
     }
 
-    public void end() {
+    @Override
+    public void end(boolean interrupted) {
         climber.stop();
     }
 

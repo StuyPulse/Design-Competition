@@ -52,8 +52,6 @@ public interface Constants {
             int DRIVETRAIN_MIDDLE_RIGHT_MOTOR_PORT = -1;
             int DRIVETRAIN_BOTTOM_RIGHT_MOTOR_PORT = -1;
 
-            // TODO: figure out PID
-
             double DRIVETRAIN_DRIVE_P = 0.0;
             double DRIVETRAIN_DRIVE_I = 0.0;
             double DRIVETRAIN_DRIVE_D = 0.0;
