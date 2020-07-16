@@ -79,6 +79,26 @@ public interface Constants {
             double DISTANCE_TO_BACKUP_AFTER_RDVS = -1.6;
             double ANGLE_TO_TRENCH = -50.0;
             double DISTANCE_TO_ACQUIRE_TRENCH_BALLS = 8.5;
+
+            double GOAL_HEIGHT = 90;
+            double HEIGHT = 34;
+            double PITCH = 25;
+            double YAW = 2.0;
+            double MIN_DISTANCE = 36;
+            double MAX_DISTANCE = 648;
+        }
+
+        public interface CV {
+            double DEFAULT_TARGET_HEIGHT_THRESHOLD = 7;
+            double DEFAULT_MIN_ASPECT_RATIO = 1.2;
+            double DEFAULT_MAX_ASPECT_RATIO = 3.3;
+            double DEFAULT_ANGLE_THRESHOLD = 25;
+
+            double MIN_X_ANGLE = -27;
+            double MAX_X_ANGLE = 27;
+            
+            double MIN_Y_ANGLE = -20.5;
+            double MAX_Y_ANGLE = 20.5;
         }
 
         public interface Gamepad {
