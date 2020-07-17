@@ -31,20 +31,3 @@ $ git merge master
 ```
 
 After fixing any merge conflicts, make a pull request and let Renee or Sam know. They will go over your code and either request changes or approve it. 
-
-## Group 1 - Subsystems
-- Drivetrain
-    - 6 sparks
-    - 2 solenoids
-- Climber
-    - 2 sparks
-- Intake
-    - 1 spark
-    - 2 solenoids
-- Conveyor
-    - 1 spark
-- Indexer
-    - 1 spark
-- Shooter
-    - 2 sparks to shoot
-    - 2 sparks to feed
