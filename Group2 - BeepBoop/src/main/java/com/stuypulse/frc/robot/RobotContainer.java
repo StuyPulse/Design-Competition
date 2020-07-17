@@ -110,7 +110,7 @@ public class RobotContainer {
     ); 
   }
 
-  private void addAutons() {
+  public void addAutons() {
     chooser = new SendableChooser<>(); 
     chooser.setDefaultOption("Do Nothing", new DoNothingAutonCommand());
     chooser.addOption(
