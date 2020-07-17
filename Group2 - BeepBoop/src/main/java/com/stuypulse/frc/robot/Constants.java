@@ -17,7 +17,10 @@ package com.stuypulse.frc.robot;
  */
 public interface Constants {
 
-    // All length measurments are in feet
+    public interface Robot {
+        public static final double LENGTH_FEET = 2.29; 
+        public static final double WIDTH_FEET = 2.29;
+    }
 
     public interface Gamepads {    
         public static final int DRIVER = 0;
@@ -34,11 +37,11 @@ public interface Constants {
 
         public static final int GEAR_SHIFT_SOLENOID_CHANNEL = -1; 
 
-        public static final double WHEEL_DIAMETER = 0.5; 
-        public static final double WHEEL_CIRCUMFERENCE = WHEEL_DIAMETER * 2 * Math.PI;
+        public static final double WHEEL_DIAMETER_FEET = 0.5; 
+        public static final double WHEEL_CIRCUMFERENCE_FEET = WHEEL_DIAMETER_FEET * 2 * Math.PI;
         public static final int ENCODER_TICKS_PER_ROTATION = 4096; 
-        public static final double ENCODER_CONVERSION_FACTOR = WHEEL_CIRCUMFERENCE / ENCODER_TICKS_PER_ROTATION;
-
+        public static final double ENCODER_CONVERSION_FACTOR = WHEEL_CIRCUMFERENCE_FEET / ENCODER_TICKS_PER_ROTATION;
+        
         // Not tested :P
         public static interface Movement {
             public static final double kp = 0.8; 
@@ -70,6 +73,7 @@ public interface Constants {
         public static final int MOTOR_A_PORT = -1; 
         public static final int MOTOR_B_PORT = -1; 
         
+        public static final double INIT_RPM = 250;
         public static final double TRENCH_RPM = 300;
 
         public static final double FEED_SPEED = 0.8;
@@ -99,5 +103,4 @@ public interface Constants {
         public static final double DISTANCE_FROM_INIT_TO_TRENCH = 10;
         public static final double ANGLE_AT_TRENCH_FROM_FORWARD_TO_RDV = 40;
     }
-    
 }

@@ -19,6 +19,8 @@ public class Shooter extends SubsystemBase {
         motorA = new WPI_TalonSRX(Constants.Shooter.MOTOR_A_PORT);
         motorB = new WPI_TalonSRX(Constants.Shooter.MOTOR_B_PORT);
 
+        motorB.setInverted(true);
+
         shooterMotors = new SpeedControllerGroup(motorA, motorB);
 
         motorA.setNeutralMode(NeutralMode.Coast);

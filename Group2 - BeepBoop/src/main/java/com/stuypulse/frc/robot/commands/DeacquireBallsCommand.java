@@ -18,6 +18,7 @@ public class DeacquireBallsCommand extends CommandBase {
   private Chimney chimney; 
 
   public DeacquireBallsCommand(Intake intake, Chimney chimney) {
+    /* Use in telop. Rely on driver inution. Good luck :)*/
     this.intake = intake; 
     this.chimney = chimney; 
     addRequirements(intake, chimney); 
