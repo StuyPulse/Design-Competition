@@ -8,19 +8,18 @@
 package com.stuypulse.frc.robot.commands;
 
 import com.stuypulse.frc.robot.Constants;
-import com.stuypulse.frc.robot.subsystems.Chimney;
 import com.stuypulse.frc.robot.subsystems.Intake;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-public class DeacquireBallsCommand extends CommandBase {
-  private Intake intake; 
-  private Chimney chimney; 
-
-  public DeacquireBallsCommand(Intake intake, Chimney chimney) {
-    this.intake = intake; 
-    this.chimney = chimney; 
-    addRequirements(intake, chimney); 
+public class IntakeDeacquireBallsCommand extends CommandBase {
+  /* Use in auto. See intake acquire. */
+  private Intake intake;
+  
+  public IntakeDeacquireBallsCommand(Intake intake) {
+    this.intake = intake;
+    addRequirements(intake);
+    // Use addRequirements() here to declare subsystem dependencies.
   }
 
   // Called when the command is initially scheduled.
@@ -32,14 +31,12 @@ public class DeacquireBallsCommand extends CommandBase {
   @Override
   public void execute() {
     intake.deacquire(Constants.Intake.SPEED);
-    chimney.liftDown(Constants.Chimney.SPEED);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
     intake.stop();
-    chimney.stop(); 
   }
 
   // Returns true when the command should end.

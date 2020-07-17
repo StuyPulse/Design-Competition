@@ -14,6 +14,7 @@ import com.stuypulse.frc.robot.subsystems.Intake;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 public class AcquireBallsCommand extends CommandBase {
+  /* Use in telop. Rely on driver intuition. Good luck :)*/
   private Intake intake;
   private Chimney chimney; 
 

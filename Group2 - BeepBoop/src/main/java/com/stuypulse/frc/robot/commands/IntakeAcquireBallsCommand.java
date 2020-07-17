@@ -8,16 +8,17 @@
 package com.stuypulse.frc.robot.commands;
 
 import com.stuypulse.frc.robot.Constants;
-import com.stuypulse.frc.robot.subsystems.Shooter;
+import com.stuypulse.frc.robot.subsystems.Intake;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-public class ShooterFeedCommand extends CommandBase {
-  private Shooter shooter;
- 
-  public ShooterFeedCommand(Shooter shooter) {
-    this.shooter = shooter; 
-    addRequirements(shooter);
+public class IntakeAcquireBallsCommand extends CommandBase {
+  /* Use in auto. Only run intake in auto so that balls don't fall out of the chimney. */
+  private Intake intake;
+  
+  public IntakeAcquireBallsCommand(Intake intake) {
+    this.intake = intake;
+    addRequirements(intake);
   }
 
   // Called when the command is initially scheduled.
@@ -28,12 +29,13 @@ public class ShooterFeedCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    shooter.feed(Constants.Shooter.FEED_SPEED);
+    intake.acquire(Constants.Intake.SPEED);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
+    intake.stop();
   }
 
   // Returns true when the command should end.

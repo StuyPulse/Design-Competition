@@ -7,17 +7,26 @@
 
 package com.stuypulse.frc.robot.commands;
 
+import com.stuypulse.frc.robot.subsystems.Chimney;
 import com.stuypulse.frc.robot.subsystems.Shooter;
 import com.stuypulse.stuylib.input.Gamepad;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 public class ShooterShootCommand extends CommandBase {
+  /* 
+    Chimney needed to feed. 
+    Use to shoot in teleop. 
+  */ 
   private Shooter shooter;
+  private Chimney chimney;
   private Gamepad gamepad;
+  private double startTime;
   
-  public ShooterShootCommand(Shooter shooter, Gamepad gamepad) {
+  public ShooterShootCommand(Shooter shooter, Chimney chimney, Gamepad gamepad) {
     this.shooter = shooter;
+    this.chimney = chimney;
     this.gamepad = gamepad;
     addRequirements(shooter);
   }
@@ -25,6 +34,7 @@ public class ShooterShootCommand extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
+    startTime = Timer.getFPGATimestamp();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -32,7 +42,10 @@ public class ShooterShootCommand extends CommandBase {
   public void execute() {
     double speed = gamepad.getRightTrigger() - gamepad.getLeftTrigger(); 
     shooter.shoot(speed);
-    shooter.feed(speed);
+
+    // Delay the chimney to allow operator to get shooter to desired speed
+    if(Timer.getFPGATimestamp() - startTime >= 1.0)
+      chimney.liftUp(speed); 
   }
 
   // Called once the command ends or is interrupted.

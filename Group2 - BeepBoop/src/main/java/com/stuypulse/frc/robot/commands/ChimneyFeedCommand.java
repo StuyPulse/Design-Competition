@@ -9,18 +9,19 @@ package com.stuypulse.frc.robot.commands;
 
 import com.stuypulse.frc.robot.Constants;
 import com.stuypulse.frc.robot.subsystems.Chimney;
-import com.stuypulse.frc.robot.subsystems.Intake;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-public class DeacquireBallsCommand extends CommandBase {
-  private Intake intake; 
-  private Chimney chimney; 
-
-  public DeacquireBallsCommand(Intake intake, Chimney chimney) {
-    this.intake = intake; 
-    this.chimney = chimney; 
-    addRequirements(intake, chimney); 
+public class ChimneyFeedCommand extends CommandBase {
+  /* 
+    Chimney is used to feed balls because shooter does not have feeder motors. 
+    Use in auto after the shooter gets to a certain spee. 
+  */
+  private Chimney chimney;
+  
+  public ChimneyFeedCommand(Chimney chimney) {
+    this.chimney = chimney;
+    addRequirements(chimney);
   }
 
   // Called when the command is initially scheduled.
@@ -31,15 +32,13 @@ public class DeacquireBallsCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    intake.deacquire(Constants.Intake.SPEED);
-    chimney.liftDown(Constants.Chimney.SPEED);
+    chimney.liftUp(Constants.Chimney.SPEED);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    intake.stop();
-    chimney.stop(); 
+    chimney.stop();
   }
 
   // Returns true when the command should end.

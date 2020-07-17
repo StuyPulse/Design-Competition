@@ -66,7 +66,7 @@ public class RobotContainer {
       new DrivetrainDriveCommand(drivetrain, driverGamepad)
     ); 
     shooter.setDefaultCommand(
-      new ShooterShootCommand(shooter, operatorGamepad)
+      new ShooterShootCommand(shooter, chimney, operatorGamepad)
     );
     spinner.setDefaultCommand(
       new SpinnerSpinWheelCommand(spinner, operatorGamepad)

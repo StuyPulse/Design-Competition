@@ -14,6 +14,7 @@ import com.stuypulse.stuylib.control.PIDController;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 public class ShooterAchieveSpeedCommand extends CommandBase {
+  /* Gets to a certain speed to shoot in auto. */ 
   private final double TOLERANCE = 5; 
 
   private Shooter shooter;
@@ -39,7 +40,7 @@ public class ShooterAchieveSpeedCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    double error = targetRPM - shooter.getMedianShooterRPM();
+    double error = targetRPM - shooter.getShooterRPM();
     double out = controller.update(error); 
     double volts = shooter.getShooterVoltage() + out; 
     shooter.setShooterVoltage(volts);

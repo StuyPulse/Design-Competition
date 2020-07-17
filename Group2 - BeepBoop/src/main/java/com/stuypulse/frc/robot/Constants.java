@@ -67,11 +67,8 @@ public interface Constants {
     }
 
     public interface Shooter {
-        public static final int LEFT_SHOOTER_MOTOR_PORT = -1;
-        public static final int MID_SHOOTER_MOTOR_PORT = -1;  
-        public static final int RIGHT_SHOOTER_MOTOR_PORT = -1;
-
-        public static final int FEEDER_MOTOR_PORT = -1; 
+        public static final int MOTOR_A_PORT = -1; 
+        public static final int MOTOR_B_PORT = -1; 
         
         public static final double TRENCH_RPM = 300;
 

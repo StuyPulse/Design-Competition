@@ -5,27 +5,20 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package com.stuypulse.frc.robot.commands;
+package com.stuypulse.frc.robot.commands.autons.routines;
 
-import com.stuypulse.frc.robot.subsystems.Shooter;
-
-import edu.wpi.first.wpilibj2.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/latest/docs/software/commandbased/convenience-features.html
-public class ShooterStopCommand extends InstantCommand {
-  /* Stop the shooter at the end of auto. */
-  private Shooter shooter;
-
-  public ShooterStopCommand(Shooter shooter) {
-    this.shooter = shooter;
-    addRequirements(shooter);
-  }
-
-  // Called when the command is initially scheduled.
-  @Override
-  public void initialize() {
-    shooter.stopShooter();
+public class SixBallThreeTrenchAutonCommand extends SequentialCommandGroup {
+  /**
+   * Creates a new SixBallThreeTrenchAutonCommand.
+   */
+  public SixBallThreeTrenchAutonCommand() {
+    // Add your commands in the super() call, e.g.
+    // super(new FooCommand(), new BarCommand());
+    super();
   }
 }
