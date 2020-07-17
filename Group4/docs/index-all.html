@@ -138,6 +138,13 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/subsystems/Climber.html#%3Cinit%3E()">Climber()</a></span> - Constructor for class com.stuypulse.frc.robot.subsystems.<a href="com/stuypulse/frc/robot/subsystems/Climber.html" title="class in com.stuypulse.frc.robot.subsystems">Climber</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="com/stuypulse/frc/robot/commands/ClimberDefaultCommand.html" title="class in com.stuypulse.frc.robot.commands"><span class="typeNameLink">ClimberDefaultCommand</span></a> - Class in <a href="com/stuypulse/frc/robot/commands/package-summary.html">com.stuypulse.frc.robot.commands</a></dt>
+<dd>
+<div class="block">This default command is to ensure that the climber does not pass set limits
+ that might break the climber.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/ClimberDefaultCommand.html#%3Cinit%3E(com.stuypulse.frc.robot.subsystems.Climber)">ClimberDefaultCommand(Climber)</a></span> - Constructor for class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/ClimberDefaultCommand.html" title="class in com.stuypulse.frc.robot.commands">ClimberDefaultCommand</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="com/stuypulse/frc/robot/commands/ClimberLiftDownCommand.html" title="class in com.stuypulse.frc.robot.commands"><span class="typeNameLink">ClimberLiftDownCommand</span></a> - Class in <a href="com/stuypulse/frc/robot/commands/package-summary.html">com.stuypulse.frc.robot.commands</a></dt>
 <dd>
 <div class="block">Make the climber sad by making it go down (presumably while a button is held).</div>
@@ -157,6 +164,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><a href="com/stuypulse/frc/robot/autons/package-summary.html">com.stuypulse.frc.robot.autons</a> - package com.stuypulse.frc.robot.autons</dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/stuypulse/frc/robot/commands/package-summary.html">com.stuypulse.frc.robot.commands</a> - package com.stuypulse.frc.robot.commands</dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/stuypulse/frc/robot/commands/autopid/package-summary.html">com.stuypulse.frc.robot.commands.autopid</a> - package com.stuypulse.frc.robot.commands.autopid</dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/stuypulse/frc/robot/subsystems/package-summary.html">com.stuypulse.frc.robot.subsystems</a> - package com.stuypulse.frc.robot.subsystems</dt>
 <dd>&nbsp;</dd>
@@ -247,7 +256,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Classic first auton.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/autons/DoNothingAuton.html#%3Cinit%3E()">DoNothingAuton()</a></span> - Constructor for class com.stuypulse.frc.robot.autons.<a href="com/stuypulse/frc/robot/autons/DoNothingAuton.html" title="class in com.stuypulse.frc.robot.autons">DoNothingAuton</a></dt>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/autons/DoNothingAuton.html#%3Cinit%3E(com.stuypulse.frc.robot.util.LEDController)">DoNothingAuton(LEDController)</a></span> - Constructor for class com.stuypulse.frc.robot.autons.<a href="com/stuypulse/frc/robot/autons/DoNothingAuton.html" title="class in com.stuypulse.frc.robot.autons">DoNothingAuton</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/Constants.kClimber.html#DOWN_SPEED">DOWN_SPEED</a></span> - Static variable in interface com.stuypulse.frc.robot.<a href="com/stuypulse/frc/robot/Constants.kClimber.html" title="interface in com.stuypulse.frc.robot">Constants.kClimber</a></dt>
 <dd>&nbsp;</dd>
@@ -275,6 +284,15 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
  defined and a controller is used to get the drivetrain to that point.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/DrivetrainAlignCommand.html#%3Cinit%3E(com.stuypulse.frc.robot.subsystems.Drivetrain)">DrivetrainAlignCommand(Drivetrain)</a></span> - Constructor for class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/DrivetrainAlignCommand.html" title="class in com.stuypulse.frc.robot.commands">DrivetrainAlignCommand</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/stuypulse/frc/robot/commands/autopid/DrivetrainAutoCommand.html" title="class in com.stuypulse.frc.robot.commands.autopid"><span class="typeNameLink">DrivetrainAutoCommand</span></a> - Class in <a href="com/stuypulse/frc/robot/commands/autopid/package-summary.html">com.stuypulse.frc.robot.commands.autopid</a></dt>
+<dd>
+<div class="block">
+ <b>Usage:</b></div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/autopid/DrivetrainAutoCommand.html#%3Cinit%3E(com.stuypulse.frc.robot.subsystems.Drivetrain)">DrivetrainAutoCommand(Drivetrain)</a></span> - Constructor for class com.stuypulse.frc.robot.commands.autopid.<a href="com/stuypulse/frc/robot/commands/autopid/DrivetrainAutoCommand.html" title="class in com.stuypulse.frc.robot.commands.autopid">DrivetrainAutoCommand</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/autopid/DrivetrainAutoCommand.html#%3Cinit%3E(com.stuypulse.frc.robot.subsystems.Drivetrain,double,double)">DrivetrainAutoCommand(Drivetrain, double, double)</a></span> - Constructor for class com.stuypulse.frc.robot.commands.autopid.<a href="com/stuypulse/frc/robot/commands/autopid/DrivetrainAutoCommand.html" title="class in com.stuypulse.frc.robot.commands.autopid">DrivetrainAutoCommand</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/stuypulse/frc/robot/commands/DrivetrainCommand.html" title="class in com.stuypulse.frc.robot.commands"><span class="typeNameLink">DrivetrainCommand</span></a> - Class in <a href="com/stuypulse/frc/robot/commands/package-summary.html">com.stuypulse.frc.robot.commands</a></dt>
 <dd>
@@ -315,19 +333,15 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/IntakeDeacquireWhileCommand.html#end()">end()</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/IntakeDeacquireWhileCommand.html" title="class in com.stuypulse.frc.robot.commands">IntakeDeacquireWhileCommand</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/ClimberLiftDownCommand.html#end(boolean)">end(boolean)</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/ClimberLiftDownCommand.html" title="class in com.stuypulse.frc.robot.commands">ClimberLiftDownCommand</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/ClimberLiftUpCommand.html#end(boolean)">end(boolean)</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/ClimberLiftUpCommand.html" title="class in com.stuypulse.frc.robot.commands">ClimberLiftUpCommand</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/ControlPanelControlCommand.html#end(boolean)">end(boolean)</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/ControlPanelControlCommand.html" title="class in com.stuypulse.frc.robot.commands">ControlPanelControlCommand</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/ControlPanelRotateCommand.html#end(boolean)">end(boolean)</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/ControlPanelRotateCommand.html" title="class in com.stuypulse.frc.robot.commands">ControlPanelRotateCommand</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/DrivetrainGoalCommand.html#end(boolean)">end(boolean)</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/DrivetrainGoalCommand.html" title="class in com.stuypulse.frc.robot.commands">DrivetrainGoalCommand</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/ShooterControlCommand.html#end(boolean)">end(boolean)</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/ShooterControlCommand.html" title="class in com.stuypulse.frc.robot.commands">ShooterControlCommand</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/ClimberLiftDownCommand.html#execute()">execute()</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/ClimberLiftDownCommand.html" title="class in com.stuypulse.frc.robot.commands">ClimberLiftDownCommand</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/ClimberLiftUpCommand.html#execute()">execute()</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/ClimberLiftUpCommand.html" title="class in com.stuypulse.frc.robot.commands">ClimberLiftUpCommand</a></dt>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/ClimberDefaultCommand.html#execute()">execute()</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/ClimberDefaultCommand.html" title="class in com.stuypulse.frc.robot.commands">ClimberDefaultCommand</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/ControlPanelControlCommand.html#execute()">execute()</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/ControlPanelControlCommand.html" title="class in com.stuypulse.frc.robot.commands">ControlPanelControlCommand</a></dt>
 <dd>&nbsp;</dd>
@@ -350,6 +364,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#executeMode()">executeMode()</a></span> - Method in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/subsystems/Intake.html#extend()">extend()</a></span> - Method in class com.stuypulse.frc.robot.subsystems.<a href="com/stuypulse/frc/robot/subsystems/Intake.html" title="class in com.stuypulse.frc.robot.subsystems">Intake</a></dt>
+<dd>&nbsp;</dd>
 </dl>
 <a id="I:F">
 <!--   -->
@@ -370,7 +386,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Five ball<b>z</b> auton.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/autons/FiveBallzAuton.html#%3Cinit%3E(com.stuypulse.frc.robot.subsystems.Drivetrain,com.stuypulse.frc.robot.subsystems.Shooter,com.stuypulse.frc.robot.subsystems.Intake)">FiveBallzAuton(Drivetrain, Shooter, Intake)</a></span> - Constructor for class com.stuypulse.frc.robot.autons.<a href="com/stuypulse/frc/robot/autons/FiveBallzAuton.html" title="class in com.stuypulse.frc.robot.autons">FiveBallzAuton</a></dt>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/autons/FiveBallzAuton.html#%3Cinit%3E(com.stuypulse.frc.robot.util.LEDController,com.stuypulse.frc.robot.subsystems.Drivetrain,com.stuypulse.frc.robot.subsystems.Shooter,com.stuypulse.frc.robot.subsystems.Intake)">FiveBallzAuton(LEDController, Drivetrain, Shooter, Intake)</a></span> - Constructor for class com.stuypulse.frc.robot.autons.<a href="com/stuypulse/frc/robot/autons/FiveBallzAuton.html" title="class in com.stuypulse.frc.robot.autons">FiveBallzAuton</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/Constants.html#FORWARD_VALUE">FORWARD_VALUE</a></span> - Static variable in interface com.stuypulse.frc.robot.<a href="com/stuypulse/frc/robot/Constants.html" title="interface in com.stuypulse.frc.robot">Constants</a></dt>
 <dd>&nbsp;</dd>
@@ -400,6 +416,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Create an auto gear switcher.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/autopid/DrivetrainAutoCommand.html#getAngle()">getAngle()</a></span> - Method in class com.stuypulse.frc.robot.commands.autopid.<a href="com/stuypulse/frc/robot/commands/autopid/DrivetrainAutoCommand.html" title="class in com.stuypulse.frc.robot.commands.autopid">DrivetrainAutoCommand</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/DrivetrainAlignCommand.html#getAngle()">getAngle()</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/DrivetrainAlignCommand.html" title="class in com.stuypulse.frc.robot.commands">DrivetrainAlignCommand</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/DrivetrainCommand.html#getAngle()">getAngle()</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/DrivetrainCommand.html" title="class in com.stuypulse.frc.robot.commands">DrivetrainCommand</a></dt>
@@ -421,6 +439,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">
  Returns the angle of the swervetrain in order to do field centric rotation.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/autopid/DrivetrainAutoCommand.html#getAngleError()">getAngleError()</a></span> - Method in class com.stuypulse.frc.robot.commands.autopid.<a href="com/stuypulse/frc/robot/commands/autopid/DrivetrainAutoCommand.html" title="class in com.stuypulse.frc.robot.commands.autopid">DrivetrainAutoCommand</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/DrivetrainAlignCommand.html#getAngleError()">getAngleError()</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/DrivetrainAlignCommand.html" title="class in com.stuypulse.frc.robot.commands">DrivetrainAlignCommand</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/DrivetrainGoalCommand.html#getAngleError()">getAngleError()</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/DrivetrainGoalCommand.html" title="class in com.stuypulse.frc.robot.commands">DrivetrainGoalCommand</a></dt>
@@ -433,12 +453,16 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/swerve/SwervetrainCommand.html#getDirection()">getDirection()</a></span> - Method in class com.stuypulse.frc.robot.util.swerve.<a href="com/stuypulse/frc/robot/util/swerve/SwervetrainCommand.html" title="class in com.stuypulse.frc.robot.util.swerve">SwervetrainCommand</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/subsystems/Climber.html#getDistance()">getDistance()</a></span> - Method in class com.stuypulse.frc.robot.subsystems.<a href="com/stuypulse/frc/robot/subsystems/Climber.html" title="class in com.stuypulse.frc.robot.subsystems">Climber</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/subsystems/Drivetrain.html#getDistance()">getDistance()</a></span> - Method in class com.stuypulse.frc.robot.subsystems.<a href="com/stuypulse/frc/robot/subsystems/Drivetrain.html" title="class in com.stuypulse.frc.robot.subsystems">Drivetrain</a></dt>
 <dd>
 <div class="block">Returns the absolute max of each side of the robot's encoder values
  multiplied by a yield constant.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/subsystems/Shooter.html#getFeederRPM()">getFeederRPM()</a></span> - Method in class com.stuypulse.frc.robot.subsystems.<a href="com/stuypulse/frc/robot/subsystems/Shooter.html" title="class in com.stuypulse.frc.robot.subsystems">Shooter</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/autopid/DrivetrainAutoCommand.html#getGear()">getGear()</a></span> - Method in class com.stuypulse.frc.robot.commands.autopid.<a href="com/stuypulse/frc/robot/commands/autopid/DrivetrainAutoCommand.html" title="class in com.stuypulse.frc.robot.commands.autopid">DrivetrainAutoCommand</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/DrivetrainAlignCommand.html#getGear()">getGear()</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/DrivetrainAlignCommand.html" title="class in com.stuypulse.frc.robot.commands">DrivetrainAlignCommand</a></dt>
 <dd>&nbsp;</dd>
@@ -471,6 +495,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/subsystems/Shooter.html#getShooterRPM()">getShooterRPM()</a></span> - Method in class com.stuypulse.frc.robot.subsystems.<a href="com/stuypulse/frc/robot/subsystems/Shooter.html" title="class in com.stuypulse.frc.robot.subsystems">Shooter</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/autopid/DrivetrainAutoCommand.html#getSpeed()">getSpeed()</a></span> - Method in class com.stuypulse.frc.robot.commands.autopid.<a href="com/stuypulse/frc/robot/commands/autopid/DrivetrainAutoCommand.html" title="class in com.stuypulse.frc.robot.commands.autopid">DrivetrainAutoCommand</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/DrivetrainAlignCommand.html#getSpeed()">getSpeed()</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/DrivetrainAlignCommand.html" title="class in com.stuypulse.frc.robot.commands">DrivetrainAlignCommand</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/DrivetrainCommand.html#getSpeed()">getSpeed()</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/DrivetrainCommand.html" title="class in com.stuypulse.frc.robot.commands">DrivetrainCommand</a></dt>
@@ -478,6 +504,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">Returns the desired speed of the robot.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/DrivetrainDriveCommand.html#getSpeed()">getSpeed()</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/DrivetrainDriveCommand.html" title="class in com.stuypulse.frc.robot.commands">DrivetrainDriveCommand</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/autopid/DrivetrainAutoCommand.html#getSpeedError()">getSpeedError()</a></span> - Method in class com.stuypulse.frc.robot.commands.autopid.<a href="com/stuypulse/frc/robot/commands/autopid/DrivetrainAutoCommand.html" title="class in com.stuypulse.frc.robot.commands.autopid">DrivetrainAutoCommand</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/DrivetrainAlignCommand.html#getSpeedError()">getSpeedError()</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/DrivetrainAlignCommand.html" title="class in com.stuypulse.frc.robot.commands">DrivetrainAlignCommand</a></dt>
 <dd>&nbsp;</dd>
@@ -507,6 +535,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dl>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/Constants.html#INITATION_LINE_DISTANCE">INITATION_LINE_DISTANCE</a></span> - Static variable in interface com.stuypulse.frc.robot.<a href="com/stuypulse/frc/robot/Constants.html" title="interface in com.stuypulse.frc.robot">Constants</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/autopid/DrivetrainAutoCommand.html#initialize()">initialize()</a></span> - Method in class com.stuypulse.frc.robot.commands.autopid.<a href="com/stuypulse/frc/robot/commands/autopid/DrivetrainAutoCommand.html" title="class in com.stuypulse.frc.robot.commands.autopid">DrivetrainAutoCommand</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/ClimberLiftDownCommand.html#initialize()">initialize()</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/ClimberLiftDownCommand.html" title="class in com.stuypulse.frc.robot.commands">ClimberLiftDownCommand</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/ClimberLiftUpCommand.html#initialize()">initialize()</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/ClimberLiftUpCommand.html" title="class in com.stuypulse.frc.robot.commands">ClimberLiftUpCommand</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/ControlPanelRotateCommand.html#initialize()">initialize()</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/ControlPanelRotateCommand.html" title="class in com.stuypulse.frc.robot.commands">ControlPanelRotateCommand</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/DrivetrainAlignCommand.html#initialize()">initialize()</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/DrivetrainAlignCommand.html" title="class in com.stuypulse.frc.robot.commands">DrivetrainAlignCommand</a></dt>
@@ -514,9 +548,17 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">
  Everytime this command is called, initialize will be run.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/DrivetrainGoalCommand.html#initialize()">initialize()</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/DrivetrainGoalCommand.html" title="class in com.stuypulse.frc.robot.commands">DrivetrainGoalCommand</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/IntakeAcquireCommand.html#initialize()">initialize()</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/IntakeAcquireCommand.html" title="class in com.stuypulse.frc.robot.commands">IntakeAcquireCommand</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/IntakeDeacquireCommand.html#initialize()">initialize()</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/IntakeDeacquireCommand.html" title="class in com.stuypulse.frc.robot.commands">IntakeDeacquireCommand</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/IntakeExtendCommand.html#initialize()">initialize()</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/IntakeExtendCommand.html" title="class in com.stuypulse.frc.robot.commands">IntakeExtendCommand</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/IntakeRetractCommand.html#initialize()">initialize()</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/IntakeRetractCommand.html" title="class in com.stuypulse.frc.robot.commands">IntakeRetractCommand</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/LEDSetModeCommand.html#initialize()">initialize()</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/LEDSetModeCommand.html" title="class in com.stuypulse.frc.robot.commands">LEDSetModeCommand</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/ShooterStopCommand.html#initialize()">initialize()</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/ShooterStopCommand.html" title="class in com.stuypulse.frc.robot.commands">ShooterStopCommand</a></dt>
 <dd>&nbsp;</dd>
@@ -554,10 +596,20 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/IntakeDeacquireWhileCommand.html#%3Cinit%3E(com.stuypulse.frc.robot.subsystems.Intake)">IntakeDeacquireWhileCommand(Intake)</a></span> - Constructor for class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/IntakeDeacquireWhileCommand.html" title="class in com.stuypulse.frc.robot.commands">IntakeDeacquireWhileCommand</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="com/stuypulse/frc/robot/commands/IntakeExtendCommand.html" title="class in com.stuypulse.frc.robot.commands"><span class="typeNameLink">IntakeExtendCommand</span></a> - Class in <a href="com/stuypulse/frc/robot/commands/package-summary.html">com.stuypulse.frc.robot.commands</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/IntakeExtendCommand.html#%3Cinit%3E(com.stuypulse.frc.robot.subsystems.Intake)">IntakeExtendCommand(Intake)</a></span> - Constructor for class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/IntakeExtendCommand.html" title="class in com.stuypulse.frc.robot.commands">IntakeExtendCommand</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/stuypulse/frc/robot/commands/IntakeRetractCommand.html" title="class in com.stuypulse.frc.robot.commands"><span class="typeNameLink">IntakeRetractCommand</span></a> - Class in <a href="com/stuypulse/frc/robot/commands/package-summary.html">com.stuypulse.frc.robot.commands</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/IntakeRetractCommand.html#%3Cinit%3E(com.stuypulse.frc.robot.subsystems.Intake)">IntakeRetractCommand(Intake)</a></span> - Constructor for class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/IntakeRetractCommand.html" title="class in com.stuypulse.frc.robot.commands">IntakeRetractCommand</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/swerve/SwervetrainSubsystem.html#isFieldCentric()">isFieldCentric()</a></span> - Method in class com.stuypulse.frc.robot.util.swerve.<a href="com/stuypulse/frc/robot/util/swerve/SwervetrainSubsystem.html" title="class in com.stuypulse.frc.robot.util.swerve">SwervetrainSubsystem</a></dt>
 <dd>
 <div class="block">A method to determined whether the swerve train should use field centric rotations.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/autopid/DrivetrainAutoCommand.html#isFinished()">isFinished()</a></span> - Method in class com.stuypulse.frc.robot.commands.autopid.<a href="com/stuypulse/frc/robot/commands/autopid/DrivetrainAutoCommand.html" title="class in com.stuypulse.frc.robot.commands.autopid">DrivetrainAutoCommand</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/ControlPanelRotateCommand.html#isFinished()">isFinished()</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/ControlPanelRotateCommand.html" title="class in com.stuypulse.frc.robot.commands">ControlPanelRotateCommand</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/DrivetrainAlignCommand.html#isFinished()">isFinished()</a></span> - Method in class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/DrivetrainAlignCommand.html" title="class in com.stuypulse.frc.robot.commands">DrivetrainAlignCommand</a></dt>
@@ -572,7 +624,69 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </a>
 <h2 class="title">K</h2>
 <dl>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kAqua">kAqua</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kAquaPulse">kAquaPulse</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kBlack">kBlack</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kBlackPulse">kBlackPulse</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kBlue">kBlue</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kBlueGreen">kBlueGreen</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kBlueGreenPulse">kBlueGreenPulse</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kBluePulse">kBluePulse</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kBlueViolet">kBlueViolet</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kBlueVioletPulse">kBlueVioletPulse</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kDarkBlue">kDarkBlue</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kDarkBluePulse">kDarkBluePulse</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kDarkGray">kDarkGray</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kDarkGrayPulse">kDarkGrayPulse</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kDarkGreen">kDarkGreen</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kDarkGreenPulse">kDarkGreenPulse</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kDarkRed">kDarkRed</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kDarkRedPulse">kDarkRedPulse</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kGold">kGold</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kGoldPulse">kGoldPulse</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kGray">kGray</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kGrayPulse">kGrayPulse</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kGreen">kGreen</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kGreenPulse">kGreenPulse</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kHotPink">kHotPink</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kHotPinkPulse">kHotPinkPulse</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kLawnGreen">kLawnGreen</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kLawnGreenPulse">kLawnGreenPulse</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kLime">kLime</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kLimePulse">kLimePulse</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kOrange">kOrange</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kOrangePulse">kOrangePulse</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kParty">kParty</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
 <dd>&nbsp;</dd>
@@ -580,7 +694,29 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kRandom">kRandom</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kRed">kRed</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kRedOrange">kRedOrange</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kRedOrangePulse">kRedOrangePulse</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kRedPulse">kRedPulse</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kSkyBlue">kSkyBlue</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kSkyBluePulse">kSkyBluePulse</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kViolet">kViolet</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kVioletPulse">kVioletPulse</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kWhite">kWhite</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kWhitePulse">kWhitePulse</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kYellow">kYellow</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#kYellowPulse">kYellowPulse</a></span> - Static variable in class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
 <dd>&nbsp;</dd>
 </dl>
 <a id="I:L">
@@ -593,6 +729,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/util/LEDController.html#%3Cinit%3E()">LEDController()</a></span> - Constructor for class com.stuypulse.frc.robot.util.<a href="com/stuypulse/frc/robot/util/LEDController.html" title="class in com.stuypulse.frc.robot.util">LEDController</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/stuypulse/frc/robot/util/LEDController.Mode.html" title="class in com.stuypulse.frc.robot.util"><span class="typeNameLink">LEDController.Mode</span></a> - Class in <a href="com/stuypulse/frc/robot/util/package-summary.html">com.stuypulse.frc.robot.util</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/stuypulse/frc/robot/commands/LEDSetModeCommand.html" title="class in com.stuypulse.frc.robot.commands"><span class="typeNameLink">LEDSetModeCommand</span></a> - Class in <a href="com/stuypulse/frc/robot/commands/package-summary.html">com.stuypulse.frc.robot.commands</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/LEDSetModeCommand.html#%3Cinit%3E(com.stuypulse.frc.robot.util.LEDController,com.stuypulse.frc.robot.util.LEDController.Mode)">LEDSetModeCommand(LEDController, LEDController.Mode)</a></span> - Constructor for class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/LEDSetModeCommand.html" title="class in com.stuypulse.frc.robot.commands">LEDSetModeCommand</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/stuypulse/frc/robot/util/LEDThread.html" title="class in com.stuypulse.frc.robot.util"><span class="typeNameLink">LEDThread</span></a> - Class in <a href="com/stuypulse/frc/robot/util/package-summary.html">com.stuypulse.frc.robot.util</a></dt>
 <dd>&nbsp;</dd>
@@ -626,6 +766,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Do NOT add any static variables to this class, or any initialization at all.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/Constants.kClimber.html#MAX_DISTANCE">MAX_DISTANCE</a></span> - Static variable in interface com.stuypulse.frc.robot.<a href="com/stuypulse/frc/robot/Constants.kClimber.html" title="interface in com.stuypulse.frc.robot">Constants.kClimber</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/Constants.kClimber.html#MIN_DISTANCE">MIN_DISTANCE</a></span> - Static variable in interface com.stuypulse.frc.robot.<a href="com/stuypulse/frc/robot/Constants.kClimber.html" title="interface in com.stuypulse.frc.robot">Constants.kClimber</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/Constants.kDrivetrain.GoalCommand.html#MIN_ERROR">MIN_ERROR</a></span> - Static variable in interface com.stuypulse.frc.robot.<a href="com/stuypulse/frc/robot/Constants.kDrivetrain.GoalCommand.html" title="interface in com.stuypulse.frc.robot">Constants.kDrivetrain.GoalCommand</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/Constants.kControlPanel.ControlCommand.html#MIN_FORCE">MIN_FORCE</a></span> - Static variable in interface com.stuypulse.frc.robot.<a href="com/stuypulse/frc/robot/Constants.kControlPanel.ControlCommand.html" title="interface in com.stuypulse.frc.robot">Constants.kControlPanel.ControlCommand</a></dt>
@@ -666,6 +810,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </a>
 <h2 class="title">N</h2>
 <dl>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/Constants.kClimber.html#NEO_CONVERSION_TO_FEET">NEO_CONVERSION_TO_FEET</a></span> - Static variable in interface com.stuypulse.frc.robot.<a href="com/stuypulse/frc/robot/Constants.kClimber.html" title="interface in com.stuypulse.frc.robot">Constants.kClimber</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/Constants.kDrivetrain.Encoders.html#NEO_FACTOR_TO_FEET">NEO_FACTOR_TO_FEET</a></span> - Static variable in interface com.stuypulse.frc.robot.<a href="com/stuypulse/frc/robot/Constants.kDrivetrain.Encoders.html" title="interface in com.stuypulse.frc.robot">Constants.kDrivetrain.Encoders</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/Constants.kControlPanel.html#NEO_FACTOR_TO_ROTATIONS">NEO_FACTOR_TO_ROTATIONS</a></span> - Static variable in interface com.stuypulse.frc.robot.<a href="com/stuypulse/frc/robot/Constants.kControlPanel.html" title="interface in com.stuypulse.frc.robot">Constants.kControlPanel</a></dt>
@@ -700,6 +846,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Resets gyro.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/subsystems/Intake.html#retract()">retract()</a></span> - Method in class com.stuypulse.frc.robot.subsystems.<a href="com/stuypulse/frc/robot/subsystems/Intake.html" title="class in com.stuypulse.frc.robot.subsystems">Intake</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/subsystems/Climber.html#retractBrake()">retractBrake()</a></span> - Method in class com.stuypulse.frc.robot.subsystems.<a href="com/stuypulse/frc/robot/subsystems/Climber.html" title="class in com.stuypulse.frc.robot.subsystems">Climber</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/Constants.html#REVERSE_VALUE">REVERSE_VALUE</a></span> - Static variable in interface com.stuypulse.frc.robot.<a href="com/stuypulse/frc/robot/Constants.html" title="interface in com.stuypulse.frc.robot">Constants</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/Constants.kDrivetrain.Ports.html#RIGHT_BACK">RIGHT_BACK</a></span> - Static variable in interface com.stuypulse.frc.robot.<a href="com/stuypulse/frc/robot/Constants.kDrivetrain.Ports.html" title="interface in com.stuypulse.frc.robot">Constants.kDrivetrain.Ports</a></dt>
@@ -759,6 +909,10 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
  This method is given a vector in polar coordinate space
  and handles the conversion into [-1,1]</div>
 </dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/subsystems/Climber.html#setBrake()">setBrake()</a></span> - Method in class com.stuypulse.frc.robot.subsystems.<a href="com/stuypulse/frc/robot/subsystems/Climber.html" title="class in com.stuypulse.frc.robot.subsystems">Climber</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/subsystems/Climber.html#setBrake(edu.wpi.first.wpilibj.DoubleSolenoid.Value)">setBrake(DoubleSolenoid.Value)</a></span> - Method in class com.stuypulse.frc.robot.subsystems.<a href="com/stuypulse/frc/robot/subsystems/Climber.html" title="class in com.stuypulse.frc.robot.subsystems">Climber</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/subsystems/ControlPanel.html#setEncoderFactor(double)">setEncoderFactor(double)</a></span> - Method in class com.stuypulse.frc.robot.subsystems.<a href="com/stuypulse/frc/robot/subsystems/ControlPanel.html" title="class in com.stuypulse.frc.robot.subsystems">ControlPanel</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/subsystems/Drivetrain.html#setEncoderFactor(double)">setEncoderFactor(double)</a></span> - Method in class com.stuypulse.frc.robot.subsystems.<a href="com/stuypulse/frc/robot/subsystems/Drivetrain.html" title="class in com.stuypulse.frc.robot.subsystems">Drivetrain</a></dt>
@@ -822,9 +976,13 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/commands/ShooterUpdateCommand.html#%3Cinit%3E(com.stuypulse.frc.robot.subsystems.Shooter,double)">ShooterUpdateCommand(Shooter, double)</a></span> - Constructor for class com.stuypulse.frc.robot.commands.<a href="com/stuypulse/frc/robot/commands/ShooterUpdateCommand.html" title="class in com.stuypulse.frc.robot.commands">ShooterUpdateCommand</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/Constants.kClimber.Ports.html#SOLENOID_A">SOLENOID_A</a></span> - Static variable in interface com.stuypulse.frc.robot.<a href="com/stuypulse/frc/robot/Constants.kClimber.Ports.html" title="interface in com.stuypulse.frc.robot">Constants.kClimber.Ports</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/Constants.kDrivetrain.Ports.html#SOLENOID_A">SOLENOID_A</a></span> - Static variable in interface com.stuypulse.frc.robot.<a href="com/stuypulse/frc/robot/Constants.kDrivetrain.Ports.html" title="interface in com.stuypulse.frc.robot">Constants.kDrivetrain.Ports</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/Constants.kIntake.Ports.html#SOLENOID_A">SOLENOID_A</a></span> - Static variable in interface com.stuypulse.frc.robot.<a href="com/stuypulse/frc/robot/Constants.kIntake.Ports.html" title="interface in com.stuypulse.frc.robot">Constants.kIntake.Ports</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/Constants.kClimber.Ports.html#SOLENOID_B">SOLENOID_B</a></span> - Static variable in interface com.stuypulse.frc.robot.<a href="com/stuypulse/frc/robot/Constants.kClimber.Ports.html" title="interface in com.stuypulse.frc.robot">Constants.kClimber.Ports</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/stuypulse/frc/robot/Constants.kDrivetrain.Ports.html#SOLENOID_B">SOLENOID_B</a></span> - Static variable in interface com.stuypulse.frc.robot.<a href="com/stuypulse/frc/robot/Constants.kDrivetrain.Ports.html" title="interface in com.stuypulse.frc.robot">Constants.kDrivetrain.Ports</a></dt>
 <dd>&nbsp;</dd>

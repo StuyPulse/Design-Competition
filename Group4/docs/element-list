@@ -1,6 +1,7 @@
 com.stuypulse.frc.robot
 com.stuypulse.frc.robot.autons
 com.stuypulse.frc.robot.commands
+com.stuypulse.frc.robot.commands.autopid
 com.stuypulse.frc.robot.subsystems
 com.stuypulse.frc.robot.util
 com.stuypulse.frc.robot.util.swerve

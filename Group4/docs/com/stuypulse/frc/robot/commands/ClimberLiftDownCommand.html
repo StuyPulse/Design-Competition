@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10};
+var data = {"i0":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -126,7 +126,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li>edu.wpi.first.wpilibj2.command.CommandBase</li>
 <li>
 <ul class="inheritance">
+<li>edu.wpi.first.wpilibj2.command.InstantCommand</li>
+<li>
+<ul class="inheritance">
 <li>com.stuypulse.frc.robot.commands.ClimberLiftDownCommand</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -141,7 +146,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dl>
 <hr>
 <pre>public class <span class="typeNameLabel">ClimberLiftDownCommand</span>
-extends edu.wpi.first.wpilibj2.command.CommandBase</pre>
+extends edu.wpi.first.wpilibj2.command.InstantCommand</pre>
 <div class="block">Make the climber sad by making it go down (presumably while a button is held).</div>
 </li>
 </ul>
@@ -203,15 +208,17 @@ extends edu.wpi.first.wpilibj2.command.CommandBase</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#end(boolean)">end</a></span>&#8203;(boolean&nbsp;i)</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i1" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#execute()">execute</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#initialize()">initialize</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a id="methods.inherited.from.class.edu.wpi.first.wpilibj2.command.InstantCommand">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;edu.wpi.first.wpilibj2.command.InstantCommand</h3>
+<code>isFinished</code></li>
+</ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.edu.wpi.first.wpilibj2.command.CommandBase">
 <!--   -->
@@ -231,7 +238,7 @@ extends edu.wpi.first.wpilibj2.command.CommandBase</pre>
 <!--   -->
 </a>
 <h3>Methods inherited from interface&nbsp;edu.wpi.first.wpilibj2.command.Command</h3>
-<code>alongWith, andThen, andThen, asProxy, beforeStarting, cancel, deadlineWith, hasRequirement, initialize, isFinished, isScheduled, perpetually, raceWith, runsWhenDisabled, schedule, schedule, withInterrupt, withTimeout</code></li>
+<code>alongWith, andThen, andThen, asProxy, beforeStarting, cancel, deadlineWith, end, execute, hasRequirement, isScheduled, perpetually, raceWith, runsWhenDisabled, schedule, schedule, withInterrupt, withTimeout</code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.edu.wpi.first.wpilibj.Sendable">
@@ -275,22 +282,19 @@ extends edu.wpi.first.wpilibj2.command.CommandBase</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="execute()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>execute</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;execute()</pre>
-</li>
-</ul>
-<a id="end(boolean)">
+<a id="initialize()">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>end</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;end&#8203;(boolean&nbsp;i)</pre>
+<h4>initialize</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;initialize()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code>initialize</code>&nbsp;in interface&nbsp;<code>edu.wpi.first.wpilibj2.command.Command</code></dd>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code>initialize</code>&nbsp;in class&nbsp;<code>edu.wpi.first.wpilibj2.command.InstantCommand</code></dd>
+</dl>
 </li>
 </ul>
 </li>
