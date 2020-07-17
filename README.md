@@ -31,16 +31,3 @@ $ git merge master
 ```
 
 After fixing any merge conflicts, make a pull request and let Renee or Sam know. They will go over your code and either request changes or approve it. 
-
-## Subsystems
-
-- Drivetrain
-	- 6 NEOs
-- Intake
-	- TBA
-- Chute
-	- TBA
-- Shooter
-	- 5 NEOs
-- Climber
-	- TBA
