@@ -9,8 +9,8 @@ import com.stuypulse.frc.robot.subsystems.Shooter;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
-public class EightBallThreeTrenchTwoRdvs extends SequentialCommandGroup {
-    public EightBallThreeTrenchTwoRdvs(Drivetrain drivetrain, Shooter shooter) {
+public class EightBallThreeTrenchTwoRdvsAutonCommand extends SequentialCommandGroup {
+    public EightBallThreeTrenchTwoRdvsAutonCommand(Drivetrain drivetrain, Shooter shooter) {
         addCommands(
             new ShooterShootCommand(shooter),
             new DrivetrainMovementCommand(drivetrain, Constants.Measurements.ANGLE_FROM_START_TO_TRENCH, 0.0),

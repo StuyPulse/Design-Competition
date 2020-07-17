@@ -14,8 +14,8 @@ import com.stuypulse.frc.robot.subsystems.Shooter;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
-public class FiveBallTwoRdvs extends SequentialCommandGroup {
-    public FiveBallTwoRdvs(Drivetrain drivetrain, Shooter shooter, Intake intake) {
+public class FiveBallTwoRdvsAutonCommand extends SequentialCommandGroup {
+    public FiveBallTwoRdvsAutonCommand(Drivetrain drivetrain, Shooter shooter, Intake intake) {
         addCommands(
             new ShooterShootCommand(shooter),
             new IntakeExtendCommand(intake),
