@@ -36,8 +36,8 @@ public class SixBallTrenchAutonCommand extends SequentialCommandGroup {
       new DrivetrainMovementCommand(drivetrain, AutonConstants.DISTANCE_TOWARDS_BALLS),
       new DrivetrainTurnCommand(drivetrain, AutonConstants.DEGREES_TOWARDS_GOAL),
       new ConveyorConveyCommand(conveyor),
-      new ShooterFeedCommand(shooter),
-      new ShooterShootCommand(shooter, AutonConstants.SHOOTING_RPM),
+      new ShooterFeedCommand(shooter).withTimeout(1.0),
+      new ShooterShootCommand(shooter, AutonConstants.SHOOTING_RPM).withTimeout(1.0),
       new WaitCommand(1.0),
       new ShooterStopFeedCommand(shooter),
       new ShooterStopShootCommand(shooter)
