@@ -21,9 +21,9 @@ import com.stuypulse.stuylib.math.*;
  * <li>Align and shoot from trench distance</li>
  * </ol>
  */
-public class FiveBallzAuton extends SequentialCommandGroup {
+public class FiveBallzAutonCommand extends SequentialCommandGroup {
 
-    public FiveBallzAuton(LEDController controller, Drivetrain drivetrain, Shooter shooter, Intake intake) {
+    public FiveBallzAutonCommand(LEDController controller, Drivetrain drivetrain, Shooter shooter, Intake intake) {
         final double DISTANCE = 3 + 1;
 
         final double MAX_TIMEOUT = 0.5;

@@ -10,12 +10,12 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
  *
  * This auton does literally nothing.
  */
-public class DoNothingAuton extends SequentialCommandGroup {
+public class DoNothingAutonCommand extends SequentialCommandGroup {
 
     // "Sometimes people don’t want to hear the truth because they don’t want their
     // illusions destroyed."
 
-    public DoNothingAuton(LEDController controller) {
+    public DoNothingAutonCommand(LEDController controller) {
         addCommands(
             new LEDSetModeCommand(controller, LEDController.kRed)
         );

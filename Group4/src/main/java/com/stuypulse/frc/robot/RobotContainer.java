@@ -17,6 +17,7 @@ import com.stuypulse.stuylib.input.gamepads.*;
 
 import static com.stuypulse.frc.robot.Constants.*;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
 
@@ -124,10 +125,10 @@ public class RobotContainer {
     }
 
     private void configureAutons() {
-        AUTON_CHOOSER.addOption("Do Nothing", new DoNothingAuton(ledController));
-        AUTON_CHOOSER.addOption("Five Ballz Auton", new FiveBallzAuton(ledController, drivetrain, shooter, intake));
-    
-        SmartDashboard.put("Autons", AUTON_CHOOSER);
+        AUTON_CHOOSER.addOption("Do Nothing", new DoNothingAutonCommand(ledController));
+        AUTON_CHOOSER.addOption("Five Ballz Auton", new FiveBallzAutonCommand(ledController, drivetrain, shooter, intake));
+
+        SmartDashboard.putData("Autons", AUTON_CHOOSER);
     }
 
     /**
