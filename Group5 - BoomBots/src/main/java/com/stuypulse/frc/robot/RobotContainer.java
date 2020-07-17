@@ -8,6 +8,8 @@
 package com.stuypulse.frc.robot;
 
 import com.stuypulse.frc.robot.Constants;
+import com.stuypulse.frc.robot.autons.EightBallThreeTrenchTwoRdvs;
+import com.stuypulse.frc.robot.autons.FiveBallTwoRdvs;
 import com.stuypulse.frc.robot.commands.ClimberClimbDownCommand;
 import com.stuypulse.frc.robot.commands.ClimberClimbUpCommand;
 import com.stuypulse.frc.robot.commands.DrivetrainDriveCommand;
@@ -84,6 +86,11 @@ public class RobotContainer {
     operator.getDPadUp().toggleWhenPressed(new ClimberClimbUpCommand(climber));
     operator.getDPadDown().toggleWhenPressed(new ClimberClimbDownCommand(climber));
 
+  }
+
+  public void initSmartDashboard() {
+    autonChooser.addOption("Eight Ball", new EightBallThreeTrenchTwoRdvs(drivetrain, shooter));
+    autonChooser.addOption("Five Ball", new FiveBallTwoRdvs(drivetrain, shooter, intake));
   }
 
   /**
