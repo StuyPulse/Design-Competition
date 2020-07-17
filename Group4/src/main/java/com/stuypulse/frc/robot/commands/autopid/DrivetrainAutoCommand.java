@@ -7,6 +7,14 @@ import com.stuypulse.stuylib.network.*;
 import com.stuypulse.stuylib.control.*;
 import com.stuypulse.stuylib.math.*;
 
+/**
+ * <p>
+ * <b>Usage:</b>
+ * </p>
+ *
+ * DrivetrainAlignCommand can simply be replaced with DrivetrainAutoCommand in
+ * order to use AutoPID.
+ */
 public abstract class DrivetrainAutoCommand extends DrivetrainCommand {
 
     private static final SmartNumber SPEED_AUTO_P = new SmartNumber("SPEED_AUTO_P");
@@ -39,18 +47,18 @@ public abstract class DrivetrainAutoCommand extends DrivetrainCommand {
     private final void updateAngleOutput() {
         angleOutput = angleCalculator.getPIDController();
 
-        ANGLE_AUTO_P.set( angleOutput.getP() );
-        ANGLE_AUTO_I.set( angleOutput.getI() );
-        ANGLE_AUTO_D.set( angleOutput.getD() );
+        ANGLE_AUTO_P.set(angleOutput.getP());
+        ANGLE_AUTO_I.set(angleOutput.getI());
+        ANGLE_AUTO_D.set(angleOutput.getD());
 
     }
 
     private final void updateSpeedOutput() {
         speedOutput = speedCalculator.getPIDController();
 
-        SPEED_AUTO_P.set( speedOutput.getP() );
-        SPEED_AUTO_I.set( speedOutput.getI() );
-        SPEED_AUTO_D.set( speedOutput.getD() );
+        SPEED_AUTO_P.set(speedOutput.getP());
+        SPEED_AUTO_I.set(speedOutput.getI());
+        SPEED_AUTO_D.set(speedOutput.getD());
     }
 
     public DrivetrainAutoCommand(Drivetrain drivetrain) {
@@ -64,6 +72,7 @@ public abstract class DrivetrainAutoCommand extends DrivetrainCommand {
     }
 
     public abstract Angle getAngleError();
+
     public abstract double getSpeedError();
 
     @Override

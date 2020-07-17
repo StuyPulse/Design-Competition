@@ -1,6 +1,5 @@
 package com.stuypulse.frc.robot.util;
 
-
 import static com.stuypulse.frc.robot.util.LEDController.*;
 
 public class LEDThread extends Thread {
@@ -30,11 +29,7 @@ public class LEDThread extends Thread {
     @Override
     public void run() {
         while (isRunning) {
-
-            // do some logic to change mode
-
             controller.executeMode();
-
         }
     }
 

@@ -76,6 +76,7 @@ public class RobotContainer {
         drivetrain.setDefaultCommand(new DrivetrainDriveCommand(drivetrain, driver));
         shooter.setDefaultCommand(new ShooterTuneCommand(shooter));
         controlPanel.setDefaultCommand(new ControlPanelControlCommand(controlPanel, operator));
+        climber.setDefaultCommand(new ClimberDefaultCommand(climber));
     }
 
     /**
@@ -107,8 +108,8 @@ public class RobotContainer {
         operator.getSelectButton().whileHeld(new ShooterControlCommand(shooter, REVERSE_VALUE));
         operator.getStartButton().whileHeld(new ShooterControlCommand(shooter, FORWARD_VALUE));
 
-        operator.getRightAnalogButton().whileHeld(new ClimberLiftUpCommand(climber));
-        operator.getLeftAnalogButton().whileHeld(new ClimberLiftDownCommand(climber));
+        operator.getRightAnalogButton().whenPressed(new ClimberLiftUpCommand(climber));
+        operator.getLeftAnalogButton().whenPressed(new ClimberLiftDownCommand(climber));
 
         // "To live is to suffer, to survive is to find some meaning in the suffering."
 
@@ -118,11 +119,13 @@ public class RobotContainer {
         driver.getStartButton().whileHeld(new DrivetrainGoalCommand(drivetrain, TRENCH_DISTANCE))
                 .whileHeld(new IntakeAcquireWhileCommand(intake));
 
+        driver.getDPadUp().whenPressed(new LEDSetModeCommand(ledController, LEDController.kGreenPulse));
+        driver.getDPadDown().whenPressed(new LEDSetModeCommand(ledController, LEDController.kRedPulse));
     }
 
     private void configureAutons() {
-        AUTON_CHOOSER.addOption("Do Nothing", new DoNothingAuton());
-        AUTON_CHOOSER.addOption("Five Ballz Auton", new FiveBallzAuton(drivetrain, shooter, intake));
+        AUTON_CHOOSER.addOption("Do Nothing", new DoNothingAuton(ledController));
+        AUTON_CHOOSER.addOption("Five Ballz Auton", new FiveBallzAuton(ledController, drivetrain, shooter, intake));
     }
 
     /**

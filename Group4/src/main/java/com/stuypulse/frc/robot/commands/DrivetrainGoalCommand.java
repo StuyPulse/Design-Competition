@@ -24,6 +24,13 @@ public class DrivetrainGoalCommand extends DrivetrainAlignCommand {
         offset = distanceOffset;
     }
 
+    @Override
+    public void initialize() {
+        super.initialize();
+
+        Limelight.setLEDMode(Limelight.LEDMode.FORCE_ON);
+    }
+
     public Angle getAngleError() {
         if (!Limelight.hasValidTarget()) {
             return Angle.fromDegrees(0);
@@ -50,6 +57,12 @@ public class DrivetrainGoalCommand extends DrivetrainAlignCommand {
         }
 
         return distance;
+    }
+
+    public void end(boolean i ) {
+        super.end(i);
+
+        Limelight.setLEDMode(Limelight.LEDMode.FORCE_OFF);
     }
 
 }

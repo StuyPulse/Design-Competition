@@ -2,12 +2,12 @@ package com.stuypulse.frc.robot.commands;
 
 import com.stuypulse.frc.robot.subsystems.Climber;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 
 /**
  * Make the climber happy by making it go up (while button is held).
  */
-public class ClimberLiftUpCommand extends CommandBase {
+public class ClimberLiftUpCommand extends InstantCommand {
 
     private final Climber climber;
 
@@ -17,12 +17,9 @@ public class ClimberLiftUpCommand extends CommandBase {
         addRequirements(climber);
     }
 
-    public void execute() {
+    public void initialize() {
+        climber.retractBrake();
         climber.liftUp();
-    }
-
-    public void end(boolean i) {
-        climber.stop();
     }
 
 }

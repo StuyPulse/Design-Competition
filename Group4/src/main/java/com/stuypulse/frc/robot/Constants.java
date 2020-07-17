@@ -167,10 +167,19 @@ public interface Constants {
         interface Ports {
             int MOTOR_A = -1;
             int MOTOR_B = -1;
+
+            int SOLENOID_A = -1;
+            int SOLENOID_B = -1;
         }
+
+        double NEO_CONVERSION_TO_FEET = 1;
 
         double UP_SPEED = 1;
         double DOWN_SPEED = -1;
+
+        double MIN_DISTANCE = -1;
+        double MAX_DISTANCE = 1;
+
     }
 
 }

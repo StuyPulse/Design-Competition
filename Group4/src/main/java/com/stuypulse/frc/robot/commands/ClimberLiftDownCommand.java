@@ -2,12 +2,12 @@ package com.stuypulse.frc.robot.commands;
 
 import com.stuypulse.frc.robot.subsystems.Climber;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 
 /**
  * Make the climber sad by making it go down (presumably while a button is held).
  */
-public class ClimberLiftDownCommand extends CommandBase {
+public class ClimberLiftDownCommand extends InstantCommand {
 
     private final Climber climber;
 
@@ -17,12 +17,9 @@ public class ClimberLiftDownCommand extends CommandBase {
         addRequirements(climber);
     }
 
-    public void execute() {
+    public void initialize() {
+        climber.retractBrake();
         climber.liftDown();
-    }
-
-    public void end(boolean i) {
-        climber.stop();
     }
 
 }
