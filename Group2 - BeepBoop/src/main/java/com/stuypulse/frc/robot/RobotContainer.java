@@ -16,6 +16,8 @@ import com.stuypulse.frc.robot.commands.DrivetrainSetHighGearCommand;
 import com.stuypulse.frc.robot.commands.DrivetrainSetLowGearCommand;
 import com.stuypulse.frc.robot.commands.ShooterShootCommand;
 import com.stuypulse.frc.robot.commands.SpinnerSpinWheelCommand;
+import com.stuypulse.frc.robot.commands.autons.routines.DoNothingAutonCommand;
+import com.stuypulse.frc.robot.commands.autons.routines.SixBallThreeTrenchAutonCommand;
 import com.stuypulse.frc.robot.subsystems.Chimney;
 import com.stuypulse.frc.robot.subsystems.Climber;
 import com.stuypulse.frc.robot.subsystems.Drivetrain;
@@ -27,6 +29,8 @@ import com.stuypulse.stuylib.input.gamepads.PS4;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 
 
@@ -38,6 +42,8 @@ import edu.wpi.first.wpilibj2.command.Command;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
+  private SendableChooser<Command> chooser;
+
   private PS4 driverGamepad;
   private Logitech.XMode operatorGamepad; 
 
@@ -76,6 +82,7 @@ public class RobotContainer {
     );
 
     configureButtonBindings();
+    addAutons(); 
   }
 
   /**
@@ -103,6 +110,16 @@ public class RobotContainer {
     ); 
   }
 
+  public void addAutons() {
+    chooser = new SendableChooser<>(); 
+    chooser.setDefaultOption("Do Nothing", new DoNothingAutonCommand());
+    chooser.addOption(
+      "Six Ball Three Trench", 
+      new SixBallThreeTrenchAutonCommand(drivetrain, intake, chimney, shooter)
+    );
+
+    SmartDashboard.putData("Autonomous", chooser);
+  }
 
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
@@ -110,8 +127,6 @@ public class RobotContainer {
    * @return the command to run in autonomous
    */
   public Command getAutonomousCommand() {
-    // An ExampleCommand will run in autonomous
-    // return m_autoCommand;
-    return null; 
+    return chooser.getSelected(); 
   }
 }
