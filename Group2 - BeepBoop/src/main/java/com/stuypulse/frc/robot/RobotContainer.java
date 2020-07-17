@@ -5,13 +5,30 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot;
+package com.stuypulse.frc.robot;
+
+import com.stuypulse.frc.robot.commands.AcquireBallsCommand;
+import com.stuypulse.frc.robot.commands.ClimberClimbCommand;
+import com.stuypulse.frc.robot.commands.DeacquireBallsCommand;
+import com.stuypulse.frc.robot.commands.DrivetrainAlignmentCommand;
+import com.stuypulse.frc.robot.commands.DrivetrainDriveCommand;
+import com.stuypulse.frc.robot.commands.DrivetrainSetHighGearCommand;
+import com.stuypulse.frc.robot.commands.DrivetrainSetLowGearCommand;
+import com.stuypulse.frc.robot.commands.ShooterShootCommand;
+import com.stuypulse.frc.robot.commands.SpinnerSpinWheelCommand;
+import com.stuypulse.frc.robot.subsystems.Chimney;
+import com.stuypulse.frc.robot.subsystems.Climber;
+import com.stuypulse.frc.robot.subsystems.Drivetrain;
+import com.stuypulse.frc.robot.subsystems.Intake;
+import com.stuypulse.frc.robot.subsystems.Shooter;
+import com.stuypulse.frc.robot.subsystems.Spinner;
+import com.stuypulse.stuylib.input.gamepads.Logitech;
+import com.stuypulse.stuylib.input.gamepads.PS4;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
-import frc.robot.commands.ExampleCommand;
-import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
+
 
 /**
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -21,17 +38,43 @@ import edu.wpi.first.wpilibj2.command.Command;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
+  private PS4 driverGamepad;
+  private Logitech.XMode operatorGamepad; 
 
-  private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
-
-
+  private Drivetrain drivetrain;
+  private Intake intake;  
+  private Chimney chimney;
+  private Shooter shooter; 
+  private Spinner spinner; 
+  private Climber climber;
 
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
    */
   public RobotContainer() {
-    // Configure the button bindings
+    driverGamepad = new PS4(Constants.Gamepads.DRIVER);
+    operatorGamepad = new Logitech.XMode(Constants.Gamepads.OPERATOR);
+  
+    drivetrain = new Drivetrain();
+    intake = new Intake(); 
+    chimney = new Chimney();
+    shooter = new Shooter();
+    spinner = new Spinner(); 
+    climber = new Climber();
+    
+    drivetrain.setDefaultCommand(
+      new DrivetrainDriveCommand(drivetrain, driverGamepad)
+    ); 
+    shooter.setDefaultCommand(
+      new ShooterShootCommand(shooter, chimney, operatorGamepad)
+    );
+    spinner.setDefaultCommand(
+      new SpinnerSpinWheelCommand(spinner, operatorGamepad)
+    );
+    climber.setDefaultCommand(
+      new ClimberClimbCommand(climber, operatorGamepad)
+    );
+
     configureButtonBindings();
   }
 
@@ -42,6 +85,22 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
+    driverGamepad.getRightButton().whenPressed(
+      new DrivetrainSetHighGearCommand(drivetrain)
+    ); 
+    driverGamepad.getBottomButton().whenPressed(
+      new DrivetrainSetLowGearCommand(drivetrain)
+    );
+
+    operatorGamepad.getLeftBumper().whileHeld(
+      new DeacquireBallsCommand(intake, chimney)
+    ); 
+    operatorGamepad.getRightBumper().whileHeld(
+      new AcquireBallsCommand(intake, chimney)
+    ); 
+    operatorGamepad.getRightButton().whileHeld(
+      new DrivetrainAlignmentCommand(drivetrain)
+    ); 
   }
 
 
@@ -52,6 +111,7 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return m_autoCommand;
+    // return m_autoCommand;
+    return null; 
   }
 }

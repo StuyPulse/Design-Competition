@@ -8,6 +8,12 @@ targetCompatibility = JavaVersion.VERSION_11
 
 def ROBOT_MAIN_CLASS = "frc.robot.Main"
 
+allprojects {
+	repositories {
+		maven { url 'https://jitpack.io' }
+	}
+}
+
 // Define my targets (RoboRIO) and artifacts (deployable files)
 // This is added by GradleRIO's backing project EmbeddedTools.
 deploy {
@@ -47,11 +53,12 @@ dependencies {
     nativeZip wpi.deps.wpilibJni(wpi.platforms.roborio)
     nativeDesktopZip wpi.deps.wpilibJni(wpi.platforms.desktop)
 
-
     implementation wpi.deps.vendor.java()
     nativeZip wpi.deps.vendor.jni(wpi.platforms.roborio)
     nativeDesktopZip wpi.deps.vendor.jni(wpi.platforms.desktop)
 
+    compile 'com.github.StuyPulse:StuyLib:2020.2.1'
+    
     testImplementation 'junit:junit:4.12'
 
     // Enable simulation gui support. Must check the box in vscode to enable support
@@ -66,3 +73,4 @@ jar {
     from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
     manifest edu.wpi.first.gradlerio.GradleRIOPlugin.javaManifest(ROBOT_MAIN_CLASS)
 }
+

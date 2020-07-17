@@ -1,31 +1,27 @@
 /*----------------------------------------------------------------------------*/
-/* Copyright (c) 2018-2019 FIRST. All Rights Reserved.                        */
+/* Copyright (c) 2019 FIRST. All Rights Reserved.                             */
 /* Open Source Software - may be modified and shared by FRC teams. The code   */
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands;
+package com.stuypulse.frc.robot.commands;
 
-import frc.robot.subsystems.ExampleSubsystem;
+import com.stuypulse.frc.robot.subsystems.Spinner;
+import com.stuypulse.stuylib.input.Gamepad;
+
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-/**
- * An example command that uses an example subsystem.
- */
-public class ExampleCommand extends CommandBase {
-  @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private final ExampleSubsystem m_subsystem;
+public class SpinnerSpinWheelCommand extends CommandBase {
+  private Spinner spinner; 
+  private Gamepad gamepad; 
 
-  /**
-   * Creates a new ExampleCommand.
-   *
-   * @param subsystem The subsystem used by this command.
-   */
-  public ExampleCommand(ExampleSubsystem subsystem) {
-    m_subsystem = subsystem;
-    // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(subsystem);
+  private final double DEADBAND_LIMIT = 0.1;
+
+  public SpinnerSpinWheelCommand(Spinner spinner, Gamepad operatorGamepad) {
+    this.spinner = spinner;
+    this.gamepad = operatorGamepad;
+    addRequirements(spinner);
   }
 
   // Called when the command is initially scheduled.
@@ -36,11 +32,18 @@ public class ExampleCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    double speed = gamepad.getLeftX(); 
+    if(Math.abs(speed) >= DEADBAND_LIMIT) 
+      spinner.spin(speed);
+    else 
+      spinner.stop(); 
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
+    // this is a default command 
+    spinner.stop();
   }
 
   // Returns true when the command should end.
