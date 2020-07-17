@@ -2,7 +2,7 @@
 
 ## Documentation
 
-- [Group4 API](https://htmlpreview.github.io/?https://github.com/StuyPulse/Design-Competition/blob/Group4/master/Group4/docs/index.html)
+- [Group4 API](https://github.com/StuyPulse/Design-Competition/blob/master/Group4/docs/index.html)
 
 ## Members
 
