@@ -5,7 +5,6 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-
 package com.stuypulse.frc.robot;
 
 import edu.wpi.first.wpilibj.RobotBase;
