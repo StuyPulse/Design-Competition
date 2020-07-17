@@ -10,18 +10,20 @@ package com.stuypulse.frc.robot.commands;
 import com.stuypulse.frc.robot.Constants;
 import com.stuypulse.frc.robot.subsystems.Drivetrain;
 import com.stuypulse.stuylib.control.PIDController;
-import com.stuypulse.stuylib.network.limelight.Limelight;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-public class DrivetrainAlignmentCommand extends CommandBase {
+public class DrivetrainTurnAngleCommand extends CommandBase {
   private final double TOLERANCE = 2; 
-
-  private Drivetrain drivetrain; 
+  
+  private Drivetrain drivetrain;
   private PIDController controller;
-
-  public DrivetrainAlignmentCommand(Drivetrain drivetrain) {
+  private double initialAngle; 
+  private double targetAngle;
+  
+  public DrivetrainTurnAngleCommand(Drivetrain drivetrain, double targetAngle) {
     this.drivetrain = drivetrain;
+    this.targetAngle = targetAngle;
     addRequirements(drivetrain);
   }
 
@@ -29,24 +31,26 @@ public class DrivetrainAlignmentCommand extends CommandBase {
   @Override
   public void initialize() {
     controller = new PIDController(
-      Constants.Drivetrain.Turning.kp, 
+      Constants.Drivetrain.Turning.kp,
       Constants.Drivetrain.Turning.ki,
       Constants.Drivetrain.Turning.kd
     );
+    this.initialAngle = drivetrain.getAngle(); 
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    double error = Limelight.getTargetXAngle();
-    double turn = controller.update(error); 
+    double angle = drivetrain.getAngle() - initialAngle;
+    double error = targetAngle - angle;
+    double turn = controller.update(error);
     drivetrain.arcadeDrive(0, turn);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    drivetrain.stop();
+    drivetrain.stop(); 
   }
 
   // Returns true when the command should end.

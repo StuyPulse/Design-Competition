@@ -40,9 +40,18 @@ public interface Constants {
         public static final double ENCODER_CONVERSION_FACTOR = WHEEL_CIRCUMFERENCE / ENCODER_TICKS_PER_ROTATION;
 
         // Not tested :P
-        public static final double kp = 0.8; 
-        public static final double ki = 0.0; 
-        public static final double kd = 0.01;
+        public static interface Movement {
+            public static final double kp = 0.8; 
+            public static final double ki = 0.0; 
+            public static final double kd = 0.01;
+        }
+
+        // Not tested :P
+        public static interface Turning {
+            public static final double kp = 0.8; 
+            public static final double ki = 0.0; 
+            public static final double kd = 0.01;
+        }
     }
 
     public interface Intake {
@@ -64,7 +73,9 @@ public interface Constants {
 
         public static final int FEEDER_MOTOR_PORT = -1; 
         
-        public static final double FEED_SPEED = 0.8; 
+        public static final double TRENCH_RPM = 300;
+
+        public static final double FEED_SPEED = 0.8;
 
         // Not tested :P
         public static final double kp = 0.8; 
@@ -78,6 +89,18 @@ public interface Constants {
 
     public interface Climber {
         public static final int MOTOR_PORT = -1;
+    }
+    
+    public interface Auton {
+        /* 
+        naming convention:
+        Distance: DISTANCE_FROM_{{start}}_TO_{{finish}}
+        Angle:    ANGLE_AT_{{location}}_FROM_{{start}}_TO_{{finish}}
+        
+        */
+        
+        public static final double DISTANCE_FROM_INIT_TO_TRENCH = 10;
+        public static final double ANGLE_AT_TRENCH_FROM_FORWARD_TO_RDV = 40;
     }
     
 }

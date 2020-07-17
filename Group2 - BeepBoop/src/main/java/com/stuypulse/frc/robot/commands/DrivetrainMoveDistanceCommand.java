@@ -10,18 +10,20 @@ package com.stuypulse.frc.robot.commands;
 import com.stuypulse.frc.robot.Constants;
 import com.stuypulse.frc.robot.subsystems.Drivetrain;
 import com.stuypulse.stuylib.control.PIDController;
-import com.stuypulse.stuylib.network.limelight.Limelight;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-public class DrivetrainAlignmentCommand extends CommandBase {
-  private final double TOLERANCE = 2; 
-
-  private Drivetrain drivetrain; 
+public class DrivetrainMoveDistanceCommand extends CommandBase {
+  private final double TOLERANCE = 0.1; 
+  
+  private Drivetrain drivetrain;
   private PIDController controller;
-
-  public DrivetrainAlignmentCommand(Drivetrain drivetrain) {
+  private double initialDistance; 
+  private double targetDistance;
+  
+  public DrivetrainMoveDistanceCommand(Drivetrain drivetrain, double targetDistance) {
     this.drivetrain = drivetrain;
+    this.targetDistance = targetDistance;
     addRequirements(drivetrain);
   }
 
@@ -29,29 +31,31 @@ public class DrivetrainAlignmentCommand extends CommandBase {
   @Override
   public void initialize() {
     controller = new PIDController(
-      Constants.Drivetrain.Turning.kp, 
-      Constants.Drivetrain.Turning.ki,
-      Constants.Drivetrain.Turning.kd
+      Constants.Drivetrain.Movement.kp,
+      Constants.Drivetrain.Movement.ki,
+      Constants.Drivetrain.Movement.kd
     );
+    initialDistance = drivetrain.getEncoderPosition(); 
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    double error = Limelight.getTargetXAngle();
-    double turn = controller.update(error); 
-    drivetrain.arcadeDrive(0, turn);
+    double distance = drivetrain.getEncoderPosition() - initialDistance; 
+    double error = targetDistance - distance;
+    double speed = controller.update(error);
+    drivetrain.arcadeDrive(speed, 0);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    drivetrain.stop();
+    drivetrain.stop(); 
   }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return controller.isDone(TOLERANCE); 
+    return controller.isDone(TOLERANCE);
   }
 }
