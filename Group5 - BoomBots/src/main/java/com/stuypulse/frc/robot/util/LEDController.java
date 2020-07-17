@@ -27,27 +27,6 @@ public class LEDController {
         setValue(0.61);
     }
 
-    public void setWhitePulse() {
-        setValue(0.61);
-        Timer.delay(0.5);
-        setValue(0.99);
-        Timer.delay(0.1);
-    }
-
-    public void setPinkPulse() {
-        setValue(0.57);
-        Timer.delay(0.5);
-        setValue(0.99);
-        Timer.delay(0.1);
-    }
-
-    public void setRedPulse() {
-        setValue(0.61);
-        Timer.delay(0.5);
-        setValue(0.99);
-        Timer.delay(0.1);
-    }
-
     public void setSolidYellow() {
         setValue(0.69);
     }

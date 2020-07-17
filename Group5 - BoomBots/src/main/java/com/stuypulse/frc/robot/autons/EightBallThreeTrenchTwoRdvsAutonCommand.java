@@ -6,12 +6,14 @@ import com.stuypulse.frc.robot.commands.DrivetrainStopCommand;
 import com.stuypulse.frc.robot.commands.ShooterShootCommand;
 import com.stuypulse.frc.robot.subsystems.Drivetrain;
 import com.stuypulse.frc.robot.subsystems.Shooter;
+import com.stuypulse.frc.robot.util.LEDController;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
 public class EightBallThreeTrenchTwoRdvsAutonCommand extends SequentialCommandGroup {
     public EightBallThreeTrenchTwoRdvsAutonCommand(Drivetrain drivetrain, Shooter shooter) {
         addCommands(
+            new LEDController.setSolidWhite(),
             new ShooterShootCommand(shooter),
             new DrivetrainMovementCommand(drivetrain, Constants.Measurements.ANGLE_FROM_START_TO_TRENCH, 0.0),
             new DrivetrainMovementCommand(drivetrain, -Constants.Measurements.ANGLE_FROM_START_TO_TRENCH, 0.0),
