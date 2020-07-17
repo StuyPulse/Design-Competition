@@ -126,6 +126,8 @@ public class RobotContainer {
     private void configureAutons() {
         AUTON_CHOOSER.addOption("Do Nothing", new DoNothingAuton(ledController));
         AUTON_CHOOSER.addOption("Five Ballz Auton", new FiveBallzAuton(ledController, drivetrain, shooter, intake));
+    
+        SmartDashboard.put("Autons", AUTON_CHOOSER);
     }
 
     /**
